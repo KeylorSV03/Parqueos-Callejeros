@@ -24,6 +24,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        cargarIconoUsuario();
         this.setResizable(false);
     }
     //Crear color degradado:
@@ -42,6 +43,14 @@ public class Login extends javax.swing.JFrame {
         }
     }
     
+    void cargarIconoUsuario(){
+        JPanelImage mImagen = new JPanelImage(PanelIconLogin,"/Imagenes/UserIcon.png");
+        PanelIconLogin.add(mImagen).repaint();
+        PanelIconLogin.setOpaque(false);
+        PanelIconLogin.setBorder(null);
+        PanelIconLogin.setBackground(new Color(0, 0, 0, 0));
+    }
+    
   
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,6 +67,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        PanelIconLogin = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,14 +82,25 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Iniciar Sesion");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/enter (1).png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\keylo\\Downloads\\user-profile-icon-free-vector-removebg-preview.png")); // NOI18N
+        javax.swing.GroupLayout PanelIconLoginLayout = new javax.swing.GroupLayout(PanelIconLogin);
+        PanelIconLogin.setLayout(PanelIconLoginLayout);
+        PanelIconLoginLayout.setHorizontalGroup(
+            PanelIconLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 170, Short.MAX_VALUE)
+        );
+        PanelIconLoginLayout.setVerticalGroup(
+            PanelIconLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 170, Short.MAX_VALUE)
+        );
+
+        jLabel2.setText("No tienes cuenta?");
 
         javax.swing.GroupLayout PanelDegradadoLoginLayout = new javax.swing.GroupLayout(PanelDegradadoLogin);
         PanelDegradadoLogin.setLayout(PanelDegradadoLoginLayout);
@@ -88,27 +109,28 @@ public class Login extends javax.swing.JFrame {
             .addGroup(PanelDegradadoLoginLayout.createSequentialGroup()
                 .addGroup(PanelDegradadoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelDegradadoLoginLayout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addGroup(PanelDegradadoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Label_IDUsuario)
-                            .addComponent(jLabel1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                            .addComponent(jTextField2)))
+                        .addGap(137, 137, 137)
+                        .addComponent(PanelIconLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelDegradadoLoginLayout.createSequentialGroup()
                         .addGap(160, 160, 160)
-                        .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(PanelDegradadoLoginLayout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 144, Short.MAX_VALUE))
+                        .addComponent(jLabel2))
+                    .addGroup(PanelDegradadoLoginLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addGroup(PanelDegradadoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1)
+                            .addGroup(PanelDegradadoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(Label_IDUsuario)
+                                .addComponent(jLabel1)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                                .addComponent(jTextField2)))))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
         PanelDegradadoLoginLayout.setVerticalGroup(
             PanelDegradadoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelDegradadoLoginLayout.createSequentialGroup()
-                .addContainerGap(92, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addContainerGap(107, Short.MAX_VALUE)
+                .addComponent(PanelIconLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
                 .addComponent(Label_IDUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -116,9 +138,11 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGap(35, 35, 35)
                 .addComponent(jButton1)
-                .addGap(170, 170, 170))
+                .addGap(48, 48, 48)
+                .addComponent(jLabel2)
+                .addGap(116, 116, 116))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -174,13 +198,17 @@ public class Login extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
+                
             }
         });
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Label_IDUsuario;
     private javax.swing.JPanel PanelDegradadoLogin;
+    private javax.swing.JPanel PanelIconLogin;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
