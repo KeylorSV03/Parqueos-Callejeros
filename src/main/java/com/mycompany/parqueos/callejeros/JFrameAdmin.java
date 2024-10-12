@@ -19,22 +19,14 @@ public class JFrameAdmin extends javax.swing.JFrame {
      */
     public JFrameAdmin() {
         initComponents();
-        BotonImagen(BotonPerfil, "/Imagenes/Perfil.png");
+        BotonImagen Boton = new BotonImagen();
+        Boton.BotonImagen(BotonPerfil, "/Imagenes/Perfil.png");
+        Boton.BotonImagen(BotonConfi, "/Imagenes/BotonConfi.png");
+        Boton.BotonImagen(BotonReportes, "/Imagenes/BotonReportes.png");
+        Boton.BotonImagen(BotonAgregarInspector, "/Imagenes/BotonAInspector.png");
         this.setResizable(false);
     }
     
-    public void BotonImagen(JButton Boton,String nombreArchivo) {
-        // Cargar la imagen desde los recursos
-        ImageIcon icono = new ImageIcon(getClass().getResource(nombreArchivo));
-        
-        
-        Boton.setIcon(icono);
-        Boton.setText(""); // Si no deseas texto en el botón, puedes dejarlo vacío o poner algo aquí
-        Boton.setFocusPainted(false); // Opcional: quita el borde del foco
-        Boton.setContentAreaFilled(false); // Opcional: quita el fondo del botón
-        Boton.setBorderPainted(false); // Opcional: quita el borde del botón
-        Boton.setRolloverIcon(icono); // Si deseas un efecto al pasar el mouse, puedes configurar una imagen diferente aquí
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -101,34 +93,31 @@ public class JFrameAdmin extends javax.swing.JFrame {
         JPanelFondo.setLayout(JPanelFondoLayout);
         JPanelFondoLayout.setHorizontalGroup(
             JPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanelFondoLayout.createSequentialGroup()
-                .addContainerGap(171, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelFondoLayout.createSequentialGroup()
+                .addContainerGap(141, Short.MAX_VALUE)
                 .addGroup(JPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelFondoLayout.createSequentialGroup()
-                        .addGroup(JPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(BotonAgregarInspector, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                            .addComponent(BotonConfi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BotonReportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(174, 174, 174))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelFondoLayout.createSequentialGroup()
                         .addComponent(cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addGap(33, 33, 33))
+                    .addComponent(BotonPerfil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelFondoLayout.createSequentialGroup()
-                        .addComponent(BotonPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addGroup(JPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BotonConfi, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotonReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotonAgregarInspector, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(115, 115, 115))))
         );
         JPanelFondoLayout.setVerticalGroup(
             JPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelFondoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(BotonPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BotonPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BotonConfi, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(BotonReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(BotonAgregarInspector, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 275, Short.MAX_VALUE)
+                .addComponent(BotonConfi, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(BotonReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(BotonAgregarInspector, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
                 .addComponent(cerrarSesion)
                 .addContainerGap())
         );
@@ -164,7 +153,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_cerrarSesionActionPerformed
 
     private void BotonPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPerfilActionPerformed
-        // TODO add your handling code here:
+        System.out.println("Perfil");
     }//GEN-LAST:event_BotonPerfilActionPerformed
 
     /**

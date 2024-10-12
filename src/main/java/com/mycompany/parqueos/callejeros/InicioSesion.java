@@ -45,8 +45,7 @@ public class InicioSesion extends javax.swing.JFrame {
     }
     //Crear color degradado:
     
-<<<<<<< HEAD:src/main/java/com/mycompany/parqueos/callejeros/Login.java
-=======
+
     
     
     void cargarImagenPanel(JPanel panel,String nombreArchivo){
@@ -56,7 +55,7 @@ public class InicioSesion extends javax.swing.JFrame {
         panel.setBorder(null);
         panel.setBackground(new Color(0, 0, 0, 0));
     }
->>>>>>> master:src/main/java/com/mycompany/parqueos/callejeros/InicioSesion.java
+
     
     void centrarBoton(JButton boton) {
         boton.setAlignmentX(Component.CENTER_ALIGNMENT);

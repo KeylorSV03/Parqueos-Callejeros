@@ -1,20 +1,22 @@
+
 package com.mycompany.parqueos.callejeros;
 
-import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 
-public class BotonImagen extends JButton {
+
+public class BotonImagen {
     
-    public BotonImagen(JButton Boton,String nombreArchivo) {
+    public void BotonImagen(JButton Boton,String nombreArchivo) {
         // Cargar la imagen desde los recursos
         ImageIcon icono = new ImageIcon(getClass().getResource(nombreArchivo));
         
         
-        this.setIcon(icono);
-        this.setText(""); // Si no deseas texto en el botón, puedes dejarlo vacío o poner algo aquí
-        this.setFocusPainted(false); // Opcional: quita el borde del foco
-        this.setContentAreaFilled(false); // Opcional: quita el fondo del botón
-        this.setBorderPainted(false); // Opcional: quita el borde del botón
-        this.setRolloverIcon(icono); // Si deseas un efecto al pasar el mouse, puedes configurar una imagen diferente aquí
+        Boton.setIcon(icono);
+        Boton.setText(""); 
+        Boton.setFocusPainted(false); 
+        Boton.setContentAreaFilled(false); 
+        Boton.setBorderPainted(false); 
+        Boton.setRolloverIcon(icono); // Un efecto al pasar el mouse
     }
 }
