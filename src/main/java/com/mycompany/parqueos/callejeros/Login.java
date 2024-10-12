@@ -29,19 +29,6 @@ public class Login extends javax.swing.JFrame {
     }
     //Crear color degradado:
     
-    class PanelDegradado extends JPanel {
-        protected void  paintComponent(Graphics g){
-            Graphics2D g2d = (Graphics2D) g;
-            int width = getWidth();
-            int height = getHeight();
-            
-            Color color1 = new Color(167, 211, 224);
-            Color color2 = new Color(61, 155, 194);
-            GradientPaint gp  = new GradientPaint(0, 0, color1, 180, height, color2);
-            g2d.setPaint(gp);
-            g2d.fillRect(0, 0, width, height);
-        }
-    }
     
     void cargarIconoUsuario(){
         JPanelImage mImagen = new JPanelImage(PanelIconLogin,"/Imagenes/UserIcon.png");
