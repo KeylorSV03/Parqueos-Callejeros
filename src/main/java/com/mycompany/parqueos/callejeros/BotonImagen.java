@@ -1,22 +1,24 @@
-
 package com.mycompany.parqueos.callejeros;
+
+//==================== Import ==================== \\.
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+//==================== Clase ==================== \\.
 
-public class BotonImagen {
+public class BotonImagen { // Se encarga de poner imagen al boton
     
+    // Constructor
     public void BotonImagen(JButton Boton,String nombreArchivo) {
-        // Cargar la imagen desde los recursos
+        // Cargar la imagen desde los recursos:
         ImageIcon icono = new ImageIcon(getClass().getResource(nombreArchivo));
         
-        
+        // Confi del boton:
         Boton.setIcon(icono);
         Boton.setText(""); 
         Boton.setFocusPainted(false); 
         Boton.setContentAreaFilled(false); 
         Boton.setBorderPainted(false); 
-        Boton.setRolloverIcon(icono); // Un efecto al pasar el mouse
     }
 }
