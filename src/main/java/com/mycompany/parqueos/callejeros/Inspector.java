@@ -5,4 +5,8 @@ public class Inspector extends  Persona{
     //==================== Atributos ====================
 
     private List<Multa> listaMultas;
+    
+    //==================== Metodos ====================
+    
+    // ------------------- Constructores -------------------
 }
