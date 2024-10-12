@@ -8,5 +8,8 @@ public class Administrador extends Persona {
     
     //==================== Metodos ====================
     
+    public Administrador(){
+        
+    }
     
 }
