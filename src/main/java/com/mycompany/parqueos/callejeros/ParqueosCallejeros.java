@@ -11,6 +11,11 @@ package com.mycompany.parqueos.callejeros;
 public class ParqueosCallejeros {
 
     public static void main(String[] args) {
-        System.out.println("Hola hola, como estan?");
+        
+        Estacionamiento estacionamiento = new Estacionamiento();
+        
+        InicioSesion inicioSesion = new InicioSesion();
+        inicioSesion.setVisible(true);
+        
     }
 }
