@@ -1,13 +1,24 @@
+<<<<<<< HEAD
+
+=======
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+>>>>>>> master
 package com.mycompany.parqueos.callejeros;
 
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+<<<<<<< HEAD
+import java.awt.geom.RoundRectangle2D;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class PanelDegradado extends JPanel {
+=======
 import javax.swing.JPanel;
 
 /**
@@ -15,6 +26,7 @@ import javax.swing.JPanel;
  * @author keylo
  */
 class PanelDegradado extends JPanel {
+>>>>>>> master
         protected void  paintComponent(Graphics g){
             Graphics2D g2d = (Graphics2D) g;
             int width = getWidth();
@@ -26,4 +38,8 @@ class PanelDegradado extends JPanel {
             g2d.setPaint(gp);
             g2d.fillRect(0, 0, width, height);
         }
+<<<<<<< HEAD
     }
+=======
+    }
+>>>>>>> master
