@@ -39,7 +39,6 @@ public class InicioSesion extends javax.swing.JFrame {
         controlador.centrarPassField(PasswordFieldPIN);
         this.setResizable(false);
     }
-    //Crear color degradado:
     
 
 
