@@ -177,12 +177,15 @@ public class InicioSesion extends javax.swing.JFrame {
         Registrarse JFrameRegistrarse = new Registrarse();
         JFrameRegistrarse.setVisible(true);
         this.setVisible(false);
+        
     }//GEN-LAST:event_BotonRegistrarseActionPerformed
 
 
     private void BotonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIniciarSesionActionPerformed
         String usuario = TextFieldUsuario.getText();
         String pin = PasswordFieldPIN.getText();
+        List<Administrador> listaAdmins = ParqueosCallejeros.listaAdmins;
+        ParqueosCallejeros.verificarUsuario(usuario,pin,listaAdmins);
         
 
     }//GEN-LAST:event_BotonIniciarSesionActionPerformed
