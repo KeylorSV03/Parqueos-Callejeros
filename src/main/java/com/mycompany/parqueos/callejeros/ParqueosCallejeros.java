@@ -13,14 +13,16 @@ import java.util.List;
  */
 public class ParqueosCallejeros {
 
-    public void verificarUsuario(String idUsuario, String pin,List<Administrador> listaAdmins ){
+    public static void verificarUsuario(String idUsuario, String pin,List<Administrador> listaAdmins ){
         for(Persona persona:listaAdmins){
-            if(persona.getIdUsuario() == idUsuario && persona.getPIN() == pin){
+            if(((persona.getIdUsuario()).equals(idUsuario)) && ((persona.getPIN()).equals(pin))){
                 System.out.println("Si esta el usuario");
+                return;
             }
         }
-        
+        System.out.println("NOOOOOO esta el usuario");
     }
+    public static List<Administrador> listaAdmins = new ArrayList();
     
     public static void main(String[] args) {
         
@@ -28,7 +30,7 @@ public class ParqueosCallejeros {
         Estacionamiento estacionamiento = new Estacionamiento();
         Administrador adminXDefecto = new Administrador("","",0,"","","1234","Admin",estacionamiento);
         
-        List<Administrador> listaAdmins = new ArrayList();
+        
         listaAdmins.add(adminXDefecto);
         
         

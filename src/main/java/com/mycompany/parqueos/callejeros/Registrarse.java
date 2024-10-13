@@ -15,7 +15,7 @@ public class Registrarse extends javax.swing.JFrame {
     public Registrarse() {
         initComponents();
         AjustarControles controlador = new AjustarControles();
-        controlador.centrarBoton(jButton1);
+        controlador.centrarBoton(BotonRegistrarse);
         this.setLocationRelativeTo(null);
     }
 
