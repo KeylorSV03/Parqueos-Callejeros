@@ -9,7 +9,7 @@ public class Administrador extends Persona {
     //==================== Metodos ====================
     
     
-    public Administrador(String nombre, String apellido, int telefono, String correo, String direccionFisica, String PIN, String idUsuario,Estacionamiento estacionamiento){
+    public Administrador(String nombre, String apellido, int telefono, String correo, String direccionFisica, String idUsuario,String PIN,Estacionamiento estacionamiento){
         
         super(nombre, apellido, telefono, correo, direccionFisica, PIN, idUsuario);
         this.estacionamiento = estacionamiento; 

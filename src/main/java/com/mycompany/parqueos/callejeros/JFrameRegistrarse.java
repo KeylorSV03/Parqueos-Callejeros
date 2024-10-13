@@ -3,6 +3,7 @@ package com.mycompany.parqueos.callejeros;
 //==================== Import ==================== \\.
 
 import java.awt.Component;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
@@ -10,9 +11,9 @@ import javax.swing.JTextField;
 
 //==================== Clase ==================== \\.
 
-public class Registrarse extends javax.swing.JFrame {
+public class JFrameRegistrarse extends javax.swing.JFrame {
 
-    public Registrarse() {
+    public JFrameRegistrarse() {
         initComponents();
         AjustarControles controlador = new AjustarControles();
         controlador.centrarBoton(BotonRegistrarse);
@@ -185,7 +186,31 @@ public class Registrarse extends javax.swing.JFrame {
     }//GEN-LAST:event_PasswordFieldPINActionPerformed
 
     private void BotonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarseActionPerformed
-        // TODO add your handling code here:
+        
+        List<Persona> listaUsuarios = ParqueosCallejeros.listaUsuarios;
+        
+        String nombre = TextFieldNombre.getText();
+        String apellidos = TextFieldApellido.getText();
+        int telefono;
+        if(!TextFieldTelefono.getText().equals("")){
+            telefono = Integer.parseInt(TextFieldTelefono.getText());
+        }
+        else{
+            telefono = 0;
+        }
+        String correo = TextFieldCorreo.getText();
+        String direccionFisica = TextFieldDireccionFisica.getText();
+        String idUsuario = TextFieldUsuario.getText();
+        String PIN = PasswordFieldPIN.getText();
+        
+        boolean x =ParqueosCallejeros.registrarUsuario(nombre, apellidos, telefono, correo, direccionFisica, idUsuario, PIN, listaUsuarios, this);
+        if(x){
+           JFrameInicioSesion JFrameIniciarSesion = new JFrameInicioSesion();
+            JFrameIniciarSesion.setVisible(true);
+            this.setVisible(false); 
+        }
+        
+       
     }//GEN-LAST:event_BotonRegistrarseActionPerformed
 
 //==================== Main ==================== \\.   
@@ -204,20 +229,21 @@ public class Registrarse extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Registrarse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameRegistrarse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Registrarse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameRegistrarse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Registrarse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameRegistrarse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Registrarse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameRegistrarse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Registrarse().setVisible(true);
+                new JFrameRegistrarse().setVisible(true);
             }
         });
     }

@@ -23,10 +23,10 @@ import javax.swing.JTextField;
 
 //==================== Clase ==================== \\.
 
-public class InicioSesion extends javax.swing.JFrame {
+public class JFrameInicioSesion extends javax.swing.JFrame {
 
     // Constructor 
-    public InicioSesion() {
+    public JFrameInicioSesion() {
         initComponents();
         this.setLocationRelativeTo(null);
         cargarImagenPanel(PanelIconLogin,"/Imagenes/UserIcon.png");
@@ -173,7 +173,7 @@ public class InicioSesion extends javax.swing.JFrame {
 //==================== Funcion de controles ==================== \\.
     
     private void BotonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarseActionPerformed
-        Registrarse JFrameRegistrarse = new Registrarse();
+        JFrameRegistrarse JFrameRegistrarse = new JFrameRegistrarse();
         JFrameRegistrarse.setVisible(true);
         this.setVisible(false);
         
@@ -183,8 +183,8 @@ public class InicioSesion extends javax.swing.JFrame {
     private void BotonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIniciarSesionActionPerformed
         String usuario = TextFieldUsuario.getText();
         String pin = PasswordFieldPIN.getText();
-        List<Administrador> listaAdmins = ParqueosCallejeros.listaAdmins;
-        ParqueosCallejeros.verificarUsuario(usuario,pin,listaAdmins);
+        List<Persona> listaUsuarios = ParqueosCallejeros.listaUsuarios;
+        ParqueosCallejeros.verificarUsuario(usuario,pin,listaUsuarios);
         
 
     }//GEN-LAST:event_BotonIniciarSesionActionPerformed
@@ -210,21 +210,23 @@ public class InicioSesion extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameInicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameInicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameInicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameInicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InicioSesion().setVisible(true);
+                new JFrameInicioSesion().setVisible(true);
                 
             }
         });
