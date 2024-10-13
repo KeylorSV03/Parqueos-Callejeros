@@ -6,6 +6,8 @@ com\mycompany\parqueos\callejeros\JFrameInspector$5.class
 com\mycompany\parqueos\callejeros\JFrameInicioSesion$2.class
 com\mycompany\parqueos\callejeros\Administrador.class
 com\mycompany\parqueos\callejeros\JFrameUsuario$1.class
+com\mycompany\parqueos\callejeros\JFrameAddInspector$4.class
+com\mycompany\parqueos\callejeros\Registrarse$4.class
 com\mycompany\parqueos\callejeros\JFrameUsuario.class
 com\mycompany\parqueos\callejeros\JFrameInspector$6.class
 com\mycompany\parqueos\callejeros\JFrameUsuario$5.class
@@ -27,8 +29,9 @@ com\mycompany\parqueos\callejeros\JFrameAdmin$3.class
 com\mycompany\parqueos\callejeros\JFrameUsuario$6.class
 com\mycompany\parqueos\callejeros\JFrameRegistrarse$4.class
 com\mycompany\parqueos\callejeros\Espacio.class
-com\mycompany\parqueos\callejeros\AjustarControles$2.class
-com\mycompany\parqueos\callejeros\JFrameRegistrarse$3.class
+com\mycompany\parqueos\callejeros\Registrarse$2.class
+com\mycompany\parqueos\callejeros\InicioSesion$2.class
+com\mycompany\parqueos\callejeros\JFrameAddInspector$2.class
 com\mycompany\parqueos\callejeros\Multa.class
 com\mycompany\parqueos\callejeros\JFrameRegistrarse$1.class
 com\mycompany\parqueos\callejeros\JFrameAdmin.class
@@ -38,6 +41,7 @@ com\mycompany\parqueos\callejeros\JFrameInicioSesion$3.class
 com\mycompany\parqueos\callejeros\JFrameUsuario$3.class
 com\mycompany\parqueos\callejeros\JFrameUsuario$7.class
 com\mycompany\parqueos\callejeros\JFrameAdmin$2.class
+com\mycompany\parqueos\callejeros\JFrameAddInspector$3.class
 com\mycompany\parqueos\callejeros\Persona.class
 com\mycompany\parqueos\callejeros\JFrameRegistrarse.class
 com\mycompany\parqueos\callejeros\BotonImagen.class
