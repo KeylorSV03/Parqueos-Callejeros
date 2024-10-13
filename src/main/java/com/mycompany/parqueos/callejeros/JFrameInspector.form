@@ -61,6 +61,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+
                   <Component id="botonPerfil" min="-2" pref="104" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                   <Component id="botonReportes" min="-2" pref="85" max="-2" attributes="0"/>
@@ -68,6 +69,17 @@
                   <Component id="botonRParqueo" min="-2" pref="85" max="-2" attributes="0"/>
                   <EmptySpace pref="218" max="32767" attributes="0"/>
                   <Component id="botonCSesion" min="-2" pref="60" max="-2" attributes="0"/>
+
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="botonPerfil" min="-2" pref="102" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="botonReportes" min="-2" pref="95" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                  <Component id="botonRParqueo" min="-2" pref="93" max="-2" attributes="0"/>
+                  <EmptySpace pref="181" max="32767" attributes="0"/>
+                  <Component id="botonCSesion" min="-2" pref="88" max="-2" attributes="0"/>
+                  <EmptySpace pref="368" max="32767" attributes="0"/>
+
               </Group>
           </Group>
         </DimensionLayout>
@@ -97,7 +109,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonRParqueoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="botonCSesion">
+        <Component class="javax.swing.JButton" name="botonCSesion1">
           <Properties>
             <Property name="text" type="java.lang.String" value="jButton1"/>
           </Properties>

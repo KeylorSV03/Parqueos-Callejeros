@@ -11,8 +11,7 @@ public class JFrameInspector extends javax.swing.JFrame {
         Boton.BotonImagen(botonPerfil, "/Imagenes/Perfil.png");
         Boton.BotonImagen(botonReportes, "/Imagenes/BotonReportes.png");
         Boton.BotonImagen(botonRParqueo, "/Imagenes/BotonRParqueo.png");
-        Boton.BotonImagen(botonCSesion, "/Imagenes/BotonCerrarSesion.png");
-        this.setLocationRelativeTo(null);
+        Boton.BotonImagen(botonCSesion1, "/Imagenes/BotonCerrarSesion.png");
         this.setResizable(false);
     }
 
@@ -26,7 +25,7 @@ public class JFrameInspector extends javax.swing.JFrame {
         botonPerfil = new javax.swing.JButton();
         botonReportes = new javax.swing.JButton();
         botonRParqueo = new javax.swing.JButton();
-        botonCSesion = new javax.swing.JButton();
+        botonCSesion1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -36,6 +35,7 @@ public class JFrameInspector extends javax.swing.JFrame {
                 botonPerfilActionPerformed(evt);
             }
         });
+        jPanel1.add(botonPerfil);
 
         botonReportes.setText("jButton1");
         botonReportes.addActionListener(new java.awt.event.ActionListener() {
@@ -43,6 +43,7 @@ public class JFrameInspector extends javax.swing.JFrame {
                 botonReportesActionPerformed(evt);
             }
         });
+        jPanel1.add(botonReportes);
 
         botonRParqueo.setText("jButton1");
         botonRParqueo.addActionListener(new java.awt.event.ActionListener() {
@@ -50,41 +51,15 @@ public class JFrameInspector extends javax.swing.JFrame {
                 botonRParqueoActionPerformed(evt);
             }
         });
+        jPanel1.add(botonRParqueo);
 
-        botonCSesion.setText("jButton1");
-        botonCSesion.addActionListener(new java.awt.event.ActionListener() {
+        botonCSesion1.setText("jButton1");
+        botonCSesion1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonCSesionActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(botonRParqueo, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(87, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonPerfil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonCSesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(botonPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
-                .addComponent(botonReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78)
-                .addComponent(botonRParqueo, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 218, Short.MAX_VALUE)
-                .addComponent(botonCSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel1.add(botonCSesion1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -155,7 +130,7 @@ public class JFrameInspector extends javax.swing.JFrame {
 //==================== Variables ==================== \\.
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonCSesion;
+    private javax.swing.JButton botonCSesion1;
     private javax.swing.JButton botonPerfil;
     private javax.swing.JButton botonRParqueo;
     private javax.swing.JButton botonReportes;
