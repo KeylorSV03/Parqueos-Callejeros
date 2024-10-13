@@ -1,43 +1,28 @@
 com\mycompany\parqueos\callejeros\Inspector.class
-<<<<<<< HEAD
 com\mycompany\parqueos\callejeros\JFrameAdmin$5.class
 com\mycompany\parqueos\callejeros\Vehiculo.class
 com\mycompany\parqueos\callejeros\JFrameAdmin$3.class
-com\mycompany\parqueos\callejeros\Login$2.class
-com\mycompany\parqueos\callejeros\Estacionamiento.class
-com\mycompany\parqueos\callejeros\Espacio.class
-com\mycompany\parqueos\callejeros\Login.class
-=======
-com\mycompany\parqueos\callejeros\Vehiculo.class
 com\mycompany\parqueos\callejeros\Estacionamiento.class
 com\mycompany\parqueos\callejeros\Espacio.class
 com\mycompany\parqueos\callejeros\Registrarse$2.class
->>>>>>> master
 com\mycompany\parqueos\callejeros\Administrador.class
 com\mycompany\parqueos\callejeros\InicioSesion$2.class
 com\mycompany\parqueos\callejeros\Multa.class
-<<<<<<< HEAD
+com\mycompany\parqueos\callejeros\Registrarse$4.class
+com\mycompany\parqueos\callejeros\Registrarse.class
 com\mycompany\parqueos\callejeros\JPanelImage.class
 com\mycompany\parqueos\callejeros\JFrameAdmin.class
 com\mycompany\parqueos\callejeros\JFrameAdmin$6.class
+com\mycompany\parqueos\callejeros\InicioSesion$3.class
+com\mycompany\parqueos\callejeros\Registrarse$1.class
 com\mycompany\parqueos\callejeros\JFrameAdmin$2.class
 com\mycompany\parqueos\callejeros\Persona.class
 com\mycompany\parqueos\callejeros\ParqueosCallejeros.class
+com\mycompany\parqueos\callejeros\InicioSesion.class
 com\mycompany\parqueos\callejeros\JFrameAdmin$1.class
+com\mycompany\parqueos\callejeros\Registrarse$3.class
 com\mycompany\parqueos\callejeros\Usuario.class
 com\mycompany\parqueos\callejeros\BotonImagen.class
 com\mycompany\parqueos\callejeros\JFrameAdmin$4.class
 com\mycompany\parqueos\callejeros\PanelDegradado.class
-=======
-com\mycompany\parqueos\callejeros\Registrarse$4.class
-com\mycompany\parqueos\callejeros\Registrarse.class
-com\mycompany\parqueos\callejeros\JPanelImage.class
-com\mycompany\parqueos\callejeros\Registrarse$1.class
-com\mycompany\parqueos\callejeros\Persona.class
-com\mycompany\parqueos\callejeros\ParqueosCallejeros.class
-com\mycompany\parqueos\callejeros\InicioSesion.class
-com\mycompany\parqueos\callejeros\Registrarse$3.class
-com\mycompany\parqueos\callejeros\Usuario.class
-com\mycompany\parqueos\callejeros\PanelDegradado.class
 com\mycompany\parqueos\callejeros\InicioSesion$1.class
->>>>>>> master

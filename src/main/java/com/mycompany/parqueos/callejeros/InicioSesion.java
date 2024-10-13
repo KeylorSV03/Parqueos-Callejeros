@@ -9,6 +9,8 @@ import java.awt.Graphics2D;
 import java.awt.GridBagLayout;
 import java.awt.geom.RoundRectangle2D;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -45,8 +47,8 @@ public class InicioSesion extends javax.swing.JFrame {
     }
     //Crear color degradado:
     
-<<<<<<< HEAD:src/main/java/com/mycompany/parqueos/callejeros/Login.java
-=======
+
+
     
     
     void cargarImagenPanel(JPanel panel,String nombreArchivo){
@@ -56,7 +58,7 @@ public class InicioSesion extends javax.swing.JFrame {
         panel.setBorder(null);
         panel.setBackground(new Color(0, 0, 0, 0));
     }
->>>>>>> master:src/main/java/com/mycompany/parqueos/callejeros/InicioSesion.java
+
     
     void centrarBoton(JButton boton) {
         boton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -116,6 +118,11 @@ public class InicioSesion extends javax.swing.JFrame {
         LabelRegistrarse.setText("No tienes cuenta?");
 
         BotonIniciarSesion.setText("Iniciar Sesión");
+        BotonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonIniciarSesionActionPerformed(evt);
+            }
+        });
 
         BotonRegistrarse.setText("Registrarse");
         BotonRegistrarse.setActionCommand("Registrate");
@@ -193,6 +200,13 @@ public class InicioSesion extends javax.swing.JFrame {
         
     }//GEN-LAST:event_BotonRegistrarseActionPerformed
 
+    private void BotonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIniciarSesionActionPerformed
+        String usuario = TextFieldUsuario.getText();
+        String pin = PasswordFieldPIN.getText();
+        
+
+    }//GEN-LAST:event_BotonIniciarSesionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -228,6 +242,7 @@ public class InicioSesion extends javax.swing.JFrame {
                 
             }
         });
+        
         
         
     }

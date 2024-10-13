@@ -28,7 +28,7 @@ public class Persona {
 
     }
 
-    public Persona(String nombre, String apellido, int telefono, String correo, String direccionFisica, String PIN, String idUsuario, LocalDate fechaIngreso){
+    public Persona(String nombre, String apellido, int telefono, String correo, String direccionFisica, String PIN, String idUsuario){
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
@@ -36,7 +36,7 @@ public class Persona {
         this.direccionFisica = direccionFisica;
         this.PIN = PIN;
         this.idUsuario = idUsuario;
-        this.fechaIngreso = fechaIngreso;
+        this.fechaIngreso = LocalDate.now();
     }
 
     // ------------------- Setters -------------------

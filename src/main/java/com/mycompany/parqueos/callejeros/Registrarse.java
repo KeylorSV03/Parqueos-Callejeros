@@ -66,7 +66,7 @@ public class Registrarse extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        BotonRegistrarse = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,10 +100,10 @@ public class Registrarse extends javax.swing.JFrame {
 
         jLabel7.setText("ID de Usuario");
 
-        jButton1.setText("Registrarse");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BotonRegistrarse.setText("Registrarse");
+        BotonRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BotonRegistrarseActionPerformed(evt);
             }
         });
 
@@ -132,7 +132,7 @@ public class Registrarse extends javax.swing.JFrame {
                             .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(191, 191, 191)
-                        .addComponent(jButton1))
+                        .addComponent(BotonRegistrarse))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(214, 214, 214)
                         .addComponent(LabelRegistro)))
@@ -172,7 +172,7 @@ public class Registrarse extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
-                .addComponent(jButton1)
+                .addComponent(BotonRegistrarse)
                 .addContainerGap(74, Short.MAX_VALUE))
         );
 
@@ -198,9 +198,9 @@ public class Registrarse extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BotonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BotonRegistrarseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,8 +238,8 @@ public class Registrarse extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonRegistrarse;
     private javax.swing.JLabel LabelRegistro;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
