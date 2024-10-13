@@ -60,26 +60,22 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace pref="171" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="BotonAgregarInspector" pref="175" max="32767" attributes="0"/>
-                              <Component id="BotonConfi" max="32767" attributes="0"/>
-                              <Component id="BotonReportes" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="cerrarSesion" min="-2" pref="122" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="BotonPerfil" min="-2" pref="149" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="botonReportes" min="-2" pref="365" max="-2" attributes="0"/>
+                      <Component id="botonAgregarInspector" min="-2" pref="365" max="-2" attributes="0"/>
+                      <Component id="botonConfi" min="-2" pref="365" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace min="0" pref="77" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="botonCSesion" alignment="1" min="-2" pref="208" max="-2" attributes="0"/>
+                      <Component id="botonPerfil" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -87,59 +83,59 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="BotonPerfil" min="-2" pref="130" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="BotonConfi" min="-2" pref="52" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                  <Component id="BotonReportes" min="-2" pref="53" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                  <Component id="BotonAgregarInspector" min="-2" pref="51" max="-2" attributes="0"/>
-                  <EmptySpace pref="275" max="32767" attributes="0"/>
-                  <Component id="cerrarSesion" min="-2" max="-2" attributes="0"/>
+                  <Component id="botonPerfil" min="-2" pref="110" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="botonConfi" min="-2" pref="111" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="botonReportes" min="-2" pref="112" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="botonAgregarInspector" min="-2" pref="114" max="-2" attributes="0"/>
+                  <EmptySpace pref="84" max="32767" attributes="0"/>
+                  <Component id="botonCSesion" min="-2" pref="56" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="BotonConfi">
+        <Component class="javax.swing.JButton" name="botonConfi">
           <Properties>
             <Property name="text" type="java.lang.String" value="Configuraci&#xf3;n"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonConfiActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonConfiActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="BotonReportes">
+        <Component class="javax.swing.JButton" name="botonReportes">
           <Properties>
             <Property name="text" type="java.lang.String" value="Reportes"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonReportesActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonReportesActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="BotonAgregarInspector">
+        <Component class="javax.swing.JButton" name="botonAgregarInspector">
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar Inspector"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonAgregarInspectorActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonAgregarInspectorActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="cerrarSesion">
+        <Component class="javax.swing.JButton" name="botonCSesion">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cerrar Sesi&#xf3;n"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cerrarSesionActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCSesionActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="BotonPerfil">
+        <Component class="javax.swing.JButton" name="botonPerfil">
           <Properties>
             <Property name="text" type="java.lang.String" value="jButton3"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonPerfilActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonPerfilActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
