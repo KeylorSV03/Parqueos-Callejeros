@@ -5,6 +5,7 @@ com\mycompany\parqueos\callejeros\Administrador.class
 com\mycompany\parqueos\callejeros\Registrarse$4.class
 com\mycompany\parqueos\callejeros\JPanelImage.class
 com\mycompany\parqueos\callejeros\Registrarse$1.class
+com\mycompany\parqueos\callejeros\AjustarControles$1.class
 com\mycompany\parqueos\callejeros\ParqueosCallejeros.class
 com\mycompany\parqueos\callejeros\JFrameInspector$2.class
 com\mycompany\parqueos\callejeros\JFrameAdmin$1.class
@@ -15,10 +16,12 @@ com\mycompany\parqueos\callejeros\Vehiculo.class
 com\mycompany\parqueos\callejeros\JFrameAdmin$3.class
 com\mycompany\parqueos\callejeros\Espacio.class
 com\mycompany\parqueos\callejeros\Registrarse$2.class
+com\mycompany\parqueos\callejeros\AjustarControles$2.class
 com\mycompany\parqueos\callejeros\InicioSesion$2.class
 com\mycompany\parqueos\callejeros\Multa.class
 com\mycompany\parqueos\callejeros\Registrarse.class
 com\mycompany\parqueos\callejeros\JFrameAdmin.class
+com\mycompany\parqueos\callejeros\AjustarControles$3.class
 com\mycompany\parqueos\callejeros\JFrameAdmin$6.class
 com\mycompany\parqueos\callejeros\JFrameAdmin$2.class
 com\mycompany\parqueos\callejeros\Persona.class
