@@ -11,7 +11,7 @@ public class JFrameAddInspector extends javax.swing.JFrame {
         AjustarControles controlador = new AjustarControles();
         controlador.centrarBoton(botonAddInspector);
         controlador.centrarLabel(labelAddInspector);
-        
+        this.setResizable(false);
     }
 
     
@@ -86,12 +86,14 @@ public class JFrameAddInspector extends javax.swing.JFrame {
             }
         });
 
-        passwordFieldPIN.setText("jPasswordField1");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 139, Short.MAX_VALUE)
+                .addComponent(labelAddInspector)
+                .addGap(136, 136, 136))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -112,19 +114,16 @@ public class JFrameAddInspector extends javax.swing.JFrame {
                             .addComponent(textFieldIdUsuario)
                             .addComponent(passwordFieldPIN, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
+                        .addGap(161, 161, 161)
                         .addComponent(botonAddInspector)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 138, Short.MAX_VALUE)
-                .addComponent(labelAddInspector)
-                .addGap(136, 136, 136))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
                 .addComponent(labelAddInspector, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelNombre)
                 .addGap(18, 18, 18)
                 .addComponent(textFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -152,9 +151,9 @@ public class JFrameAddInspector extends javax.swing.JFrame {
                 .addComponent(labelPIN)
                 .addGap(18, 18, 18)
                 .addComponent(passwordFieldPIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(botonAddInspector)
-                .addContainerGap())
+                .addGap(28, 28, 28))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -165,10 +164,7 @@ public class JFrameAddInspector extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -182,7 +178,7 @@ public class JFrameAddInspector extends javax.swing.JFrame {
     }//GEN-LAST:event_textFieldNombreActionPerformed
 
     private void botonAddInspectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAddInspectorActionPerformed
-        // TODO add your handling code here:
+        System.out.println("Agregar inspector");
     }//GEN-LAST:event_botonAddInspectorActionPerformed
 
     private void textFieldApeliidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldApeliidosActionPerformed
