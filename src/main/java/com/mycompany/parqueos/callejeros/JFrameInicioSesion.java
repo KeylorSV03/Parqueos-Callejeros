@@ -20,6 +20,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.*;
+import java.awt.*;
 
 //==================== Clase ==================== \\.
 
@@ -27,6 +29,9 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
 
     // Constructor 
     public JFrameInicioSesion() {
+        Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
+        setIconImage(icono);
+        
         initComponents();
         this.setLocationRelativeTo(null);
         cargarImagenPanel(PanelIconLogin,"/Imagenes/UserIcon.png");
