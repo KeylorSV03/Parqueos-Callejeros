@@ -61,7 +61,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="291" max="32767" attributes="0"/>
+                  <EmptySpace pref="290" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="botonCSesion" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
                       <Component id="botonPerfil" alignment="1" min="-2" pref="103" max="-2" attributes="0"/>
@@ -88,7 +88,7 @@
                   <Component id="botonReportes" min="-2" pref="85" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   <Component id="botonAgregarInspector" min="-2" pref="85" max="-2" attributes="0"/>
-                  <EmptySpace pref="155" max="32767" attributes="0"/>
+                  <EmptySpace pref="138" max="32767" attributes="0"/>
                   <Component id="botonCSesion" min="-2" pref="60" max="-2" attributes="0"/>
               </Group>
           </Group>

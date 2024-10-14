@@ -57,6 +57,8 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
     }
 
     
+
+//==================== initComponents ==================== \\.
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -74,7 +76,7 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        PanelDegradadoLogin.setBackground(new java.awt.Color(207, 234, 255));
+        PanelDegradadoLogin.setBackground(new java.awt.Color(255, 255, 255));
         PanelDegradadoLogin.setPreferredSize(new java.awt.Dimension(420, 680));
 
         Label_IDUsuario.setText("ID Usuario");
@@ -139,7 +141,7 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelDegradadoLoginLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(PanelIconLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(Label_IDUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(TextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
