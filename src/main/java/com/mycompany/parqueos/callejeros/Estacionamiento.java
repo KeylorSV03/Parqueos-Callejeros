@@ -114,24 +114,22 @@ public class Estacionamiento {
         return matcher.matches();
     }
     
-    public static void verificarUsuario(String idUsuario, String pin,List<Persona> listaUsuarios ){
+    public static Persona verificarUsuario(String idUsuario, String pin,List<Persona> listaUsuarios ){
         for(Persona persona:listaUsuarios){
             if(((persona.getIdUsuario()).equals(idUsuario)) && ((persona.getPIN()).equals(pin)) && (persona instanceof Administrador)){
-                System.out.println("Es Admin");
-                return;
+                return persona;
             }
             
             if(((persona.getIdUsuario()).equals(idUsuario)) && ((persona.getPIN()).equals(pin)) && (persona instanceof Usuario)){
-                System.out.println("Es Usuario");
-                return;
+                return persona;
             }
             
             if(((persona.getIdUsuario()).equals(idUsuario)) && ((persona.getPIN()).equals(pin)) && (persona instanceof Inspector)){
-                System.out.println("Es Inspector");
-                return;
+                return persona;
             }
         }
-        System.out.println("NOOOOOO esta el usuario");
+        
+        return null; //Si no encuentra el usuario
     }
     
     public static boolean registrarUsuario(String nombre, String apellidos, int telefono, String correo, String direccionFisica,String idUsuario, String PIN , List<Persona> listaUsuarios, JFrame jframe){

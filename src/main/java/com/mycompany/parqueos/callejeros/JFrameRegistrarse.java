@@ -25,6 +25,7 @@ public class JFrameRegistrarse extends javax.swing.JFrame {
         controlador.limitarCaracteres(TextFieldUsuario, 25);
         controlador.limitarCaracteres(PasswordFieldPIN, 4);
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     

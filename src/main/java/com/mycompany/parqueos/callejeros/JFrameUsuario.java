@@ -7,6 +7,7 @@ public class JFrameUsuario extends javax.swing.JFrame {
     // Constructor 
     public JFrameUsuario() {
         initComponents();
+        this.setLocationRelativeTo(null);
         BotonImagen Boton = new BotonImagen();
         Boton.BotonImagen(botonPerfil, "/Imagenes/Perfil.png");
         Boton.BotonImagen(botonVehiculo, "/Imagenes/BotonVehiculo.png");

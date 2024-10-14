@@ -34,14 +34,16 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
         
         initComponents();
         this.setLocationRelativeTo(null);
-        cargarImagenPanel(PanelIconLogin,"/Imagenes/UserIcon.png");
         
         AjustarControles controlador = new AjustarControles();
+        controlador.cargarImagenPanel(PanelIconLogin,"/Imagenes/UserIcon.png");
         controlador.centrarBoton(BotonIniciarSesion);
         controlador.centrarBoton(BotonRegistrarse);
         controlador.centrarLabel(LabelRegistrarse);
         controlador.centrarTextField(TextFieldUsuario);
+        controlador.limitarCaracteres(TextFieldUsuario, 25);
         controlador.centrarPassField(PasswordFieldPIN);
+        controlador.limitarCaracteres(PasswordFieldPIN, 4);
         this.setResizable(false);
     }
     
@@ -53,13 +55,7 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
 
     // Metodos
 
-    void cargarImagenPanel(JPanel panel,String nombreArchivo){
-        JPanelImage mImagen = new JPanelImage(panel,nombreArchivo);
-        panel.add(mImagen).repaint();
-        panel.setOpaque(false);
-        panel.setBorder(null);
-        panel.setBackground(new Color(0, 0, 0, 0));
-    }
+    
 
     
 
@@ -191,7 +187,37 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
         String usuario = TextFieldUsuario.getText();
         String pin = PasswordFieldPIN.getText();
         List<Persona> listaUsuarios = ParqueosCallejeros.estacionamiento.getListaUsuarios();
-        Estacionamiento.verificarUsuario(usuario,pin,listaUsuarios);
+        Persona p = Estacionamiento.verificarUsuario(usuario,pin,listaUsuarios);
+        
+        if(p != null && (p instanceof Administrador)){
+            
+            ParqueosCallejeros.usuarioActivo = p;
+            JFrameAdmin jframeAdmin = new JFrameAdmin();
+            jframeAdmin.setVisible(true);
+            this.setVisible(false);
+        }
+        
+        else if(p != null && (p instanceof Usuario)){
+            
+            ParqueosCallejeros.usuarioActivo = p;
+            JFrameUsuario jframeUsuario = new JFrameUsuario();
+            jframeUsuario.setVisible(true);
+            this.setVisible(false);
+        }
+        
+        else if(p != null && (p instanceof Inspector)){
+            
+            ParqueosCallejeros.usuarioActivo = p;
+            JFrameInspector jframeInspector = new JFrameInspector();
+            jframeInspector.setVisible(true);
+            this.setVisible(false);
+        }
+        
+        else{
+            JOptionPane.showMessageDialog(this, "El usuario que ingreso no se encuentra registrado", "Usuario no encontrado", JOptionPane.WARNING_MESSAGE);
+        }
+        
+        
         
 
     }//GEN-LAST:event_BotonIniciarSesionActionPerformed

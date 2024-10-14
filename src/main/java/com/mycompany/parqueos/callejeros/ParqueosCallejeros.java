@@ -20,6 +20,7 @@ public class ParqueosCallejeros {
     
     public static Estacionamiento estacionamiento = new Estacionamiento();
     
+    public static Persona usuarioActivo = null;
     
     
     

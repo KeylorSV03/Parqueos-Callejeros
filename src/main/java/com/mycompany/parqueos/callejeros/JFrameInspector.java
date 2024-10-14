@@ -7,6 +7,8 @@ public class JFrameInspector extends javax.swing.JFrame {
     
     public JFrameInspector() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        
         BotonImagen Boton = new BotonImagen();
         Boton.BotonImagen(botonPerfil, "/Imagenes/Perfil.png");
         Boton.BotonImagen(botonReportes, "/Imagenes/BotonReportes.png");

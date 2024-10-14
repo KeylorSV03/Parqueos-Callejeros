@@ -18,6 +18,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
 
     public JFrameAdmin() {
         initComponents();
+        this.setLocationRelativeTo(null);
         BotonImagen Boton = new BotonImagen();
         Boton.BotonImagen(botonPerfil, "/Imagenes/Perfil.png");
         Boton.BotonImagen(botonConfi, "/Imagenes/BotonConfi.png");

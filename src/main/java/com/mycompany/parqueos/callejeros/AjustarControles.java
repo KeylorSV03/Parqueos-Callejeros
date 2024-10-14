@@ -2,11 +2,13 @@ package com.mycompany.parqueos.callejeros;
 
 //==================== Import ==================== \\.
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -32,6 +34,14 @@ public class AjustarControles {
     
     void centrarPassField(JPasswordField texto){
         texto.setAlignmentX(Component.CENTER_ALIGNMENT);
+    }
+    
+    void cargarImagenPanel(JPanel panel,String nombreArchivo){
+        JPanelImage mImagen = new JPanelImage(panel,nombreArchivo);
+        panel.add(mImagen).repaint();
+        panel.setOpaque(false);
+        panel.setBorder(null);
+        panel.setBackground(new Color(0, 0, 0, 0));
     }
     
      // Método para limitar la cantidad de caracteres en un JTextField
