@@ -183,8 +183,8 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
     private void BotonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIniciarSesionActionPerformed
         String usuario = TextFieldUsuario.getText();
         String pin = PasswordFieldPIN.getText();
-        List<Persona> listaUsuarios = ParqueosCallejeros.listaUsuarios;
-        ParqueosCallejeros.verificarUsuario(usuario,pin,listaUsuarios);
+        List<Persona> listaUsuarios = ParqueosCallejeros.estacionamiento.getListaUsuarios();
+        Estacionamiento.verificarUsuario(usuario,pin,listaUsuarios);
         
 
     }//GEN-LAST:event_BotonIniciarSesionActionPerformed

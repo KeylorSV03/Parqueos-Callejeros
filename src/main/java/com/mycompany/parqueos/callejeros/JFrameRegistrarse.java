@@ -187,7 +187,7 @@ public class JFrameRegistrarse extends javax.swing.JFrame {
 
     private void BotonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarseActionPerformed
         
-        List<Persona> listaUsuarios = ParqueosCallejeros.listaUsuarios;
+        List<Persona> listaUsuarios = ParqueosCallejeros.estacionamiento.getListaUsuarios();
         
         String nombre = TextFieldNombre.getText();
         String apellidos = TextFieldApellido.getText();
@@ -203,7 +203,7 @@ public class JFrameRegistrarse extends javax.swing.JFrame {
         String idUsuario = TextFieldUsuario.getText();
         String PIN = PasswordFieldPIN.getText();
         
-        boolean x =ParqueosCallejeros.registrarUsuario(nombre, apellidos, telefono, correo, direccionFisica, idUsuario, PIN, listaUsuarios, this);
+        boolean x = Estacionamiento.registrarUsuario(nombre, apellidos, telefono, correo, direccionFisica, idUsuario, PIN, listaUsuarios, this);
         if(x){
            JFrameInicioSesion JFrameIniciarSesion = new JFrameInicioSesion();
             JFrameIniciarSesion.setVisible(true);

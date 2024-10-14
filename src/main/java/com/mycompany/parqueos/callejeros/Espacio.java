@@ -1,5 +1,9 @@
 package com.mycompany.parqueos.callejeros;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 public class Espacio {
     
     //==================== Atributos ====================
@@ -44,4 +48,6 @@ public class Espacio {
     public List<Vehiculo> getHistorialVehiculos() {
         return historialVehiculos;
     }
+    
+    
 }

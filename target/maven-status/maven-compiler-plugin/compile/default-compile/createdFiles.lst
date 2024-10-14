@@ -7,7 +7,6 @@ com\mycompany\parqueos\callejeros\JFrameInicioSesion$2.class
 com\mycompany\parqueos\callejeros\Administrador.class
 com\mycompany\parqueos\callejeros\JFrameUsuario$1.class
 com\mycompany\parqueos\callejeros\JFrameAddInspector$4.class
-com\mycompany\parqueos\callejeros\Registrarse$4.class
 com\mycompany\parqueos\callejeros\JFrameUsuario.class
 com\mycompany\parqueos\callejeros\JFrameInspector$6.class
 com\mycompany\parqueos\callejeros\JFrameUsuario$5.class
@@ -29,8 +28,6 @@ com\mycompany\parqueos\callejeros\JFrameAdmin$3.class
 com\mycompany\parqueos\callejeros\JFrameUsuario$6.class
 com\mycompany\parqueos\callejeros\JFrameRegistrarse$4.class
 com\mycompany\parqueos\callejeros\Espacio.class
-com\mycompany\parqueos\callejeros\Registrarse$2.class
-com\mycompany\parqueos\callejeros\InicioSesion$2.class
 com\mycompany\parqueos\callejeros\JFrameAddInspector$2.class
 com\mycompany\parqueos\callejeros\Multa.class
 com\mycompany\parqueos\callejeros\JFrameRegistrarse$1.class
