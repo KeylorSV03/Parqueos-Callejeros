@@ -37,7 +37,7 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
         
         AjustarControles controlador = new AjustarControles();
         controlador.cargarImagenPanel(PanelIconLogin,"/Imagenes/UserIcon.png");
-        controlador.centrarBoton(BotonIniciarSesion);
+        //controlador.centrarBoton(BotonIniciarSesion);
         controlador.centrarBoton(BotonRegistrarse);
         controlador.centrarLabel(LabelRegistrarse);
         controlador.centrarTextField(TextFieldUsuario);
@@ -97,7 +97,7 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
 
         LabelRegistrarse.setText("No tienes cuenta?");
 
-        BotonIniciarSesion.setText("Iniciar Sesión");
+        BotonIniciarSesion.setText("Iniciar Sesion");
         BotonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonIniciarSesionActionPerformed(evt);
@@ -126,15 +126,17 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
                             .addComponent(PasswordFieldPIN, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1)))
                     .addGroup(PanelDegradadoLoginLayout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(PanelIconLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 141, Short.MAX_VALUE))
+                        .addGap(168, 168, 168)
+                        .addGroup(PanelDegradadoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BotonRegistrarse, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                            .addGroup(PanelDegradadoLoginLayout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(LabelRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(BotonIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(141, Short.MAX_VALUE))
             .addGroup(PanelDegradadoLoginLayout.createSequentialGroup()
-                .addGap(183, 183, 183)
-                .addGroup(PanelDegradadoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BotonIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotonRegistrarse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LabelRegistrarse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(160, 160, 160)
+                .addComponent(PanelIconLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelDegradadoLoginLayout.setVerticalGroup(
@@ -142,7 +144,7 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelDegradadoLoginLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(PanelIconLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGap(117, 117, 117)
                 .addComponent(Label_IDUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(TextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -150,13 +152,13 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(13, 13, 13)
                 .addComponent(PasswordFieldPIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(BotonIniciarSesion)
-                .addGap(105, 105, 105)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(BotonIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addComponent(LabelRegistrarse)
                 .addGap(18, 18, 18)
                 .addComponent(BotonRegistrarse)
-                .addGap(85, 85, 85))
+                .addGap(114, 114, 114))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -167,7 +169,7 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelDegradadoLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PanelDegradadoLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
         );
 
         pack();
