@@ -16,7 +16,8 @@ public class Estacionamiento {
     private int precioXHora;
     private LocalDateTime tiempoMinimo;
     private int costoMulta;
-    private List<Espacio> listaEspacios;
+    private int cantidadEspacios = 0;
+    private Espacio listaEspacios[];
     private List<Multa> historialMultas;
     private List<Espacio> historialEspacios;
     private static List<Persona> listaUsuarios;
@@ -28,6 +29,9 @@ public class Estacionamiento {
     
     public Estacionamiento(){
         this.listaUsuarios = new ArrayList();
+        this.listaEspacios = new Espacio[cantidadEspacios];
+        this.historialEspacios = new ArrayList();
+        this.historialMultas = new ArrayList();
     }
     
     // ------------------- Setters -------------------
@@ -48,7 +52,11 @@ public class Estacionamiento {
         this.costoMulta = costoMulta;
     }
 
-    public void setListaEspacios(List<Espacio> listaEspacios) {
+    public void setCantidadEspacios(int cantidadEspacios){
+        cantidadEspacios = cantidadEspacios;
+        
+    }
+    public void setListaEspacios(Espacio listaEspacios[]) {
         this.listaEspacios = listaEspacios;
     }
 
@@ -86,7 +94,7 @@ public class Estacionamiento {
         return costoMulta;
     }
 
-    public List<Espacio> getListaEspacios() {
+    public Espacio[] getListaEspacios() {
         return listaEspacios;
     }
 
