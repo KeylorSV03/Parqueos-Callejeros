@@ -8,13 +8,21 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.*;
+import java.awt.*;
 
 //==================== Clase ==================== \\.
 
 public class JFrameRegistrarse extends javax.swing.JFrame {
 
+    // Constructor:
     public JFrameRegistrarse() {
         initComponents();
+        
+        // Icono:
+        Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
+        setIconImage(icono);
+        
         AjustarControles controlador = new AjustarControles();
         controlador.centrarBoton(BotonRegistrarse);
         controlador.limitarCaracteres(TextFieldNombre, 20);
@@ -24,6 +32,7 @@ public class JFrameRegistrarse extends javax.swing.JFrame {
         controlador.limitarCaracteres(TextFieldDireccionFisica, 60);
         controlador.limitarCaracteres(TextFieldUsuario, 25);
         controlador.limitarCaracteres(PasswordFieldPIN, 4);
+        
         this.setLocationRelativeTo(null);
         this.setResizable(false);
     }
