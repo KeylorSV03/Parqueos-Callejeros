@@ -62,10 +62,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="290" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="botonCSesion" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
-                      <Component id="botonPerfil" alignment="1" min="-2" pref="103" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="botonCSesion" min="-2" pref="230" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
@@ -76,12 +73,24 @@
                   </Group>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="botonConfiguracion" min="-2" pref="60" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="botonPerfil" min="-2" pref="103" max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="botonPerfil" min="-2" pref="103" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="botonPerfil" min="-2" pref="103" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="botonConfiguracion" min="-2" pref="61" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="botonConfi" min="-2" pref="85" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
@@ -134,6 +143,11 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonPerfilActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="botonConfiguracion">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jButton1"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

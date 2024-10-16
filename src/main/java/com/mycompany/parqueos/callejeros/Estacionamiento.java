@@ -205,7 +205,7 @@ public class Estacionamiento {
             }
         }
         
-        Persona usuario = new Persona(nombre,apellidos,telefono,correo,direccionFisica,idUsuario,PIN);
+        Usuario usuario = new Usuario(nombre,apellidos,telefono,correo,direccionFisica,idUsuario,PIN);
         listaUsuarios.add(usuario);
         JOptionPane.showMessageDialog(jframe, "Usuario registrado ");
         return true;

@@ -163,6 +163,9 @@ public class JFrameUsuario extends javax.swing.JFrame {
 
     private void botonPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPerfilActionPerformed
         System.out.println("Perfil");
+        JFramePerfil jFramePerfil = new JFramePerfil();
+        jFramePerfil.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_botonPerfilActionPerformed
 
     private void botonVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVehiculoActionPerformed
