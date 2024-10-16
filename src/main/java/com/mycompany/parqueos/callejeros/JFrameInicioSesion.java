@@ -1,25 +1,8 @@
 package com.mycompany.parqueos.callejeros;
 
 //==================== Import ==================== \\.
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.FlowLayout;
-import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GridBagLayout;
-import java.awt.geom.RoundRectangle2D;
-import java.net.URL;
-import java.util.ArrayList;
+
 import java.util.List;
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
 import javax.swing.*;
 import java.awt.*;
 
@@ -29,11 +12,10 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
 
     // Constructor 
     public JFrameInicioSesion() {
+        initComponents();
+        
         Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
         setIconImage(icono);
-        
-        initComponents();
-        this.setLocationRelativeTo(null);
         
         AjustarControles controlador = new AjustarControles();
         controlador.cargarImagenPanel(PanelIconLogin,"/Imagenes/UserIcon.png");
@@ -44,21 +26,11 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
         controlador.limitarCaracteres(TextFieldUsuario, 25);
         controlador.centrarPassField(PasswordFieldPIN);
         controlador.limitarCaracteres(PasswordFieldPIN, 4);
+        
         this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
     
-
-
-
-    
-    
-
-    // Metodos
-
-    
-
-    
-
 //==================== initComponents ==================== \\.
     
     @SuppressWarnings("unchecked")

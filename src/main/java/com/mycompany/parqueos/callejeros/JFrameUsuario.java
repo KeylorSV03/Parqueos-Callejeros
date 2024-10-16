@@ -1,5 +1,10 @@
 package com.mycompany.parqueos.callejeros;
 
+//==================== Import ==================== \\.
+
+import javax.swing.*;
+import java.awt.*;
+
 //==================== Clase ==================== \\.
 
 public class JFrameUsuario extends javax.swing.JFrame {
@@ -7,7 +12,10 @@ public class JFrameUsuario extends javax.swing.JFrame {
     // Constructor 
     public JFrameUsuario() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        
+        Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
+        setIconImage(icono);
+        
         BotonImagen Boton = new BotonImagen();
         Boton.BotonImagen(botonPerfil, "/Imagenes/Perfil.png");
         Boton.BotonImagen(botonVehiculo, "/Imagenes/BotonVehiculo.png");
@@ -16,7 +24,9 @@ public class JFrameUsuario extends javax.swing.JFrame {
         Boton.BotonImagen(botonDesaparcar, "/Imagenes/BotonDesaparcar.png");
         Boton.BotonImagen(botonCSesion, "/Imagenes/BotonCerrarSesion.png");
         Boton.BotonImagen(botonMPago, "/Imagenes/BotonMPago.png");
+        
         this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
 //==================== initComponents ==================== \\.

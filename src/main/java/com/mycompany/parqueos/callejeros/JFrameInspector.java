@@ -1,20 +1,29 @@
 package com.mycompany.parqueos.callejeros;
 
+//==================== Import ==================== \\.
+
+import javax.swing.*;
+import java.awt.*;
+
 //==================== Clase ==================== \\.
 
 public class JFrameInspector extends javax.swing.JFrame {
 
-    
+    // Constructor:
     public JFrameInspector() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        
+        Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
+        setIconImage(icono);
         
         BotonImagen Boton = new BotonImagen();
         Boton.BotonImagen(botonPerfil, "/Imagenes/Perfil.png");
         Boton.BotonImagen(botonReportes, "/Imagenes/BotonReportes.png");
         Boton.BotonImagen(botonRParqueo, "/Imagenes/BotonRParqueo.png");
         Boton.BotonImagen(botonCSesion, "/Imagenes/BotonCerrarSesion.png");
+        
         this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
 //==================== initComponents ==================== \\.
@@ -94,7 +103,7 @@ public class JFrameInspector extends javax.swing.JFrame {
                 .addComponent(botonReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(78, 78, 78)
                 .addComponent(botonRParqueo, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
                 .addComponent(botonCSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -106,7 +115,7 @@ public class JFrameInspector extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
         );
 
         pack();

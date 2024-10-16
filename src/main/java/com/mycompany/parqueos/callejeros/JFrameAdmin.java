@@ -2,29 +2,29 @@ package com.mycompany.parqueos.callejeros;
 
 //==================== Import ==================== \\.
 
-import java.awt.Color;
-import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.geom.RoundRectangle2D;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
+import java.awt.*;
 
 //==================== Clase ==================== \\.
 
 public class JFrameAdmin extends javax.swing.JFrame {
 
+    // Contructor: 
     public JFrameAdmin() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        
+        Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
+        setIconImage(icono);
+        
         BotonImagen Boton = new BotonImagen();
         Boton.BotonImagen(botonPerfil, "/Imagenes/Perfil.png");
         Boton.BotonImagen(botonConfi, "/Imagenes/BotonConfi.png");
         Boton.BotonImagen(botonReportes, "/Imagenes/BotonReportes.png");
         Boton.BotonImagen(botonAgregarInspector, "/Imagenes/BotonAInspector.png");
         Boton.BotonImagen(botonCSesion, "/Imagenes/BotonCerrarSesion.png");
+        
+        this.setLocationRelativeTo(null);
         this.setResizable(false);
     }
     
