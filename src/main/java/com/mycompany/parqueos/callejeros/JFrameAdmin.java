@@ -24,7 +24,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
         Boton.BotonImagen(botonReportes, "/Imagenes/BotonReportes.png");
         Boton.BotonImagen(botonAgregarInspector, "/Imagenes/BotonAInspector.png");
         Boton.BotonImagen(botonCSesion, "/Imagenes/BotonCerrarSesion.png");
-        controlador.cambiarImagenBoton(botonConfiguracion, "/Imagenes/setting.png");
+        
         
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -44,7 +44,6 @@ public class JFrameAdmin extends javax.swing.JFrame {
         botonAgregarInspector = new javax.swing.JButton();
         botonCSesion = new javax.swing.JButton();
         botonPerfil = new javax.swing.JButton();
-        botonConfiguracion = new javax.swing.JButton();
 
         jButton2.setText("jButton2");
 
@@ -90,8 +89,6 @@ public class JFrameAdmin extends javax.swing.JFrame {
             }
         });
 
-        botonConfiguracion.setText("jButton1");
-
         javax.swing.GroupLayout JPanelFondoLayout = new javax.swing.GroupLayout(JPanelFondo);
         JPanelFondo.setLayout(JPanelFondoLayout);
         JPanelFondoLayout.setHorizontalGroup(
@@ -107,19 +104,13 @@ public class JFrameAdmin extends javax.swing.JFrame {
                     .addComponent(botonAgregarInspector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelFondoLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(botonConfiguracion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botonPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         JPanelFondoLayout.setVerticalGroup(
             JPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelFondoLayout.createSequentialGroup()
-                .addGroup(JPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(JPanelFondoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(botonConfiguracion, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(botonPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(botonConfi, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
@@ -215,7 +206,6 @@ public class JFrameAdmin extends javax.swing.JFrame {
     private javax.swing.JButton botonAgregarInspector;
     private javax.swing.JButton botonCSesion;
     private javax.swing.JButton botonConfi;
-    private javax.swing.JButton botonConfiguracion;
     private javax.swing.JButton botonPerfil;
     private javax.swing.JButton botonReportes;
     private javax.swing.JButton jButton2;
