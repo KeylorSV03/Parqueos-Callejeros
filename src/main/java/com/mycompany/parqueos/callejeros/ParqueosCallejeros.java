@@ -1,6 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
 
 package com.mycompany.parqueos.callejeros;
 
@@ -12,16 +9,13 @@ import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author keylo
- */
+
 public class ParqueosCallejeros {
 
     
-    public static Estacionamiento estacionamiento = new Estacionamiento();
+    protected static Estacionamiento estacionamiento = new Estacionamiento();
     
-    public static Persona usuarioActivo = null;
+    protected static Persona usuarioActivo = null;
     
     
     
