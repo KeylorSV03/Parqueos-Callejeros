@@ -296,23 +296,23 @@ public class JFramePerfil extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void editPINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPINActionPerformed
-        String nuevoPIN = controlador.cambiarDato(editCorreo, "Introduzca el nuevo PIN");
+        String nuevoPIN = controlador.cambiarDato(editPIN, "Introduzca el nuevo PIN");
     }//GEN-LAST:event_editPINActionPerformed
 
     private void editApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editApellidosActionPerformed
-        String nuevoApellido = controlador.cambiarDato(editCorreo, "Introduzca el nuevo apellido");
+        String nuevoApellido = controlador.cambiarDato(editApellidos, "Introduzca el nuevo apellido");
     }//GEN-LAST:event_editApellidosActionPerformed
 
     private void editIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editIDActionPerformed
-        String nuevoId = controlador.cambiarDato(editCorreo, "Introduzca el nuevo usuario");
+        String nuevoId = controlador.cambiarDato(editID, "Introduzca el nuevo usuario");
     }//GEN-LAST:event_editIDActionPerformed
 
     private void editDirecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editDirecActionPerformed
-        String nuevaDireccion = controlador.cambiarDato(editCorreo, "Introduzca la nueva dirección fisica");
+        String nuevaDireccion = controlador.cambiarDato(editDirec, "Introduzca la nueva dirección fisica");
     }//GEN-LAST:event_editDirecActionPerformed
 
     private void editTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editTelefonoActionPerformed
-        String nuevoTelefono = controlador.cambiarDato(editCorreo, "Introduzca el nuevo telefono");
+        String nuevoTelefono = controlador.cambiarDato(editTelefono, "Introduzca el nuevo telefono");
         try {
             int nuevoTelefonoInt = Integer.parseInt(nuevoTelefono);
             System.out.println(nuevoTelefonoInt);
