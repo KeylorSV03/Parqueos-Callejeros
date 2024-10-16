@@ -8,13 +8,14 @@ public class JFrameUsuario extends javax.swing.JFrame {
     public JFrameUsuario() {
         initComponents();
         this.setLocationRelativeTo(null);
+        AjustarControles controlador = new AjustarControles();
         BotonImagen Boton = new BotonImagen();
         Boton.BotonImagen(botonPerfil, "/Imagenes/Perfil.png");
         Boton.BotonImagen(botonVehiculo, "/Imagenes/BotonVehiculo.png");
         Boton.BotonImagen(botonAgregarT, "/Imagenes/BotonATiempo.png");
         Boton.BotonImagen(botonAparcar, "/Imagenes/BotonAparcar.png");
         Boton.BotonImagen(botonDesaparcar, "/Imagenes/BotonDesaparcar.png");
-        Boton.BotonImagen(botonCSesion, "/Imagenes/BotonCerrarSesion.png");
+        controlador.cambiarImagenBoton(botonCSesion, "/Imagenes/BotonCerrarSesion.png");
         Boton.BotonImagen(botonMPago, "/Imagenes/BotonMPago.png");
         this.setResizable(false);
     }
@@ -71,7 +72,6 @@ public class JFrameUsuario extends javax.swing.JFrame {
             }
         });
 
-        botonCSesion.setText("jButton6");
         botonCSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonCSesionActionPerformed(evt);
@@ -90,10 +90,6 @@ public class JFrameUsuario extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(botonVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botonPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(botonAparcar, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
@@ -102,8 +98,12 @@ public class JFrameUsuario extends javax.swing.JFrame {
                     .addComponent(botonMPago, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(110, 110, 110))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 290, Short.MAX_VALUE)
-                .addComponent(botonCSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(botonVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 310, Short.MAX_VALUE)
+                .addComponent(botonPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(botonCSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,8 +121,8 @@ public class JFrameUsuario extends javax.swing.JFrame {
                 .addComponent(botonDesaparcar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(botonMPago, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                .addComponent(botonCSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addComponent(botonCSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -168,6 +168,10 @@ public class JFrameUsuario extends javax.swing.JFrame {
 
     private void botonCSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCSesionActionPerformed
         System.out.println("Cerrando sesion");
+        
+        JFrameInicioSesion jframeInicioSesion = new JFrameInicioSesion();
+        jframeInicioSesion.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_botonCSesionActionPerformed
 
 //==================== Main ==================== \\.

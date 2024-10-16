@@ -6,14 +6,14 @@ public class Administrador extends Persona {
     
     //==================== Atributos ====================
     
-    Estacionamiento estacionamiento;
+    private Estacionamiento estacionamiento;
     
     //==================== Metodos ====================
     
     
     public Administrador(String nombre, String apellido, int telefono, String correo, String direccionFisica, String idUsuario,String PIN,Estacionamiento estacionamiento){
         
-        super(nombre, apellido, telefono, correo, direccionFisica, PIN, idUsuario);
+        super(nombre, apellido, telefono, correo, direccionFisica, idUsuario, PIN);
         this.estacionamiento = estacionamiento; 
     }
     

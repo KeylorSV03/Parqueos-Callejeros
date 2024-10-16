@@ -128,6 +128,9 @@ public class JFrameInspector extends javax.swing.JFrame {
 
     private void botonCSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCSesionActionPerformed
         System.out.println("Cerrando sesion");
+        JFrameInicioSesion jframeInicioSesion = new JFrameInicioSesion();
+        jframeInicioSesion.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_botonCSesionActionPerformed
 
 //==================== Main ==================== \\.

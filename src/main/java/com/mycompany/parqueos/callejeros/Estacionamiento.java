@@ -123,7 +123,9 @@ public class Estacionamiento {
     }
     
     public static Persona verificarUsuario(String idUsuario, String pin,List<Persona> listaUsuarios ){
+        
         for(Persona persona:listaUsuarios){
+            System.out.println(persona.getIdUsuario() + "   " + persona.getPIN());
             if(((persona.getIdUsuario()).equals(idUsuario)) && ((persona.getPIN()).equals(pin)) && (persona instanceof Administrador)){
                 return persona;
             }
@@ -203,7 +205,7 @@ public class Estacionamiento {
             }
         }
         
-        Usuario usuario = new Usuario(nombre,apellidos,telefono,correo,direccionFisica,idUsuario,PIN);
+        Persona usuario = new Persona(nombre,apellidos,telefono,correo,direccionFisica,idUsuario,PIN);
         listaUsuarios.add(usuario);
         JOptionPane.showMessageDialog(jframe, "Usuario registrado ");
         return true;

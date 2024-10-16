@@ -92,7 +92,7 @@ public class JFrameAddInspector extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 139, Short.MAX_VALUE)
+                .addGap(0, 143, Short.MAX_VALUE)
                 .addComponent(labelAddInspector)
                 .addGap(136, 136, 136))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -152,7 +152,7 @@ public class JFrameAddInspector extends javax.swing.JFrame {
                 .addComponent(labelPIN)
                 .addGap(18, 18, 18)
                 .addComponent(passwordFieldPIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(botonAddInspector)
                 .addGap(28, 28, 28))
         );
