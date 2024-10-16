@@ -4,12 +4,15 @@ package com.mycompany.parqueos.callejeros;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 //==================== Clase ==================== \\.
 
 public class JFramePerfil extends javax.swing.JFrame {
-
-    // Controlador:
+    
+    public static AjustarControles controlador = new AjustarControles();
+    
+    // Constructor:
     public JFramePerfil() {
         initComponents();
         
@@ -17,7 +20,6 @@ public class JFramePerfil extends javax.swing.JFrame {
         Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
         setIconImage(icono);
         
-        AjustarControles controlador = new AjustarControles();
         controlador.cambiarImagenBoton(editNombre, "/Imagenes/edit.png");
         controlador.cambiarImagenBoton(editApellidos, "/Imagenes/edit.png");
         controlador.cambiarImagenBoton(editID, "/Imagenes/edit.png");
@@ -304,11 +306,13 @@ public class JFramePerfil extends javax.swing.JFrame {
 //==================== Funcion de control ==================== \\.    
     
     private void editNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editNombreActionPerformed
-        
+        String nuevoNombre = controlador.cambiarDato(editNombre, "Introduzca el nuevo nombre");
+        System.out.println(nuevoNombre);
     }//GEN-LAST:event_editNombreActionPerformed
 
     private void editCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCorreoActionPerformed
-        // TODO add your handling code here:
+        String nuevoCorreo = controlador.cambiarDato(editCorreo, "Introduzca el nuevo correo");
+        System.out.println(nuevoCorreo);
     }//GEN-LAST:event_editCorreoActionPerformed
 
     private void botonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBackActionPerformed
@@ -336,23 +340,29 @@ public class JFramePerfil extends javax.swing.JFrame {
     }//GEN-LAST:event_botonBackActionPerformed
 
     private void editPINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPINActionPerformed
-        // TODO add your handling code here:
+        String nuevoPIN = controlador.cambiarDato(editPIN, "Introduzca el nuevo PIN");
     }//GEN-LAST:event_editPINActionPerformed
 
     private void editApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editApellidosActionPerformed
-        // TODO add your handling code here:
+        String nuevoApellido = controlador.cambiarDato(editApellidos, "Introduzca el nuevo apellido");
     }//GEN-LAST:event_editApellidosActionPerformed
 
     private void editIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editIDActionPerformed
-        // TODO add your handling code here:
+        String nuevoId = controlador.cambiarDato(editID, "Introduzca el nuevo usuario");
     }//GEN-LAST:event_editIDActionPerformed
 
     private void editDirecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editDirecActionPerformed
-        // TODO add your handling code here:
+        String nuevaDireccion = controlador.cambiarDato(editDirec, "Introduzca la nueva dirección fisica");
     }//GEN-LAST:event_editDirecActionPerformed
 
     private void editTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editTelefonoActionPerformed
-        // TODO add your handling code here:
+        String nuevoTelefono = controlador.cambiarDato(editTelefono, "Introduzca el nuevo telefono");
+        try {
+            int nuevoTelefonoInt = Integer.parseInt(nuevoTelefono);
+            System.out.println(nuevoTelefonoInt);
+        } catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "Parece que hubo un error con el telefono", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_editTelefonoActionPerformed
 
  
