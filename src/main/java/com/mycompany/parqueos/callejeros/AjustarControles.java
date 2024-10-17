@@ -132,7 +132,7 @@ public class AjustarControles {
         boton.setBorderPainted(false);
     }
    
-    public String cambiarDato (JButton boton, String mensaje){
+    public String cambiarDato (String mensaje){
         String input = JOptionPane.showInputDialog(mensaje);
         if (input == null){
             return "";
