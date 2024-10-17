@@ -1,6 +1,7 @@
 package com.mycompany.parqueos.callejeros;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -14,14 +15,14 @@ public class Estacionamiento {
 
     private String nombre;
     private int precioXHora;
-    private LocalDateTime tiempoMinimo;
+    private int tiempoMinimo;
     private int costoMulta;
     private int cantidadEspacios = 0;
     private Espacio listaEspacios[];
     private List<Multa> historialMultas;
     private List<Espacio> historialEspacios;
     private static List<Persona> listaUsuarios;
-    private LocalDateTime[] horario = new LocalDateTime[2]; 
+    private LocalTime[] horario = new LocalTime[2]; 
     
     //==================== Metodos ====================
     
@@ -44,7 +45,7 @@ public class Estacionamiento {
         this.precioXHora = precioXHora;
     }
 
-    public void setTiempoMinimo(LocalDateTime tiempoMinimo) {
+    public void setTiempoMinimo(int tiempoMinimo) {
         this.tiempoMinimo = tiempoMinimo;
     }
 
@@ -72,7 +73,7 @@ public class Estacionamiento {
         this.listaUsuarios = listaUsuarios;
     }
 
-    public void setHorario(LocalDateTime[] horario) {
+    public void setHorario(LocalTime[] horario) {
         this.horario = horario;
     }
 
@@ -86,7 +87,7 @@ public class Estacionamiento {
         return precioXHora;
     }
 
-    public LocalDateTime getTiempoMinimo() {
+    public int getTiempoMinimo() {
         return tiempoMinimo;
     }
 
@@ -110,7 +111,7 @@ public class Estacionamiento {
         return listaUsuarios;
     }
 
-    public LocalDateTime[] getHorario() {
+    public LocalTime[] getHorario() {
         return horario;
     }
     

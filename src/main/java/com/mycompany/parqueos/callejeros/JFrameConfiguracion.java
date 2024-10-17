@@ -4,6 +4,7 @@ package com.mycompany.parqueos.callejeros;
 
 import javax.swing.*;
 import java.awt.*;
+import java.time.LocalTime;
 
 //==================== Clase ==================== \\.
 
@@ -18,7 +19,7 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
         setIconImage(icono);
         
         AjustarControles controlador = new AjustarControles();
-        controlador.centrarBoton(botonCConfi);
+        controlador.centrarBoton(confirmarConfiguracion);
         controlador.centrarLabel(labelTitulo);
         controlador.cambiarImagenBoton(botonBack, "/Imagenes/back.png");
         this.setResizable(false);
@@ -32,47 +33,49 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new PanelDegradado();
-        textFieldHInicio = new javax.swing.JTextField();
-        textFieldHFin = new javax.swing.JTextField();
+        inicioElimEspacios = new PanelDegradado();
+        textFieldInicioHorario = new javax.swing.JTextField();
+        textFieldFinHorario = new javax.swing.JTextField();
         labelTitulo = new javax.swing.JLabel();
         labelHoraio = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         labelPHora = new javax.swing.JLabel();
-        textFiledPHora = new javax.swing.JTextField();
+        textFieldPrecioHora = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        textFieldMComprar = new javax.swing.JTextField();
+        textFieldTiempoMin = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        textFiledCMulta = new javax.swing.JTextField();
+        textFieldCostoMulta = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        textFieldAInicio = new javax.swing.JTextField();
+        textFieldInicioAgreEspacios = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        textFieldAFin = new javax.swing.JTextField();
+        textFieldFinAgregEspacios = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        textFiledEInicio = new javax.swing.JTextField();
-        textFiledEFin = new javax.swing.JTextField();
-        botonCConfi = new javax.swing.JButton();
+        textFiledInicioElim = new javax.swing.JTextField();
+        textFieldFinElimEspacios = new javax.swing.JTextField();
+        confirmarConfiguracion = new javax.swing.JButton();
         botonBack = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(214, 241, 255));
+        inicioElimEspacios.setBackground(new java.awt.Color(214, 241, 255));
 
-        textFieldHInicio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textFieldHInicio.addActionListener(new java.awt.event.ActionListener() {
+        textFieldInicioHorario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        textFieldInicioHorario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldHInicioActionPerformed(evt);
+                textFieldInicioHorarioActionPerformed(evt);
             }
         });
 
-        textFieldHFin.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textFieldHFin.addActionListener(new java.awt.event.ActionListener() {
+        textFieldFinHorario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        textFieldFinHorario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldHFinActionPerformed(evt);
+                textFieldFinHorarioActionPerformed(evt);
             }
         });
 
@@ -80,7 +83,7 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
         labelTitulo.setText("Configuracion del parqueo");
 
         labelHoraio.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        labelHoraio.setText("Horario de regulacion (formato HH:mm:ss:) ");
+        labelHoraio.setText("Horario de regulacion (formato HH:mm) ");
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("Inicio");
@@ -91,40 +94,40 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
         labelPHora.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         labelPHora.setText("Precio por hora");
 
-        textFiledPHora.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textFiledPHora.addActionListener(new java.awt.event.ActionListener() {
+        textFieldPrecioHora.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        textFieldPrecioHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFiledPHoraActionPerformed(evt);
+                textFieldPrecioHoraActionPerformed(evt);
             }
         });
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel1.setText("Tiempo Minimo que se puede comprar ");
 
-        textFieldMComprar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textFieldMComprar.addActionListener(new java.awt.event.ActionListener() {
+        textFieldTiempoMin.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        textFieldTiempoMin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldMComprarActionPerformed(evt);
+                textFieldTiempoMinActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel4.setText("Costo de las multas");
 
-        textFiledCMulta.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textFiledCMulta.addActionListener(new java.awt.event.ActionListener() {
+        textFieldCostoMulta.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        textFieldCostoMulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFiledCMultaActionPerformed(evt);
+                textFieldCostoMultaActionPerformed(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel5.setText("Agregar espacios:");
 
-        textFieldAInicio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textFieldAInicio.addActionListener(new java.awt.event.ActionListener() {
+        textFieldInicioAgreEspacios.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        textFieldInicioAgreEspacios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldAInicioActionPerformed(evt);
+                textFieldInicioAgreEspaciosActionPerformed(evt);
             }
         });
 
@@ -134,7 +137,7 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel7.setText("Fin");
 
-        textFieldAFin.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        textFieldFinAgregEspacios.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel8.setText("Eliminar espacios:");
@@ -145,25 +148,25 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel10.setText("Fin");
 
-        textFiledEInicio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textFiledEInicio.addActionListener(new java.awt.event.ActionListener() {
+        textFiledInicioElim.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        textFiledInicioElim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFiledEInicioActionPerformed(evt);
+                textFiledInicioElimActionPerformed(evt);
             }
         });
 
-        textFiledEFin.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textFiledEFin.addActionListener(new java.awt.event.ActionListener() {
+        textFieldFinElimEspacios.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        textFieldFinElimEspacios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFiledEFinActionPerformed(evt);
+                textFieldFinElimEspaciosActionPerformed(evt);
             }
         });
 
-        botonCConfi.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        botonCConfi.setText("Confirmar configuración");
-        botonCConfi.addActionListener(new java.awt.event.ActionListener() {
+        confirmarConfiguracion.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        confirmarConfiguracion.setText("Confirmar configuración");
+        confirmarConfiguracion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCConfiActionPerformed(evt);
+                confirmarConfiguracionActionPerformed(evt);
             }
         });
 
@@ -173,143 +176,150 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(botonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelTitulo))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3)))
-                .addGap(116, 116, 116))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(101, 101, 101)
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel11.setText("Nombre");
+
+        jTextField1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout inicioElimEspaciosLayout = new javax.swing.GroupLayout(inicioElimEspacios);
+        inicioElimEspacios.setLayout(inicioElimEspaciosLayout);
+        inicioElimEspaciosLayout.setHorizontalGroup(
+            inicioElimEspaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inicioElimEspaciosLayout.createSequentialGroup()
+                .addGap(98, 98, 98)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel10)
-                .addGap(114, 114, 114))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(120, 120, 120))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inicioElimEspaciosLayout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(119, 119, 119))
+            .addGroup(inicioElimEspaciosLayout.createSequentialGroup()
+                .addGap(142, 142, 142)
+                .addComponent(confirmarConfiguracion)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(inicioElimEspaciosLayout.createSequentialGroup()
+                .addGap(107, 107, 107)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(133, 133, 133))
+            .addGroup(inicioElimEspaciosLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(labelHoraio)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(textFiledEInicio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                                .addComponent(textFiledCMulta)
-                                .addComponent(textFieldHInicio, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(textFiledPHora, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(textFieldMComprar, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(textFieldAInicio))
+                .addGroup(inicioElimEspaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(inicioElimEspaciosLayout.createSequentialGroup()
+                        .addGroup(inicioElimEspaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(inicioElimEspaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(textFiledInicioElim, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                                .addComponent(textFieldCostoMulta)
+                                .addComponent(textFieldPrecioHora, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(textFieldTiempoMin, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(textFieldInicioAgreEspacios))
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(textFieldHFin)
-                            .addComponent(textFieldAFin)
-                            .addComponent(textFiledEFin, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
-                        .addGap(44, 44, 44))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(182, 182, 182))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(jLabel6))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(labelPHora))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addComponent(botonCConfi))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
-                        .addComponent(jLabel8)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addGap(112, 112, 112))
+                        .addGroup(inicioElimEspaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textFieldFinAgregEspacios)
+                            .addComponent(textFieldFinElimEspacios, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
+                        .addGap(44, 44, 44))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inicioElimEspaciosLayout.createSequentialGroup()
+                        .addComponent(botonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                        .addComponent(labelTitulo)
+                        .addGap(116, 116, 116))
+                    .addGroup(inicioElimEspaciosLayout.createSequentialGroup()
+                        .addComponent(textFieldInicioHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(textFieldFinHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44))
+                    .addGroup(inicioElimEspaciosLayout.createSequentialGroup()
+                        .addGroup(inicioElimEspaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelPHora)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel5)
+                            .addComponent(labelHoraio)
+                            .addComponent(jLabel11))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        inicioElimEspaciosLayout.setVerticalGroup(
+            inicioElimEspaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inicioElimEspaciosLayout.createSequentialGroup()
+                .addGroup(inicioElimEspaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(inicioElimEspaciosLayout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(inicioElimEspaciosLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(botonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(19, 19, 19)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addComponent(labelHoraio, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(18, 18, 18)
+                .addGroup(inicioElimEspaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldHInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldHFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(inicioElimEspaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textFieldInicioHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldFinHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addComponent(labelPHora)
-                .addGap(15, 15, 15)
-                .addComponent(textFiledPHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(textFieldPrecioHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(textFieldMComprar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textFieldTiempoMin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(textFiledCMulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textFieldCostoMulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(inicioElimEspaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textFieldAInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldAFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(inicioElimEspaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textFieldInicioAgreEspacios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldFinAgregEspacios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(inicioElimEspaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(inicioElimEspaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textFiledInicioElim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldFinElimEspacios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFiledEInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFiledEFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botonCConfi)
-                .addGap(24, 24, 24))
+                .addComponent(confirmarConfiguracion)
+                .addGap(17, 17, 17))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(inicioElimEspacios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(inicioElimEspacios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -318,47 +328,70 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
     
 //==================== Funcion de control ==================== \\.
     
-    private void textFieldHInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldHInicioActionPerformed
+    private void textFieldInicioHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldInicioHorarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldHInicioActionPerformed
+    }//GEN-LAST:event_textFieldInicioHorarioActionPerformed
 
-    private void textFieldHFinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldHFinActionPerformed
+    private void textFieldFinHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldFinHorarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldHFinActionPerformed
+    }//GEN-LAST:event_textFieldFinHorarioActionPerformed
 
-    private void textFiledPHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFiledPHoraActionPerformed
+    private void textFieldPrecioHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldPrecioHoraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textFiledPHoraActionPerformed
+    }//GEN-LAST:event_textFieldPrecioHoraActionPerformed
 
-    private void textFieldAInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldAInicioActionPerformed
+    private void textFieldInicioAgreEspaciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldInicioAgreEspaciosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldAInicioActionPerformed
+    }//GEN-LAST:event_textFieldInicioAgreEspaciosActionPerformed
 
-    private void textFiledCMultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFiledCMultaActionPerformed
+    private void textFieldCostoMultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldCostoMultaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textFiledCMultaActionPerformed
+    }//GEN-LAST:event_textFieldCostoMultaActionPerformed
 
-    private void textFieldMComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldMComprarActionPerformed
+    private void textFieldTiempoMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldTiempoMinActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldMComprarActionPerformed
+    }//GEN-LAST:event_textFieldTiempoMinActionPerformed
 
-    private void textFiledEFinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFiledEFinActionPerformed
+    private void textFieldFinElimEspaciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldFinElimEspaciosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textFiledEFinActionPerformed
+    }//GEN-LAST:event_textFieldFinElimEspaciosActionPerformed
 
-    private void textFiledEInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFiledEInicioActionPerformed
+    private void textFiledInicioElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFiledInicioElimActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textFiledEInicioActionPerformed
+    }//GEN-LAST:event_textFiledInicioElimActionPerformed
 
-    private void botonCConfiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCConfiActionPerformed
-        System.out.println("Cambiar confi");
-    }//GEN-LAST:event_botonCConfiActionPerformed
+    private void confirmarConfiguracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarConfiguracionActionPerformed
+        String inHorario = textFieldInicioHorario.getText();
+        String fHorario = textFieldFinHorario.getText();
+        String precioHora = textFieldPrecioHora.getText();
+        String tiepMin = textFieldTiempoMin.getText();
+        String costMultas = textFieldCostoMulta.getText();
+        String inicioAgreEsp = textFieldInicioAgreEspacios.getText();
+        String finAgreEsp = textFieldFinAgregEspacios.getText();
+        String iniElimEsp = textFieldFinElimEspacios.getText();
+        String finElimEsp = textFieldFinElimEspacios.getText();
+        
+        int precioXHora,tiempoMinimo,costoMulta,inicioAgregarEspacios,finAgregarEspacios,inicioEliminarEspacios,finEliminarEspacios;
+        LocalTime inicioHorario, finHorario;
+        
+        if(inHorario == ""){
+            inicioHorario = LocalTime.of(0, 0);
+        }
+        
+        else{
+            
+        }
+    }//GEN-LAST:event_confirmarConfiguracionActionPerformed
 
     private void botonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBackActionPerformed
         JFrameAdmin jframeAdmin = new JFrameAdmin();
         jframeAdmin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botonBackActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
 //==================== Main ==================== \\.
     
@@ -399,9 +432,11 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonBack;
-    private javax.swing.JButton botonCConfi;
+    private javax.swing.JButton confirmarConfiguracion;
+    private javax.swing.JPanel inicioElimEspacios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -410,18 +445,18 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelHoraio;
     private javax.swing.JLabel labelPHora;
     private javax.swing.JLabel labelTitulo;
-    private javax.swing.JTextField textFieldAFin;
-    private javax.swing.JTextField textFieldAInicio;
-    private javax.swing.JTextField textFieldHFin;
-    private javax.swing.JTextField textFieldHInicio;
-    private javax.swing.JTextField textFieldMComprar;
-    private javax.swing.JTextField textFiledCMulta;
-    private javax.swing.JTextField textFiledEFin;
-    private javax.swing.JTextField textFiledEInicio;
-    private javax.swing.JTextField textFiledPHora;
+    private javax.swing.JTextField textFieldCostoMulta;
+    private javax.swing.JTextField textFieldFinAgregEspacios;
+    private javax.swing.JTextField textFieldFinElimEspacios;
+    private javax.swing.JTextField textFieldFinHorario;
+    private javax.swing.JTextField textFieldInicioAgreEspacios;
+    private javax.swing.JTextField textFieldInicioHorario;
+    private javax.swing.JTextField textFieldPrecioHora;
+    private javax.swing.JTextField textFieldTiempoMin;
+    private javax.swing.JTextField textFiledInicioElim;
     // End of variables declaration//GEN-END:variables
 }
