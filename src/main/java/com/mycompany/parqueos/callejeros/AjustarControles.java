@@ -92,35 +92,7 @@ public class AjustarControles {
         });
     }
     
-    public Icon BotonImagen(JButton boton, String imagen) {
-    // Cargar la imagen desde los recursos
-    ImageIcon icon = new ImageIcon(getClass().getResource(imagen));
-    
-    // Obtener las dimensiones del botón
-    int ancho = boton.getWidth();
-    int alto = boton.getHeight();
-    
-    // Si el tamaño del botón aún no está definido, usar las dimensiones de la imagen original
-    if (ancho == 0 || alto == 0) {
-        ancho = icon.getIconWidth();
-        alto = icon.getIconHeight();
-    }
 
-    // Escalar la imagen utilizando Image.SCALE_AREA_AVERAGING
-    // Esta opción intenta suavizar el escalado para evitar la pérdida de calidad
-    Image img = icon.getImage().getScaledInstance(ancho, alto, Image.SCALE_AREA_AVERAGING);
-    
-    // Crear el ImageIcon con la imagen escalada
-    ImageIcon icono = new ImageIcon(img);
-    
-    // Eliminar el fondo del botón
-    boton.setOpaque(false);
-    boton.setContentAreaFilled(false); // Hace que el área del contenido no tenga fondo
-    boton.setBorderPainted(false); // Elimina el borde del botón
-    
-    return icono;
-    
-    }
     
     public void cambiarImagenBoton(JButton boton, String rutaImagen) {
         // Cargar la imagen desde los recursos
