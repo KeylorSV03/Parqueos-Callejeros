@@ -2,29 +2,33 @@ package com.mycompany.parqueos.callejeros;
 
 //==================== Import ==================== \\.
 
-import java.awt.Color;
-import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.geom.RoundRectangle2D;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
+import java.awt.*;
 
 //==================== Clase ==================== \\.
 
 public class JFrameAdmin extends javax.swing.JFrame {
 
+    // Contructor: 
     public JFrameAdmin() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        
+        Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
+        setIconImage(icono);
+        
+        AjustarControles controlador = new AjustarControles();
         BotonImagen Boton = new BotonImagen();
         Boton.BotonImagen(botonPerfil, "/Imagenes/Perfil.png");
         Boton.BotonImagen(botonConfi, "/Imagenes/BotonConfi.png");
         Boton.BotonImagen(botonReportes, "/Imagenes/BotonReportes.png");
         Boton.BotonImagen(botonAgregarInspector, "/Imagenes/BotonAInspector.png");
         Boton.BotonImagen(botonCSesion, "/Imagenes/BotonCerrarSesion.png");
+
+        
+
+        
+        this.setLocationRelativeTo(null);
         this.setResizable(false);
     }
     
@@ -93,9 +97,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
             JPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelFondoLayout.createSequentialGroup()
                 .addContainerGap(290, Short.MAX_VALUE)
-                .addGroup(JPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonCSesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonPerfil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(botonCSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(JPanelFondoLayout.createSequentialGroup()
                 .addGap(92, 92, 92)
                 .addGroup(JPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -103,7 +105,15 @@ public class JFrameAdmin extends javax.swing.JFrame {
                     .addComponent(botonReportes, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
                     .addComponent(botonAgregarInspector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
-        );
+
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelFondoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelFondoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)));
+
         JPanelFondoLayout.setVerticalGroup(
             JPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelFondoLayout.createSequentialGroup()
@@ -149,6 +159,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
 
     private void botonCSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCSesionActionPerformed
         System.out.println("Cerrando sesion");
+        ParqueosCallejeros.usuarioActivo = null;
         JFrameInicioSesion jframeInicioSesion = new JFrameInicioSesion();
         jframeInicioSesion.setVisible(true);
         this.setVisible(false);
@@ -156,6 +167,9 @@ public class JFrameAdmin extends javax.swing.JFrame {
 
     private void botonPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPerfilActionPerformed
         System.out.println("Perfil");
+        JFramePerfil jFramePerfil = new JFramePerfil();
+        jFramePerfil.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_botonPerfilActionPerformed
 
 //==================== Main ==================== \\.

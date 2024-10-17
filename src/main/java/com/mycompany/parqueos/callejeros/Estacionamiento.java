@@ -125,7 +125,6 @@ public class Estacionamiento {
     public static Persona verificarUsuario(String idUsuario, String pin,List<Persona> listaUsuarios ){
         
         for(Persona persona:listaUsuarios){
-            System.out.println(persona.getIdUsuario() + "   " + persona.getPIN());
             if(((persona.getIdUsuario()).equals(idUsuario)) && ((persona.getPIN()).equals(pin)) && (persona instanceof Administrador)){
                 return persona;
             }

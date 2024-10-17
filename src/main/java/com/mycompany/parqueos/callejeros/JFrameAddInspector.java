@@ -1,17 +1,28 @@
 package com.mycompany.parqueos.callejeros;
 
+
+//==================== Import ==================== \\.
+
+import javax.swing.*;
+import java.awt.*;
+
 //==================== Clase ==================== \\.
 
 public class JFrameAddInspector extends javax.swing.JFrame {
 
-    
+    // Constructor:
     public JFrameAddInspector() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        
+        // Icono:
+        Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
+        setIconImage(icono);
         
         AjustarControles controlador = new AjustarControles();
         controlador.centrarBoton(botonAddInspector);
         controlador.centrarLabel(labelAddInspector);
+        
+        this.setLocationRelativeTo(null);
         this.setResizable(false);
     }
 

@@ -1,5 +1,10 @@
 package com.mycompany.parqueos.callejeros;
 
+//==================== Import ==================== \\.
+
+import javax.swing.*;
+import java.awt.*;
+
 //==================== Clase ==================== \\.
 
 public class JFrameUsuario extends javax.swing.JFrame {
@@ -9,6 +14,10 @@ public class JFrameUsuario extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         AjustarControles controlador = new AjustarControles();
+        
+        Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
+        setIconImage(icono);
+        
         BotonImagen Boton = new BotonImagen();
         Boton.BotonImagen(botonPerfil, "/Imagenes/Perfil.png");
         Boton.BotonImagen(botonVehiculo, "/Imagenes/BotonVehiculo.png");
@@ -17,7 +26,9 @@ public class JFrameUsuario extends javax.swing.JFrame {
         Boton.BotonImagen(botonDesaparcar, "/Imagenes/BotonDesaparcar.png");
         controlador.cambiarImagenBoton(botonCSesion, "/Imagenes/BotonCerrarSesion.png");
         Boton.BotonImagen(botonMPago, "/Imagenes/BotonMPago.png");
+        
         this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
 //==================== initComponents ==================== \\.
@@ -152,6 +163,9 @@ public class JFrameUsuario extends javax.swing.JFrame {
 
     private void botonPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPerfilActionPerformed
         System.out.println("Perfil");
+        JFramePerfil jFramePerfil = new JFramePerfil();
+        jFramePerfil.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_botonPerfilActionPerformed
 
     private void botonVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVehiculoActionPerformed
@@ -168,7 +182,7 @@ public class JFrameUsuario extends javax.swing.JFrame {
 
     private void botonCSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCSesionActionPerformed
         System.out.println("Cerrando sesion");
-        
+       ParqueosCallejeros.usuarioActivo = null;
         JFrameInicioSesion jframeInicioSesion = new JFrameInicioSesion();
         jframeInicioSesion.setVisible(true);
         this.setVisible(false);

@@ -8,13 +8,21 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.*;
+import java.awt.*;
 
 //==================== Clase ==================== \\.
 
 public class JFrameRegistrarse extends javax.swing.JFrame {
 
+    // Constructor:
     public JFrameRegistrarse() {
         initComponents();
+        
+        // Icono:
+        Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
+        setIconImage(icono);
+        
         AjustarControles controlador = new AjustarControles();
         controlador.centrarBoton(BotonRegistrarse);
         controlador.limitarCaracteres(TextFieldNombre, 20);
@@ -24,6 +32,8 @@ public class JFrameRegistrarse extends javax.swing.JFrame {
         controlador.limitarCaracteres(TextFieldDireccionFisica, 60);
         controlador.limitarCaracteres(TextFieldUsuario, 25);
         controlador.limitarCaracteres(PasswordFieldPIN, 4);
+        controlador.cambiarImagenBoton(botonBack, "/Imagenes/back.png");
+        
         this.setLocationRelativeTo(null);
         this.setResizable(false);
     }
@@ -52,6 +62,7 @@ public class JFrameRegistrarse extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         TextFieldUsuario = new javax.swing.JTextField();
         BotonRegistrarse = new javax.swing.JButton();
+        botonBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,6 +112,12 @@ public class JFrameRegistrarse extends javax.swing.JFrame {
             }
         });
 
+        botonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -129,15 +146,19 @@ public class JFrameRegistrarse extends javax.swing.JFrame {
                             .addComponent(TextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(212, 212, 212)
+                        .addComponent(botonBack)
+                        .addGap(178, 178, 178)
                         .addComponent(LabelRegistro)))
                 .addContainerGap(112, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(LabelRegistro)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(LabelRegistro))
+                    .addComponent(botonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
@@ -226,6 +247,12 @@ public class JFrameRegistrarse extends javax.swing.JFrame {
        
     }//GEN-LAST:event_BotonRegistrarseActionPerformed
 
+    private void botonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBackActionPerformed
+        JFrameInicioSesion jframeInicioSesion = new JFrameInicioSesion();
+        jframeInicioSesion.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_botonBackActionPerformed
+
 //==================== Main ==================== \\.   
     
     public static void main(String args[]) {
@@ -272,6 +299,7 @@ public class JFrameRegistrarse extends javax.swing.JFrame {
     private javax.swing.JTextField TextFieldNombre;
     private javax.swing.JTextField TextFieldTelefono;
     private javax.swing.JTextField TextFieldUsuario;
+    private javax.swing.JButton botonBack;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
