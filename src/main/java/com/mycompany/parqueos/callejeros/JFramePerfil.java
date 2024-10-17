@@ -14,6 +14,9 @@ public class JFramePerfil extends javax.swing.JFrame {
 
     private static AjustarControles controlador = new AjustarControles();
     
+    private static Persona usuarioActivo = ParqueosCallejeros.usuarioActivo;
+    
+    private static Estacionamiento estacionamiento = ParqueosCallejeros.estacionamiento;
     // Constructor
     public JFramePerfil() {
         initComponents();
@@ -21,7 +24,8 @@ public class JFramePerfil extends javax.swing.JFrame {
         // Icono:
         Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
         setIconImage(icono);
-        
+        usuarioActivo = ParqueosCallejeros.usuarioActivo;
+        System.out.println(usuarioActivo.getIdUsuario());
         controlador.cambiarImagenBoton(botonback, "/Imagenes/back.png");
         controlador.cambiarImagenBoton(botonNombre, "/Imagenes/edit.png");
         controlador.cambiarImagenBoton(botonApellidos, "/Imagenes/edit.png");
@@ -31,6 +35,18 @@ public class JFramePerfil extends javax.swing.JFrame {
         controlador.cambiarImagenBoton(botonTelefono, "/Imagenes/edit.png");
         controlador.cambiarImagenBoton(botonDirec, "/Imagenes/edit.png");
         
+        
+        
+        if(usuarioActivo != null){
+            
+            jlabelNombre.setText(usuarioActivo.getNombre());
+            jLabelApellido.setText(usuarioActivo.getApellido());
+            jLabelUsuario.setText(usuarioActivo.getIdUsuario());
+            jLabelCorreo.setText(usuarioActivo.getCorreo());
+            jLabelTelefono.setText(Integer.toString(usuarioActivo.getTelefono()));
+            jLabelDireccion.setText(usuarioActivo.getDireccionFisica());
+            
+        }
         
         this.setResizable(false);
         this.setLocationRelativeTo(null);
@@ -49,17 +65,17 @@ public class JFramePerfil extends javax.swing.JFrame {
         botonback = new javax.swing.JButton();
         jlabelNombre = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelApellido = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabelUsuario = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        jLabelCorreo = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        jLabelTelefono = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        jLabelDireccion = new javax.swing.JLabel();
         botonNombre = new javax.swing.JButton();
         botonApellidos = new javax.swing.JButton();
         botonUser = new javax.swing.JButton();
@@ -91,14 +107,14 @@ public class JFramePerfil extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel3.setText("Apellidos");
 
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel4.setText("APELLIDO");
+        jLabelApellido.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabelApellido.setText("APELLIDO");
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel5.setText("Id Usuario");
 
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel6.setText("USER");
+        jLabelUsuario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabelUsuario.setText("USER");
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel7.setText("PIN");
@@ -109,20 +125,20 @@ public class JFramePerfil extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel9.setText("Correo");
 
-        jLabel10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel10.setText("CORREO");
+        jLabelCorreo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabelCorreo.setText("CORREO");
 
         jLabel11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel11.setText("Telefono");
 
-        jLabel12.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel12.setText("TELEFONO");
+        jLabelTelefono.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabelTelefono.setText("TELEFONO");
 
         jLabel13.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel13.setText("DireccionFisica");
 
-        jLabel14.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel14.setText("DIREC");
+        jLabelDireccion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabelDireccion.setText("DIREC");
 
         botonNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,9 +201,9 @@ public class JFramePerfil extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                            .addComponent(jLabelApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jlabelNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -197,12 +213,12 @@ public class JFramePerfil extends javax.swing.JFrame {
                             .addComponent(botonPIN, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 3, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabelDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(botonCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -233,13 +249,13 @@ public class JFramePerfil extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3)
-                        .addComponent(jLabel4))
+                        .addComponent(jLabelApellido))
                     .addComponent(botonApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel5)
-                        .addComponent(jLabel6))
+                        .addComponent(jLabelUsuario))
                     .addComponent(botonUser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -251,19 +267,19 @@ public class JFramePerfil extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
-                        .addComponent(jLabel10))
+                        .addComponent(jLabelCorreo))
                     .addComponent(botonCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel11)
-                        .addComponent(jLabel12))
+                        .addComponent(jLabelTelefono))
                     .addComponent(botonTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel13)
-                        .addComponent(jLabel14))
+                        .addComponent(jLabelDireccion))
                     .addComponent(botonDirec, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(96, 96, 96))
         );
@@ -289,60 +305,167 @@ public class JFramePerfil extends javax.swing.JFrame {
         if(ParqueosCallejeros.usuarioActivo instanceof Administrador){
             JFrameAdmin jframeAdmin = new JFrameAdmin();
             jframeAdmin.setVisible(true);
-            this.setVisible(false);
+            this.dispose();
         }
         
         if(ParqueosCallejeros.usuarioActivo instanceof Usuario){
             JFrameUsuario jFrameUsuario = new JFrameUsuario();
             jFrameUsuario.setVisible(true);
-            this.setVisible(false);
+            this.dispose();
         }
         
         if(ParqueosCallejeros.usuarioActivo instanceof Inspector){
             JFrameInspector jFrameInspector = new JFrameInspector();
             jFrameInspector.setVisible(true);
-            this.setVisible(false);
+            this.dispose();
         }
     }//GEN-LAST:event_botonbackActionPerformed
 
     private void botonNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNombreActionPerformed
         String nuevoNombre = controlador.cambiarDato("Introduzca el nuevo nombre");
-        System.out.println(nuevoNombre);
+        
+        if(nuevoNombre == null){
+           
+        }
+        else if(2 < nuevoNombre.length() && nuevoNombre.length() < 20 ){
+            usuarioActivo.setNombre(nuevoNombre);
+            this.dispose();
+            JFramePerfil jFramePerfil = new JFramePerfil();
+            jFramePerfil.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "El nombre solo puede tener de 2 a 20 caracteres", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+        }
+        
+        
+        
     }//GEN-LAST:event_botonNombreActionPerformed
 
     private void botonApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonApellidosActionPerformed
         String nuevoApellido = controlador.cambiarDato("Introduzca los nuevos apellidos");
-        System.out.println(nuevoApellido);
+        
+        if(nuevoApellido == null){
+           
+        }
+        else if(1 < nuevoApellido.length() && nuevoApellido.length() < 40 ){
+            usuarioActivo.setApellido(nuevoApellido);
+            this.dispose();
+            JFramePerfil jFramePerfil = new JFramePerfil();
+            jFramePerfil.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Los apellidos solo puede tener de 1 a 40 caracteres", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+        }
+        
     }//GEN-LAST:event_botonApellidosActionPerformed
 
     private void botonUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonUserActionPerformed
         String nuevoUser = controlador.cambiarDato("Introduzca el nuevo Usuario");
-        System.out.println(nuevoUser);
+        
+        if(nuevoUser == null){
+           
+        }
+        
+        else if(estacionamiento.buscarUsuarioXid(nuevoUser)){
+             JOptionPane.showMessageDialog(this, "El id de usuario no esta disponible", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+        }
+        else if((2 < nuevoUser.length()) && (nuevoUser.length() < 25) ){
+            usuarioActivo.setIdUsuario(nuevoUser);
+            this.dispose();
+            JFramePerfil jFramePerfil = new JFramePerfil();
+            jFramePerfil.setVisible(true);
+        }
+        
+        
+        else{
+            JOptionPane.showMessageDialog(this, "El id de usuario solo puede tener de 2 a 25 caracteres", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+        }
+        
     }//GEN-LAST:event_botonUserActionPerformed
 
     private void botonPINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPINActionPerformed
         String actualPIN = controlador.cambiarDato("Introduzca su PIN actual");
-        if (actualPIN.equals("")){
+        
+        if(actualPIN == null){
+           
+        }
+        else if (!actualPIN.equals(usuarioActivo.getPIN())){
             JOptionPane.showMessageDialog(this, "NO ES SU PIN", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
              System.out.println(actualPIN);
         }
-        String nuevoPIN = controlador.cambiarDato("Nuevo PIN");
-        System.out.println(nuevoPIN);
+        
+        else{
+            
+            String nuevoPIN = controlador.cambiarDato("Nuevo PIN");
+        
+            if(nuevoPIN == null){
+
+            }
+            
+            else if(nuevoPIN.length() == 4){
+                usuarioActivo.setPIN(nuevoPIN);
+                this.dispose();
+                JFramePerfil jFramePerfil = new JFramePerfil();
+                jFramePerfil.setVisible(true);
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "El PIN debe tener 4 caracteres", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+        
     }//GEN-LAST:event_botonPINActionPerformed
 
     private void botonCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCorreoActionPerformed
         String nuevoCorreo = controlador.cambiarDato("Introduzca el nuevo correo");
         System.out.println(nuevoCorreo);
+        
+        if(nuevoCorreo == null){
+           
+        }
+        
+        else if(estacionamiento.buscarCorreo(nuevoCorreo)){
+             JOptionPane.showMessageDialog(this, "El correo esta asociado a otra cuenta", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+        }
+        
+        else if( estacionamiento.validarCorreo(nuevoCorreo) ){
+            usuarioActivo.setCorreo(nuevoCorreo);
+            this.dispose();
+            JFramePerfil jFramePerfil = new JFramePerfil();
+            jFramePerfil.setVisible(true);
+        }
+        
+        else{
+            JOptionPane.showMessageDialog(this, "Correo Invalido", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+        }
+        
     }//GEN-LAST:event_botonCorreoActionPerformed
 
     private void botonTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTelefonoActionPerformed
         String nuevoTelefono = controlador.cambiarDato("Introduzca el nuevo telefono");
+        int nuevoTelefonoInt = 0;
         try {
-            int nuevoTelefonoInt = Integer.parseInt(nuevoTelefono);
+            nuevoTelefonoInt = Integer.parseInt(nuevoTelefono);
             System.out.println(nuevoTelefonoInt);
         } catch (NumberFormatException e){
             JOptionPane.showMessageDialog(this, "Parece que hubo un error con el telefono", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
         }
+
+        if( nuevoTelefonoInt ==0 || nuevoTelefonoInt < 10000000 || nuevoTelefonoInt > 99999999){
+            JOptionPane.showMessageDialog(this, "Telefono invalido", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+        }
+        
+        else if(estacionamiento.buscarTelefono(nuevoTelefonoInt)){
+             JOptionPane.showMessageDialog(this, "El telefono esta asociado a otra cuenta", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+        }
+        
+        else{
+            usuarioActivo.setTelefono(nuevoTelefonoInt);
+            this.dispose();
+            JFramePerfil jFramePerfil = new JFramePerfil();
+            jFramePerfil.setVisible(true);
+        }
+        
+        
     }//GEN-LAST:event_botonTelefonoActionPerformed
 
     private void botonDirecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDirecActionPerformed
@@ -396,19 +519,19 @@ public class JFramePerfil extends javax.swing.JFrame {
     private javax.swing.JButton botonUser;
     private javax.swing.JButton botonback;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelApellido;
+    private javax.swing.JLabel jLabelCorreo;
+    private javax.swing.JLabel jLabelDireccion;
+    private javax.swing.JLabel jLabelTelefono;
+    private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JLabel jlabelNombre;

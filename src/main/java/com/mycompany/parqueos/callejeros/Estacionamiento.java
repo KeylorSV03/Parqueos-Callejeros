@@ -204,11 +204,39 @@ public class Estacionamiento {
             }
         }
         
-        Persona usuario = new Persona(nombre,apellidos,telefono,correo,direccionFisica,idUsuario,PIN);
+        Usuario usuario = new Usuario(nombre,apellidos,telefono,correo,direccionFisica,idUsuario,PIN);
         listaUsuarios.add(usuario);
         JOptionPane.showMessageDialog(jframe, "Usuario registrado ");
         return true;
         
+    }
+    
+    public boolean buscarUsuarioXid(String usuario){
+        for(Persona persona : this.getListaUsuarios()){
+            if(persona.getIdUsuario().equals(usuario)){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean buscarCorreo(String correo){
+        
+        for(Persona persona : this.getListaUsuarios()){
+            if(persona.getCorreo().equals(correo)){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean buscarTelefono(int telefono){
+        for(Persona persona : this.getListaUsuarios()){
+            if(persona.getTelefono() == telefono){
+                return true;
+            }
+        }
+        return false;
     }
     
 }

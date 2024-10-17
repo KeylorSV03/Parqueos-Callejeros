@@ -133,6 +133,7 @@ public class AjustarControles {
     }
    
     public String cambiarDato (String mensaje){
+        
         String input = JOptionPane.showInputDialog(mensaje);
         if (input == null){
             return "";

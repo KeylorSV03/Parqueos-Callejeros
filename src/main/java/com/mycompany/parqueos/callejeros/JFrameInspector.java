@@ -143,7 +143,7 @@ public class JFrameInspector extends javax.swing.JFrame {
         ParqueosCallejeros.usuarioActivo = null;
         JFrameInicioSesion jframeInicioSesion = new JFrameInicioSesion();
         jframeInicioSesion.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_botonCSesionActionPerformed
 
 //==================== Main ==================== \\.

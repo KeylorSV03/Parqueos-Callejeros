@@ -102,6 +102,11 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButton1.setText("Olvide el PIN");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -174,7 +179,7 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_botonRegistrarseActionPerformed
 
     private void botonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIniciarSesionActionPerformed
-         String usuario = textFieldUsuario.getText();
+        String usuario = textFieldUsuario.getText();
         String pin = passwordFieldPIN.getText();
         List<Persona> listaUsuarios = ParqueosCallejeros.estacionamiento.getListaUsuarios();
         Persona p = Estacionamiento.verificarUsuario(usuario,pin,listaUsuarios);
@@ -183,7 +188,7 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
             ParqueosCallejeros.usuarioActivo = p;
             JFrameAdmin jframeAdmin = new JFrameAdmin();
             jframeAdmin.setVisible(true);
-            this.setVisible(false);
+            this.dispose();
         }
         
         else if(p != null && (p instanceof Usuario)){
@@ -191,7 +196,7 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
             ParqueosCallejeros.usuarioActivo = p;
             JFrameUsuario jframeUsuario = new JFrameUsuario();
             jframeUsuario.setVisible(true);
-            this.setVisible(false);
+            this.dispose();
         }
         
         else if(p != null && (p instanceof Inspector)){
@@ -199,13 +204,17 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
             ParqueosCallejeros.usuarioActivo = p;
             JFrameInspector jframeInspector = new JFrameInspector();
             jframeInspector.setVisible(true);
-            this.setVisible(false);
+            this.dispose();
         }
         
         else{
             JOptionPane.showMessageDialog(this, "El usuario que ingreso no se encuentra registrado", "Usuario no encontrado", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_botonIniciarSesionActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

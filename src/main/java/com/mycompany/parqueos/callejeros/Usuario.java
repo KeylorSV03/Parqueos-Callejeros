@@ -9,7 +9,7 @@ public class Usuario extends Persona{
     private List<Espacio> historialEspacios;
     private List<Vehiculo> listaVehiculos;
 
-    //==================== Metodo ====================
+    //==================== Metodos ====================
     
     public Usuario(String nombre, String apellido, int telefono, String correo, String direccionFisica, String idUsuario,String PIN){
         
@@ -17,6 +17,10 @@ public class Usuario extends Persona{
         this.listaVehiculos = new ArrayList();
         this.historialEspacios = new ArrayList();
         this.numeroTarjeta = 0;
+    }
+    
+    public void aparcar(Vehiculo vehiculo){
+        
     }
 
 }
