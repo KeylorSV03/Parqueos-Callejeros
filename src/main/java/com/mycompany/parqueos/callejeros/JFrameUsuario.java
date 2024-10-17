@@ -165,7 +165,7 @@ public class JFrameUsuario extends javax.swing.JFrame {
         System.out.println("Perfil");
         JFramePerfil jFramePerfil = new JFramePerfil();
         jFramePerfil.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_botonPerfilActionPerformed
 
     private void botonVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVehiculoActionPerformed
@@ -181,11 +181,12 @@ public class JFrameUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_botonMPagoActionPerformed
 
     private void botonCSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCSesionActionPerformed
-        System.out.println("Cerrando sesion");
         
+        ParqueosCallejeros.usuarioActivo = null;
         JFrameInicioSesion jframeInicioSesion = new JFrameInicioSesion();
         jframeInicioSesion.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
+        
     }//GEN-LAST:event_botonCSesionActionPerformed
 
 //==================== Main ==================== \\.

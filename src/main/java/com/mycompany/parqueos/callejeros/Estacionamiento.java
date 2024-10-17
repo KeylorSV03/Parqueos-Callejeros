@@ -125,7 +125,6 @@ public class Estacionamiento {
     public static Persona verificarUsuario(String idUsuario, String pin,List<Persona> listaUsuarios ){
         
         for(Persona persona:listaUsuarios){
-            System.out.println(persona.getIdUsuario() + "   " + persona.getPIN());
             if(((persona.getIdUsuario()).equals(idUsuario)) && ((persona.getPIN()).equals(pin)) && (persona instanceof Administrador)){
                 return persona;
             }
@@ -210,6 +209,34 @@ public class Estacionamiento {
         JOptionPane.showMessageDialog(jframe, "Usuario registrado ");
         return true;
         
+    }
+    
+    public boolean buscarUsuarioXid(String usuario){
+        for(Persona persona : this.getListaUsuarios()){
+            if(persona.getIdUsuario().equals(usuario)){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean buscarCorreo(String correo){
+        
+        for(Persona persona : this.getListaUsuarios()){
+            if(persona.getCorreo().equals(correo)){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean buscarTelefono(int telefono){
+        for(Persona persona : this.getListaUsuarios()){
+            if(persona.getTelefono() == telefono){
+                return true;
+            }
+        }
+        return false;
     }
     
 }
