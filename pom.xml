@@ -18,4 +18,13 @@
         <maven.compiler.target>22</maven.compiler.target>
         <exec.mainClass>com.mycompany.parqueos.callejeros.ParqueosCallejeros</exec.mainClass>
     </properties>
+    <dependencies>
+        
+        <dependency>
+            <groupId>org.simplejavamail</groupId>
+            <artifactId>simple-java-mail</artifactId>
+            <version>7.5.0</version>
+        </dependency>
+        
+    </dependencies>
 </project>

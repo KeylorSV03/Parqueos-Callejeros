@@ -17,6 +17,7 @@ public class JFramePerfil extends javax.swing.JFrame {
     private static Persona usuarioActivo = ParqueosCallejeros.usuarioActivo;
     
     private static Estacionamiento estacionamiento = ParqueosCallejeros.estacionamiento;
+    
     // Constructor
     public JFramePerfil() {
         initComponents();
@@ -301,6 +302,13 @@ public class JFramePerfil extends javax.swing.JFrame {
 //==================== Funcion de control ==================== \\.
     
     private void botonbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonbackActionPerformed
+        
+        int opcion = JOptionPane.showConfirmDialog(this, "¿Quiere enviar correo de los cambios?", "Aviso", JOptionPane.OK_CANCEL_OPTION);
+        if (opcion == JOptionPane.OK_OPTION) {
+            
+        } 
+        else if (opcion == JOptionPane.CANCEL_OPTION) {
+        }
         
         if(ParqueosCallejeros.usuarioActivo instanceof Administrador){
             JFrameAdmin jframeAdmin = new JFrameAdmin();
