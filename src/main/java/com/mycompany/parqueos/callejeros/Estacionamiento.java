@@ -3,6 +3,7 @@ package com.mycompany.parqueos.callejeros;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -22,7 +23,7 @@ public class Estacionamiento {
     private List<Multa> historialMultas;
     private List<Espacio> historialEspacios;
     private static List<Persona> listaUsuarios;
-    private LocalTime[] horario = new LocalTime[2]; 
+    private LocalTime[] horario;
     
     //==================== Metodos ====================
     
@@ -33,6 +34,7 @@ public class Estacionamiento {
         this.listaEspacios = new ArrayList();
         this.historialEspacios = new ArrayList();
         this.historialMultas = new ArrayList();
+        horario = new LocalTime[2];
     }
     
     // ------------------- Setters -------------------
@@ -238,6 +240,42 @@ public class Estacionamiento {
             }
         }
         return false;
+    }
+    
+    public  void agregarEspacio(int numeroEspacio){
+        boolean existeEspacio = false;
+        
+        for(Espacio espacio : listaEspacios){ //Validar si el espacio existe o no
+            if(espacio.getNumeroEspacio() == numeroEspacio){
+                existeEspacio = true;
+                break;
+            }
+        }
+                
+        if(!existeEspacio){ //si es pacio no existe se agrega
+            Espacio espacio = new Espacio(numeroEspacio);
+            listaEspacios.add(espacio);
+            
+                    
+        }
+        
+        listaEspacios.sort(Comparator.comparingInt(Espacio::getNumeroEspacio)); 
+        
+        
+                
+    }
+    
+    public void eliminarEspacio(int numeroEspacio){
+        
+        for(Espacio espacio : listaEspacios){ //Validar si el espacio existe o no
+            if(espacio.getNumeroEspacio() == numeroEspacio){
+                listaEspacios.remove(espacio);
+                break;
+            }
+        }
+               
+        
+        listaEspacios.sort(Comparator.comparingInt(Espacio::getNumeroEspacio));
     }
     
 }

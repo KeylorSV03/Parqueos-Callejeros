@@ -1,4 +1,5 @@
 package com.mycompany.parqueos.callejeros;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -8,14 +9,28 @@ public class Espacio {
     
     //==================== Atributos ====================
 
-    private String numeroEspacio;
+    private int numeroEspacio;
     private boolean  ocupado;
     private Vehiculo vehiculo;
-    private List<Vehiculo> historialVehiculos;
+    private List<Vehiculo> historialVehiculos ;
     
+    //==================== Metodos ====================
+    
+    // ------------------- Constructor -------------------
+    
+    public Espacio(){
+        
+    }
+    
+    public Espacio(int numeroEspacio){
+        this();numeroEspacio = numeroEspacio;
+        this.historialVehiculos = new ArrayList();
+        ocupado = false;
+        
+    }
     // ------------------- Setters -------------------
     
-    public void setNumeroEspacio(String numeroEspacio) {
+    public void setNumeroEspacio(int numeroEspacio) {
     this.numeroEspacio = numeroEspacio;
 }
 
@@ -31,9 +46,9 @@ public class Espacio {
         this.historialVehiculos = historialVehiculos;
     }
 
-    // ------------------- Setters -------------------
+    // ------------------- Getters -------------------
     
-    public String getNumeroEspacio() {
+    public int getNumeroEspacio() {
         return numeroEspacio;
     }
 
@@ -48,6 +63,8 @@ public class Espacio {
     public List<Vehiculo> getHistorialVehiculos() {
         return historialVehiculos;
     }
+    
+    
     
     
 }

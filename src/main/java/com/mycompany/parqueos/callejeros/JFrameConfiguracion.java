@@ -381,7 +381,7 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
         String iniElimEsp = textFieldFinElimEspacios.getText();
         String finElimEsp = textFieldFinElimEspacios.getText();
         
-        admin.configuracion(nom, inHorario, fHorario, precioHora, tiepMin, costMultas, finAgreEsp, finAgreEsp, finElimEsp, finElimEsp, this);
+        admin.configuracion(nom, inHorario, fHorario, precioHora, tiepMin, costMultas, inicioAgreEsp, finAgreEsp, iniElimEsp, finElimEsp, this);
         
         
     }//GEN-LAST:event_confirmarConfiguracionActionPerformed
