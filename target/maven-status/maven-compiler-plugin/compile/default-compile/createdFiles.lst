@@ -10,8 +10,6 @@ com\mycompany\parqueos\callejeros\JFrameAddInspector$4.class
 com\mycompany\parqueos\callejeros\JFrameUsuario.class
 com\mycompany\parqueos\callejeros\JFrameUsuario$5.class
 com\mycompany\parqueos\callejeros\JPanelImage.class
-com\mycompany\parqueos\callejeros\JFrameConfi$5.class
-com\mycompany\parqueos\callejeros\JFrameConfi$8.class
 com\mycompany\parqueos\callejeros\JFramePerfil$1.class
 com\mycompany\parqueos\callejeros\JFrameAddInspector$1.class
 com\mycompany\parqueos\callejeros\JFrameUsuario$2.class
@@ -28,8 +26,8 @@ com\mycompany\parqueos\callejeros\JFrameConfiguracion$4.class
 com\mycompany\parqueos\callejeros\JFrameAdmin$3.class
 com\mycompany\parqueos\callejeros\JFrameUsuario$6.class
 com\mycompany\parqueos\callejeros\JFrameVehiculos$4.class
-com\mycompany\parqueos\callejeros\JFrameConfi$4.class
 com\mycompany\parqueos\callejeros\JFrameRegistrarse$4.class
+com\mycompany\parqueos\callejeros\Administrador$1.class
 com\mycompany\parqueos\callejeros\JFrameAddInspector$2.class
 com\mycompany\parqueos\callejeros\JFrameRegistrarse$3.class
 com\mycompany\parqueos\callejeros\Multa.class

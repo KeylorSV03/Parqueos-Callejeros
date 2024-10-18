@@ -13,6 +13,7 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
 
     private static Persona usuarioActivo = ParqueosCallejeros.usuarioActivo;
     
+    
     private static Administrador admin = (Administrador) usuarioActivo;
     
     // Constructor:
@@ -239,8 +240,7 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
                             .addComponent(textFieldFinElimEspacios, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
                         .addGap(44, 44, 44))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inicioElimEspaciosLayout.createSequentialGroup()
-                        .addComponent(botonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                        .addGap(0, 81, Short.MAX_VALUE)
                         .addComponent(labelTitulo)
                         .addGap(116, 116, 116))
                     .addGroup(inicioElimEspaciosLayout.createSequentialGroup()
@@ -258,17 +258,16 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
                             .addComponent(labelHoraio)
                             .addComponent(jLabel11))
                         .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(inicioElimEspaciosLayout.createSequentialGroup()
+                .addComponent(botonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         inicioElimEspaciosLayout.setVerticalGroup(
             inicioElimEspaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inicioElimEspaciosLayout.createSequentialGroup()
-                .addGroup(inicioElimEspaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(inicioElimEspaciosLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(inicioElimEspaciosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(botonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(botonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -381,8 +380,14 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
         String iniElimEsp = textFieldFinElimEspacios.getText();
         String finElimEsp = textFieldFinElimEspacios.getText();
         
-        admin.configuracion(nom, inHorario, fHorario, precioHora, tiepMin, costMultas, inicioAgreEsp, finAgreEsp, iniElimEsp, finElimEsp, this);
-        
+        boolean estado = admin.configuracion(nom, inHorario, fHorario, precioHora, tiepMin, costMultas, inicioAgreEsp, finAgreEsp, iniElimEsp, finElimEsp, this);
+        if (estado){
+            int opcion = JOptionPane.showConfirmDialog(this, "¿Quiere enviar correo de los cambios?", "Aviso", JOptionPane.OK_CANCEL_OPTION);
+            if (opcion == JOptionPane.OK_OPTION) {
+                admin.enviarCorreoConfi(inicioAgreEsp, finAgreEsp, iniElimEsp, finElimEsp);
+            } 
+            JOptionPane.showMessageDialog(null, "Se agregó al configuración", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+        }
         
     }//GEN-LAST:event_confirmarConfiguracionActionPerformed
 
