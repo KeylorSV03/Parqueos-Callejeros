@@ -125,9 +125,19 @@ public class Estacionamiento {
         return matcher.matches();
     }
     
-    public static Persona verificarUsuario(String idUsuario, String pin,List<Persona> listaUsuarios ){
+    public static Persona verificarUsuario(String idUsuario, String pin,List<Persona> listaUsuarios, JFrame jframe){
         
         for(Persona persona:listaUsuarios){
+            if(persona.getIdUsuario().equals(idUsuario)){
+                
+                if(persona.getPIN().equals(pin)){
+                    return persona;
+                }
+                else{
+                    JOptionPane.showMessageDialog(jframe, "Contraseña incorrecta", "Usuario no encontrado", JOptionPane.WARNING_MESSAGE);
+                    return null;
+                }
+            }
             if(((persona.getIdUsuario()).equals(idUsuario)) && ((persona.getPIN()).equals(pin)) && (persona instanceof Administrador)){
                 return persona;
             }
@@ -141,6 +151,7 @@ public class Estacionamiento {
             }
         }
         
+        JOptionPane.showMessageDialog(jframe, "El usuario '" + idUsuario + "' no se encuentra registrado", "Usuario no encontrado", JOptionPane.WARNING_MESSAGE);
         return null; //Si no encuentra el usuario
     }
     

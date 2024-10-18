@@ -230,9 +230,9 @@ public class JFrameAddInspector extends javax.swing.JFrame {
         boolean x = Estacionamiento.registrarUsuario(nombre, apellidos, telefono, correo, direccionFisica, idUsuario, 
                 PIN, listaUsuarios, this,"I");
         if(x){
-           JFrameInicioSesion JFrameIniciarSesion = new JFrameInicioSesion();
-            JFrameIniciarSesion.setVisible(true);
-            this.setVisible(false); 
+           JFrameAdmin jframeAdmin = new JFrameAdmin();
+            jframeAdmin.setVisible(true);
+            this.dispose(); 
         }
         
     }//GEN-LAST:event_botonAddInspectorActionPerformed

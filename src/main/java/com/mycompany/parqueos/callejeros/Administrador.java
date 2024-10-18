@@ -19,6 +19,7 @@ import javax.mail.internet.MimeMessage;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+
 public class Administrador extends Persona {
     
     //==================== Atributos ====================
@@ -262,6 +263,7 @@ public class Administrador extends Persona {
     
     public void enviarCorreoConfi(String inicioA, String finA, String inicioE, String finE){
         if (this.correo == null || this.correo.equals("")) {
+
             JOptionPane.showMessageDialog(null, "No se pudo enviar el correo porque la dirección de correo está vacía.", "Error de Envío", JOptionPane.ERROR_MESSAGE);
             return; 
         }
@@ -272,6 +274,7 @@ public class Administrador extends Persona {
         String mensaje = String.format("Nombre: %s \nHorario de regulación: %s a %s  \nPrecio por hora: %s \nTiempo minimo que se puede comprar: %s \nCosto de las multas: %s \nSe agregó: %s a %s \nSe eliminó: %s a %s",
                 estacionamiento.getNombre(), estacionamiento.getHorario()[0], estacionamiento.getHorario()[1], estacionamiento.getPrecioXHora(), estacionamiento.getTiempoMinimo(), estacionamiento.getCostoMulta(), inicioA, finA, inicioE, finE);
         
+  
         Properties propiedades = new Properties();
         propiedades.put("mail.smtp.auth", "true");
         propiedades.put("mail.smtp.starttls.enable", "true");

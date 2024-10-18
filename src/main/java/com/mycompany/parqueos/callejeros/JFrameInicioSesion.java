@@ -182,7 +182,7 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
         String usuario = textFieldUsuario.getText();
         String pin = passwordFieldPIN.getText();
         List<Persona> listaUsuarios = ParqueosCallejeros.estacionamiento.getListaUsuarios();
-        Persona p = Estacionamiento.verificarUsuario(usuario,pin,listaUsuarios);
+        Persona p = Estacionamiento.verificarUsuario(usuario,pin,listaUsuarios, this);
         if(p != null && (p instanceof Administrador)){
             
             ParqueosCallejeros.usuarioActivo = p;
@@ -207,9 +207,7 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
             this.dispose();
         }
         
-        else{
-            JOptionPane.showMessageDialog(this, "El usuario que ingreso no se encuentra registrado", "Usuario no encontrado", JOptionPane.WARNING_MESSAGE);
-        }
+        
     }//GEN-LAST:event_botonIniciarSesionActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
