@@ -2,6 +2,7 @@ package com.mycompany.parqueos.callejeros;
 
 //==================== Import ==================== \\.
 
+import com.mycompany.parqueos.callejeros.Administrador;
 import javax.swing.*;
 import java.awt.*;
 import java.time.LocalTime;
@@ -10,9 +11,14 @@ import java.time.LocalTime;
 
 public class JFrameConfiguracion extends javax.swing.JFrame {
 
+    private static Persona usuarioActivo = ParqueosCallejeros.usuarioActivo;
+    
+    private static Administrador admin = (Administrador) usuarioActivo;
+    
     // Constructor:
     public JFrameConfiguracion() {
         initComponents();
+        
         
         // Icono:
         Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
@@ -22,6 +28,9 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
         controlador.centrarBoton(confirmarConfiguracion);
         controlador.centrarLabel(labelTitulo);
         controlador.cambiarImagenBoton(botonBack, "/Imagenes/back.png");
+        controlador.soloNumeros(textFieldPrecioHora);
+        controlador.soloNumeros(textFieldTiempoMin);
+        controlador.soloNumeros(textFieldCostoMulta);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
     }
@@ -59,7 +68,7 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
         confirmarConfiguracion = new javax.swing.JButton();
         botonBack = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldNombre = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -179,10 +188,10 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel11.setText("Nombre");
 
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextFieldNombreActionPerformed(evt);
             }
         });
 
@@ -242,7 +251,7 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
                     .addGroup(inicioElimEspaciosLayout.createSequentialGroup()
                         .addGroup(inicioElimEspaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelPHora)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
                             .addComponent(jLabel8)
                             .addComponent(jLabel5)
@@ -263,7 +272,7 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(labelHoraio, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -361,6 +370,7 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
     }//GEN-LAST:event_textFiledInicioElimActionPerformed
 
     private void confirmarConfiguracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarConfiguracionActionPerformed
+        String nom = jTextFieldNombre.getText();
         String inHorario = textFieldInicioHorario.getText();
         String fHorario = textFieldFinHorario.getText();
         String precioHora = textFieldPrecioHora.getText();
@@ -371,16 +381,9 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
         String iniElimEsp = textFieldFinElimEspacios.getText();
         String finElimEsp = textFieldFinElimEspacios.getText();
         
-        int precioXHora,tiempoMinimo,costoMulta,inicioAgregarEspacios,finAgregarEspacios,inicioEliminarEspacios,finEliminarEspacios;
-        LocalTime inicioHorario, finHorario;
+        admin.configuracion(nom, inHorario, fHorario, precioHora, tiepMin, costMultas, finAgreEsp, finAgreEsp, finElimEsp, finElimEsp, this);
         
-        if(inHorario == ""){
-            inicioHorario = LocalTime.of(0, 0);
-        }
         
-        else{
-            
-        }
     }//GEN-LAST:event_confirmarConfiguracionActionPerformed
 
     private void botonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBackActionPerformed
@@ -389,9 +392,9 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_botonBackActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
 //==================== Main ==================== \\.
     
@@ -445,7 +448,7 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JLabel labelHoraio;
     private javax.swing.JLabel labelPHora;
     private javax.swing.JLabel labelTitulo;

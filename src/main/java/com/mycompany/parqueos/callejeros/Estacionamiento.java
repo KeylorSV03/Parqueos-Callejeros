@@ -14,11 +14,11 @@ public class Estacionamiento {
     //==================== Atributos ====================
 
     private String nombre;
-    private int precioXHora;
-    private int tiempoMinimo;
-    private int costoMulta;
+    private int precioXHora = 0;
+    private int tiempoMinimo = 0;
+    private int costoMulta = 0;
     private int cantidadEspacios = 0;
-    private Espacio listaEspacios[];
+    private List<Espacio> listaEspacios;
     private List<Multa> historialMultas;
     private List<Espacio> historialEspacios;
     private static List<Persona> listaUsuarios;
@@ -30,7 +30,7 @@ public class Estacionamiento {
     
     public Estacionamiento(){
         this.listaUsuarios = new ArrayList();
-        this.listaEspacios = new Espacio[cantidadEspacios];
+        this.listaEspacios = new ArrayList();
         this.historialEspacios = new ArrayList();
         this.historialMultas = new ArrayList();
     }
@@ -57,7 +57,7 @@ public class Estacionamiento {
         cantidadEspacios = cantidadEspacios;
         
     }
-    public void setListaEspacios(Espacio listaEspacios[]) {
+    public void setListaEspacios(List<Espacio> listaEspacios) {
         this.listaEspacios = listaEspacios;
     }
 
@@ -95,7 +95,7 @@ public class Estacionamiento {
         return costoMulta;
     }
 
-    public Espacio[] getListaEspacios() {
+    public List<Espacio> getListaEspacios() {
         return listaEspacios;
     }
 
