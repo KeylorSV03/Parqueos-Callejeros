@@ -27,6 +27,8 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
         AjustarControles controlador = new AjustarControles();
         controlador.centrarBoton(confirmarConfiguracion);
         controlador.centrarLabel(labelTitulo);
+        controlador.centrarBoton(botonCConfi);
+        controlador.centrarLabel(jPanel1, labelTitulo);
         controlador.cambiarImagenBoton(botonBack, "/Imagenes/back.png");
         controlador.soloNumeros(textFieldPrecioHora);
         controlador.soloNumeros(textFieldTiempoMin);

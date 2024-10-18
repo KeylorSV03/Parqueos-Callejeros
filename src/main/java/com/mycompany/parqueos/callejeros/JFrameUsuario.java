@@ -169,7 +169,9 @@ public class JFrameUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_botonPerfilActionPerformed
 
     private void botonVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVehiculoActionPerformed
-        System.out.println("Vehiculos");
+        JFrameVehiculos jFrameVehiculo = new JFrameVehiculos();
+        jFrameVehiculo.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botonVehiculoActionPerformed
 
     private void botonDesaparcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDesaparcarActionPerformed
