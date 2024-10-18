@@ -144,7 +144,16 @@ public class Estacionamiento {
         return null; //Si no encuentra el usuario
     }
     
-    public static boolean registrarUsuario(String nombre, String apellidos, int telefono, String correo, String direccionFisica,String idUsuario, String PIN , List<Persona> listaUsuarios, JFrame jframe){
+    public static boolean registrarUsuario(String nombre, String apellidos, int telefono, String correo, String direccionFisica,
+            String idUsuario, String PIN , List<Persona> listaUsuarios, JFrame jframe, String tipoUsuario){
+        
+        /*
+        
+        Parametro tipoUsuario
+        A: Administrador
+        U: Usuario
+        I: Inspector
+        */
         
         if(nombre.length() <2 ){
             JOptionPane.showMessageDialog(jframe, "El nombre tiene que tener al menos 2 caracteres", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
@@ -207,8 +216,28 @@ public class Estacionamiento {
             }
         }
         
-        Usuario usuario = new Usuario(nombre,apellidos,telefono,correo,direccionFisica,idUsuario,PIN);
-        listaUsuarios.add(usuario);
+        switch (tipoUsuario) {
+            case "U":
+                Usuario usuario = new Usuario(nombre,apellidos,telefono,correo,direccionFisica,idUsuario,PIN);
+                listaUsuarios.add(usuario);
+                break;
+            case "A":
+                {
+                    Administrador admin = new Administrador(nombre,apellidos,telefono,correo,direccionFisica,idUsuario,PIN,ParqueosCallejeros.estacionamiento);
+                    listaUsuarios.add(admin);
+                    break;
+                }
+            case "I":
+                { 
+                    Inspector inspector = new Inspector(nombre,apellidos,telefono,correo,direccionFisica,idUsuario,PIN,ParqueosCallejeros.estacionamiento);
+                    listaUsuarios.add(inspector);
+                    break;
+                }
+            default:
+                JOptionPane.showMessageDialog(jframe, "Tipo de usuario Invalido ", "Nombre de usuario no disponible", JOptionPane.WARNING_MESSAGE);
+                break;
+        }
+        
         JOptionPane.showMessageDialog(jframe, "Usuario registrado ");
         return true;
         

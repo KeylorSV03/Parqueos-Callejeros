@@ -62,11 +62,11 @@
                               <Component id="labelIdUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="labelPIN" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="textFieldNombre" alignment="0" max="32767" attributes="0"/>
-                              <Component id="textFieldApeliidos" alignment="0" max="32767" attributes="0"/>
+                              <Component id="textFieldApellidos" alignment="0" max="32767" attributes="0"/>
                               <Component id="textFieldTelefono" alignment="0" max="32767" attributes="0"/>
                               <Component id="textFieldCorreo" alignment="0" max="32767" attributes="0"/>
-                              <Component id="textFieldDireccion" alignment="0" max="32767" attributes="0"/>
-                              <Component id="textFieldIdUsuario" alignment="0" max="32767" attributes="0"/>
+                              <Component id="textFieldDireccionFisica" alignment="0" max="32767" attributes="0"/>
+                              <Component id="textFieldUsuario" alignment="0" max="32767" attributes="0"/>
                               <Component id="passwordFieldPIN" pref="331" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -91,7 +91,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="labelApellidos" min="-2" pref="15" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="textFieldApeliidos" min="-2" max="-2" attributes="0"/>
+                  <Component id="textFieldApellidos" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="labelTelefono" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -103,11 +103,11 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="labelDireccion" min="-2" pref="16" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="textFieldDireccion" min="-2" max="-2" attributes="0"/>
+                  <Component id="textFieldDireccionFisica" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="labelIdUsuario" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="textFieldIdUsuario" min="-2" max="-2" attributes="0"/>
+                  <Component id="textFieldUsuario" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="labelPIN" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -189,18 +189,18 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldNombreActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="textFieldApeliidos">
+        <Component class="javax.swing.JTextField" name="textFieldApellidos">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldApeliidosActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldApellidosActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="textFieldTelefono">
         </Component>
         <Component class="javax.swing.JTextField" name="textFieldCorreo">
         </Component>
-        <Component class="javax.swing.JTextField" name="textFieldDireccion">
+        <Component class="javax.swing.JTextField" name="textFieldDireccionFisica">
         </Component>
-        <Component class="javax.swing.JTextField" name="textFieldIdUsuario">
+        <Component class="javax.swing.JTextField" name="textFieldUsuario">
         </Component>
         <Component class="javax.swing.JButton" name="botonAddInspector">
           <Properties>

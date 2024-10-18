@@ -237,7 +237,8 @@ public class JFrameRegistrarse extends javax.swing.JFrame {
         String idUsuario = TextFieldUsuario.getText();
         String PIN = PasswordFieldPIN.getText();
         
-        boolean x = Estacionamiento.registrarUsuario(nombre, apellidos, telefono, correo, direccionFisica, idUsuario, PIN, listaUsuarios, this);
+        boolean x = Estacionamiento.registrarUsuario(nombre, apellidos, telefono, correo, direccionFisica, idUsuario, 
+                PIN, listaUsuarios, this,"U");
         if(x){
            JFrameInicioSesion JFrameIniciarSesion = new JFrameInicioSesion();
             JFrameIniciarSesion.setVisible(true);

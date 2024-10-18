@@ -6,6 +6,7 @@ package com.mycompany.parqueos.callejeros;
 import javax.swing.*;
 import java.awt.*;
 
+
 //==================== Clase ==================== \\.
 
 public class JFrameAddInspector extends javax.swing.JFrame {
@@ -43,11 +44,11 @@ public class JFrameAddInspector extends javax.swing.JFrame {
         labelIdUsuario = new javax.swing.JLabel();
         labelPIN = new javax.swing.JLabel();
         textFieldNombre = new javax.swing.JTextField();
-        textFieldApeliidos = new javax.swing.JTextField();
+        textFieldApellidos = new javax.swing.JTextField();
         textFieldTelefono = new javax.swing.JTextField();
         textFieldCorreo = new javax.swing.JTextField();
-        textFieldDireccion = new javax.swing.JTextField();
-        textFieldIdUsuario = new javax.swing.JTextField();
+        textFieldDireccionFisica = new javax.swing.JTextField();
+        textFieldUsuario = new javax.swing.JTextField();
         botonAddInspector = new javax.swing.JButton();
         passwordFieldPIN = new javax.swing.JPasswordField();
 
@@ -84,9 +85,9 @@ public class JFrameAddInspector extends javax.swing.JFrame {
             }
         });
 
-        textFieldApeliidos.addActionListener(new java.awt.event.ActionListener() {
+        textFieldApellidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldApeliidosActionPerformed(evt);
+                textFieldApellidosActionPerformed(evt);
             }
         });
 
@@ -119,11 +120,11 @@ public class JFrameAddInspector extends javax.swing.JFrame {
                             .addComponent(labelIdUsuario)
                             .addComponent(labelPIN)
                             .addComponent(textFieldNombre)
-                            .addComponent(textFieldApeliidos)
+                            .addComponent(textFieldApellidos)
                             .addComponent(textFieldTelefono)
                             .addComponent(textFieldCorreo)
-                            .addComponent(textFieldDireccion)
-                            .addComponent(textFieldIdUsuario)
+                            .addComponent(textFieldDireccionFisica)
+                            .addComponent(textFieldUsuario)
                             .addComponent(passwordFieldPIN, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(161, 161, 161)
@@ -142,7 +143,7 @@ public class JFrameAddInspector extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(labelApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(textFieldApeliidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textFieldApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(labelTelefono)
                 .addGap(18, 18, 18)
@@ -154,11 +155,11 @@ public class JFrameAddInspector extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(labelDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(textFieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textFieldDireccionFisica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(labelIdUsuario)
                 .addGap(18, 18, 18)
-                .addComponent(textFieldIdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(labelPIN)
                 .addGap(18, 18, 18)
@@ -190,12 +191,36 @@ public class JFrameAddInspector extends javax.swing.JFrame {
     }//GEN-LAST:event_textFieldNombreActionPerformed
 
     private void botonAddInspectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAddInspectorActionPerformed
-        System.out.println("Agregar inspector");
+        
+        java.util.List<Persona> listaUsuarios = ParqueosCallejeros.estacionamiento.getListaUsuarios();
+        
+        String nombre = textFieldNombre.getText();
+        String apellidos = textFieldApellidos.getText();
+        int telefono;
+        if(!textFieldTelefono.getText().equals("")){
+            telefono = Integer.parseInt(textFieldTelefono.getText());
+        }
+        else{
+            telefono = 0;
+        }
+        String correo = textFieldCorreo.getText();
+        String direccionFisica = textFieldDireccionFisica.getText();
+        String idUsuario = textFieldUsuario.getText();
+        String PIN = passwordFieldPIN.getText();
+        
+        boolean x = Estacionamiento.registrarUsuario(nombre, apellidos, telefono, correo, direccionFisica, idUsuario, 
+                PIN, listaUsuarios, this,"I");
+        if(x){
+           JFrameInicioSesion JFrameIniciarSesion = new JFrameInicioSesion();
+            JFrameIniciarSesion.setVisible(true);
+            this.setVisible(false); 
+        }
+        
     }//GEN-LAST:event_botonAddInspectorActionPerformed
 
-    private void textFieldApeliidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldApeliidosActionPerformed
+    private void textFieldApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldApellidosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldApeliidosActionPerformed
+    }//GEN-LAST:event_textFieldApellidosActionPerformed
 
     
 //==================== Main ==================== \\.
@@ -246,11 +271,11 @@ public class JFrameAddInspector extends javax.swing.JFrame {
     private javax.swing.JLabel labelPIN;
     private javax.swing.JLabel labelTelefono;
     private javax.swing.JPasswordField passwordFieldPIN;
-    private javax.swing.JTextField textFieldApeliidos;
+    private javax.swing.JTextField textFieldApellidos;
     private javax.swing.JTextField textFieldCorreo;
-    private javax.swing.JTextField textFieldDireccion;
-    private javax.swing.JTextField textFieldIdUsuario;
+    private javax.swing.JTextField textFieldDireccionFisica;
     private javax.swing.JTextField textFieldNombre;
     private javax.swing.JTextField textFieldTelefono;
+    private javax.swing.JTextField textFieldUsuario;
     // End of variables declaration//GEN-END:variables
 }
