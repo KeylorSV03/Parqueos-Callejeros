@@ -153,9 +153,7 @@ public class Persona {
     
     
     
-    public void enviarCorreo(){
-        
-    }
+    
 }
 
 

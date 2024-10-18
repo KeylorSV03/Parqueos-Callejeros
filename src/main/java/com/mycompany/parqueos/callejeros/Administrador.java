@@ -7,6 +7,15 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
 import java.util.Comparator;
+import java.util.Properties;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -250,6 +259,47 @@ public class Administrador extends Persona {
         }
     }
     
-    
+    public void enviarCorreoConfi(String inicioA, String finA, String inicioE, String finE){
+        if (this.correo == null || this.correo.equals("")) {
+            JOptionPane.showMessageDialog(null, "No se pudo enviar el correo porque la dirección de correo está vacía.", "Error de Envío", JOptionPane.ERROR_MESSAGE);
+            return; 
+        }
+        
+        String destinatario = this.correo;
+        String asunto = "Información de la configuración:";
+        
+        String mensaje = String.format("Nombre: %s \nHorario de regulación: %s a %s  \nPrecio por hora: %s \nTiempo minimo que se puede comprar: %s \nCosto de las multas: %s \nSe agregó: %s a %s \nSe eliminó: %s a %s",
+                estacionamiento.getNombre(), estacionamiento.getHorario()[0], estacionamiento.getHorario()[1], estacionamiento.getPrecioXHora(), estacionamiento.getTiempoMinimo(), estacionamiento.getCostoMulta(), inicioA, finA, inicioE, finE);
+        
+        Properties propiedades = new Properties();
+        propiedades.put("mail.smtp.auth", "true");
+        propiedades.put("mail.smtp.starttls.enable", "true");
+        propiedades.put("mail.smtp.host", "smtp.gmail.com");
+        propiedades.put("mail.smtp.port", "587");
+        
+        final String usuario = "parqueoscallejeros2112@gmail.com";
+        final String clave = " fqts ayqp ilcz kvrf";
+        
+        Session session = Session.getInstance(propiedades, new Authenticator() {
+            protected  PasswordAuthentication getPasswordAuthentication(){
+                return new PasswordAuthentication(usuario, clave);
+            }
+        });
+        
+        try {
+            Message msg = new MimeMessage(session);
+            msg.setFrom(new InternetAddress(usuario));
+            msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatario));
+            msg.setSubject(asunto);
+            msg.setText(mensaje);
+            
+            Transport.send(msg);
+            System.out.println("Correo enviado");
+        }
+        catch (MessagingException e){
+            JOptionPane.showMessageDialog(null, "No se pudo enviar el correo a " + destinatario, "Error de Envío", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+    }
     
 }

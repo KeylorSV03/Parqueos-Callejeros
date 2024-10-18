@@ -25,7 +25,9 @@ public class JFramePerfil extends javax.swing.JFrame {
         // Icono:
         Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
         setIconImage(icono);
+        
         usuarioActivo = ParqueosCallejeros.usuarioActivo;
+        
         System.out.println(usuarioActivo.getIdUsuario());
         controlador.cambiarImagenBoton(botonback, "/Imagenes/back.png");
         controlador.cambiarImagenBoton(botonNombre, "/Imagenes/edit.png");
@@ -227,19 +229,19 @@ public class JFramePerfil extends javax.swing.JFrame {
                             .addComponent(botonDirec, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(67, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(botonback, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81)
+                .addComponent(botonback, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(103, 103, 103)
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(botonback, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel2))
+                    .addComponent(botonback, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -305,10 +307,10 @@ public class JFramePerfil extends javax.swing.JFrame {
         
         int opcion = JOptionPane.showConfirmDialog(this, "¿Quiere enviar correo de los cambios?", "Aviso", JOptionPane.OK_CANCEL_OPTION);
         if (opcion == JOptionPane.OK_OPTION) {
-            
+            usuarioActivo.enviarCorreoPerfil();
+            JOptionPane.showMessageDialog(null, "Se envió el correo", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
         } 
-        else if (opcion == JOptionPane.CANCEL_OPTION) {
-        }
+       
         
         if(ParqueosCallejeros.usuarioActivo instanceof Administrador){
             JFrameAdmin jframeAdmin = new JFrameAdmin();
