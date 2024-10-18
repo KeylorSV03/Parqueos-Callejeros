@@ -64,7 +64,7 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        textFiledInicioElim = new javax.swing.JTextField();
+        textFiledInicioElimEspacios = new javax.swing.JTextField();
         textFieldFinElimEspacios = new javax.swing.JTextField();
         confirmarConfiguracion = new javax.swing.JButton();
         botonBack = new javax.swing.JButton();
@@ -158,10 +158,10 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel10.setText("Fin");
 
-        textFiledInicioElim.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textFiledInicioElim.addActionListener(new java.awt.event.ActionListener() {
+        textFiledInicioElimEspacios.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        textFiledInicioElimEspacios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFiledInicioElimActionPerformed(evt);
+                textFiledInicioElimEspaciosActionPerformed(evt);
             }
         });
 
@@ -228,7 +228,7 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
                     .addGroup(inicioElimEspaciosLayout.createSequentialGroup()
                         .addGroup(inicioElimEspaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(inicioElimEspaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(textFiledInicioElim, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                                .addComponent(textFiledInicioElimEspacios, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
                                 .addComponent(textFieldCostoMulta)
                                 .addComponent(textFieldPrecioHora, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(textFieldTiempoMin, javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,7 +312,7 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(inicioElimEspaciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFiledInicioElim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFiledInicioElimEspacios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textFieldFinElimEspacios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(confirmarConfiguracion)
@@ -364,9 +364,9 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldFinElimEspaciosActionPerformed
 
-    private void textFiledInicioElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFiledInicioElimActionPerformed
+    private void textFiledInicioElimEspaciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFiledInicioElimEspaciosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textFiledInicioElimActionPerformed
+    }//GEN-LAST:event_textFiledInicioElimEspaciosActionPerformed
 
     private void confirmarConfiguracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarConfiguracionActionPerformed
         String nom = jTextFieldNombre.getText();
@@ -377,7 +377,7 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
         String costMultas = textFieldCostoMulta.getText();
         String inicioAgreEsp = textFieldInicioAgreEspacios.getText();
         String finAgreEsp = textFieldFinAgregEspacios.getText();
-        String iniElimEsp = textFieldFinElimEspacios.getText();
+        String iniElimEsp = textFiledInicioElimEspacios.getText();
         String finElimEsp = textFieldFinElimEspacios.getText();
         
         boolean estado = admin.configuracion(nom, inHorario, fHorario, precioHora, tiepMin, costMultas, inicioAgreEsp, finAgreEsp, iniElimEsp, finElimEsp, this);
@@ -465,6 +465,6 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
     private javax.swing.JTextField textFieldInicioHorario;
     private javax.swing.JTextField textFieldPrecioHora;
     private javax.swing.JTextField textFieldTiempoMin;
-    private javax.swing.JTextField textFiledInicioElim;
+    private javax.swing.JTextField textFiledInicioElimEspacios;
     // End of variables declaration//GEN-END:variables
 }

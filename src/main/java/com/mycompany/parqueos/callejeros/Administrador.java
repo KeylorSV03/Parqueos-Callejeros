@@ -147,6 +147,7 @@ public class Administrador extends Persona {
             
             if(!tiempMin.equals("")){
                 tiempoMinimo = Integer.parseInt(tiempMin);
+                estacionamiento.setTiempoMinimo(tiempoMinimo);
             }
             else if(tiempMin.equals("") && estacionamiento.getTiempoMinimo() != 0){
                 
@@ -201,7 +202,7 @@ public class Administrador extends Persona {
                 JOptionPane.showMessageDialog(jframe, "En el rango de agregar espacios, el inicio debe ser menor al final", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
                 return false;
             }
-            
+
             //Agregar los espacios
             for(int i = inicioAgregarEspacios; i<= finAgregarEspacios; i++){
                 estacionamiento.agregarEspacio(i);
