@@ -86,7 +86,7 @@ public class Administrador extends Persona {
                 
             }
             else if(fHorario.equals("") && estacionamiento.getHorario()[1] == null){ //Si se dejo en blanco y no se ha configurado
-                JOptionPane.showMessageDialog(jframe, "Debe insertar el inicio del horario", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "Debe insertar el fin del horario", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
                 return false;
             }
             else if(!validarFormatoHora(fHorario, formatoHora)){ //Si no tiene el formato solicitado
@@ -171,7 +171,7 @@ public class Administrador extends Persona {
             if(!inAgreEsp.equals("")){
                 inicioAgregarEspacios = Integer.parseInt(inAgreEsp);
             }
-            else if(inAgreEsp.equals("") && estacionamiento.getListaEspacios() == null){
+            else if(inAgreEsp.equals("") && (estacionamiento.getListaEspacios()).isEmpty()){
                 JOptionPane.showMessageDialog(jframe, "Debe deben agregar espacios", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
                 return false;
             }
@@ -179,7 +179,7 @@ public class Administrador extends Persona {
             if(!fAgreEsp.equals("")){
                 finAgregarEspacios = Integer.parseInt(fAgreEsp);
             }
-            else if(fAgreEsp.equals("") && estacionamiento.getListaEspacios() == null){
+            else if(fAgreEsp.equals("") && (estacionamiento.getListaEspacios()).isEmpty()){
                 JOptionPane.showMessageDialog(jframe, "Debe deben agregar espacios", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
                 return false;
             }
@@ -204,15 +204,15 @@ public class Administrador extends Persona {
             if(!inElimEsp.equals("")){
                 inicioEliminarEspacios = Integer.parseInt(inElimEsp);
             }
-            else if(!inElimEsp.equals("") && estacionamiento.getListaEspacios() == null){
+            else if(!inElimEsp.equals("") && (estacionamiento.getListaEspacios()).isEmpty()){
                 JOptionPane.showMessageDialog(jframe, "No se pueden eliminar espacios, ya que no se han agregado", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
                 return false;
             }
             
             if(!fElimEsp.equals("")){
-                finAgregarEspacios = Integer.parseInt(fElimEsp);
+                finEliminarEspacios = Integer.parseInt(fElimEsp);
             }
-            else if(!fElimEsp.equals("") && estacionamiento.getListaEspacios() == null){
+            else if(!fElimEsp.equals("") && (estacionamiento.getListaEspacios()).isEmpty()){
                 JOptionPane.showMessageDialog(jframe, "No se pueden eliminar espacios, ya que no se han agregado", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
                 return false;
             }

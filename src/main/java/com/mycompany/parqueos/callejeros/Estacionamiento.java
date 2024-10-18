@@ -255,8 +255,7 @@ public class Estacionamiento {
         if(!existeEspacio){ //si es pacio no existe se agrega
             Espacio espacio = new Espacio(numeroEspacio);
             listaEspacios.add(espacio);
-            
-                    
+                  
         }
         
         listaEspacios.sort(Comparator.comparingInt(Espacio::getNumeroEspacio)); 
