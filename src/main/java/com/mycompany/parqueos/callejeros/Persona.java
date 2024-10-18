@@ -1,11 +1,11 @@
-
 package com.mycompany.parqueos.callejeros;
 
+
 import java.time.LocalDate;
+import javax.mail.*;
+import javax.mail.internet.*;
 import java.util.Properties;
-import org.simplejavamail.email.Email;
-import org.simplejavamail.mailer.Mailer;
-import org.simplejavamail.mailer.MailerBuilder;
+import javax.swing.JOptionPane;
 
 public class Persona {
 
@@ -22,7 +22,7 @@ public class Persona {
 
     //==================== Metodos ====================
 
-    // ------------------- Constructores -------------------
+    // Constructor
     
     
     public Persona(){
@@ -108,7 +108,50 @@ public class Persona {
         return fechaIngreso;
     }
 
-    // Otros metododos:
+    public void enviarCorreoPerfil(){
+        
+        if (this.correo == null || this.correo.equals("")) {
+            JOptionPane.showMessageDialog(null, "No se pudo enviar el correo porque la dirección de correo está vacía.", "Error de Envío", JOptionPane.ERROR_MESSAGE);
+            return; 
+        }
+        
+        String destinatario = this.correo;
+        String asunto = "Información de la persona:";
+        String mensaje = String.format("Nombre: %s %s\nTeléfono: %d\nDirección: %s\nPIN: %s\nID Usuario: %s\nFecha de Ingreso: %s",
+                this.nombre, this.apellido, this.telefono, this.direccionFisica, this.PIN, this.idUsuario, this.fechaIngreso);
+        
+        Properties propiedades = new Properties();
+        propiedades.put("mail.smtp.auth", "true");
+        propiedades.put("mail.smtp.starttls.enable", "true");
+        propiedades.put("mail.smtp.host", "smtp.gmail.com");
+        propiedades.put("mail.smtp.port", "587");
+        
+        final String usuario = "parqueoscallejeros2112@gmail.com";
+        final String clave = " fqts ayqp ilcz kvrf";
+        
+        Session session = Session.getInstance(propiedades, new Authenticator() {
+            protected  PasswordAuthentication getPasswordAuthentication(){
+                return new PasswordAuthentication(usuario, clave);
+            }
+        });
+        
+        try {
+            Message msg = new MimeMessage(session);
+            msg.setFrom(new InternetAddress(usuario));
+            msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatario));
+            msg.setSubject(asunto);
+            msg.setText(mensaje);
+            
+            Transport.send(msg);
+            System.out.println("Correo enviado");
+        }
+        catch (MessagingException e){
+            JOptionPane.showMessageDialog(null, "No se pudo enviar el correo a " + destinatario, "Error de Envío", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+    }
+    
+    
     
     public void enviarCorreo(){
         
