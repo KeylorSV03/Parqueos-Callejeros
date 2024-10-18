@@ -22,7 +22,7 @@ public class Persona {
 
     //==================== Metodos ====================
 
-    // ------------------- Constructores -------------------
+    // Constructor
     
     
     public Persona(){
