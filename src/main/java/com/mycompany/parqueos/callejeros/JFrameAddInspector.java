@@ -22,6 +22,14 @@ public class JFrameAddInspector extends javax.swing.JFrame {
         AjustarControles controlador = new AjustarControles();
         controlador.centrarBoton(botonAddInspector);
         controlador.centrarLabel(jPanel1, labelAddInspector);
+        controlador.limitarCaracteres(textFieldNombre, 20);
+        controlador.limitarCaracteres(textFieldApellidos, 40);
+        controlador.limitarCaracteres(textFieldTelefono, 8);
+        controlador.soloNumeros(textFieldTelefono);
+        controlador.limitarCaracteres(textFieldDireccionFisica, 60);
+        controlador.limitarCaracteres(textFieldUsuario, 25);
+        controlador.limitarCaracteres(passwordFieldPIN, 4);
+        controlador.cambiarImagenBoton(botonBack, "/Imagenes/back.png");
         
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -51,6 +59,7 @@ public class JFrameAddInspector extends javax.swing.JFrame {
         textFieldUsuario = new javax.swing.JTextField();
         botonAddInspector = new javax.swing.JButton();
         passwordFieldPIN = new javax.swing.JPasswordField();
+        botonBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(520, 680));
@@ -99,12 +108,20 @@ public class JFrameAddInspector extends javax.swing.JFrame {
             }
         });
 
+        botonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 143, Short.MAX_VALUE)
+                .addGap(14, 14, 14)
+                .addComponent(botonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                 .addComponent(labelAddInspector)
                 .addGap(136, 136, 136))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -135,8 +152,10 @@ public class JFrameAddInspector extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(labelAddInspector, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelAddInspector, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(labelNombre)
                 .addGap(18, 18, 18)
                 .addComponent(textFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -164,7 +183,7 @@ public class JFrameAddInspector extends javax.swing.JFrame {
                 .addComponent(labelPIN)
                 .addGap(18, 18, 18)
                 .addComponent(passwordFieldPIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(botonAddInspector)
                 .addGap(28, 28, 28))
         );
@@ -219,8 +238,16 @@ public class JFrameAddInspector extends javax.swing.JFrame {
     }//GEN-LAST:event_botonAddInspectorActionPerformed
 
     private void textFieldApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldApellidosActionPerformed
-        // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_textFieldApellidosActionPerformed
+
+    private void botonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBackActionPerformed
+        
+        JFrameAdmin jframeAdmin = new JFrameAdmin();
+        jframeAdmin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_botonBackActionPerformed
 
     
 //==================== Main ==================== \\.
@@ -261,6 +288,7 @@ public class JFrameAddInspector extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAddInspector;
+    private javax.swing.JButton botonBack;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelAddInspector;
     private javax.swing.JLabel labelApellidos;
