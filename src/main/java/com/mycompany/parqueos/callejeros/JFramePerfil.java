@@ -25,10 +25,8 @@ public class JFramePerfil extends javax.swing.JFrame {
         // Icono:
         Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
         setIconImage(icono);
-        
         usuarioActivo = ParqueosCallejeros.usuarioActivo;
         System.out.println(usuarioActivo.getIdUsuario());
-        
         controlador.cambiarImagenBoton(botonback, "/Imagenes/back.png");
         controlador.cambiarImagenBoton(botonNombre, "/Imagenes/edit.png");
         controlador.cambiarImagenBoton(botonApellidos, "/Imagenes/edit.png");
@@ -311,9 +309,6 @@ public class JFramePerfil extends javax.swing.JFrame {
         } 
         else if (opcion == JOptionPane.CANCEL_OPTION) {
         }
-            usuarioActivo.enviarCorreoPerfil();
-        } 
-        
         
         if(ParqueosCallejeros.usuarioActivo instanceof Administrador){
             JFrameAdmin jframeAdmin = new JFrameAdmin();
