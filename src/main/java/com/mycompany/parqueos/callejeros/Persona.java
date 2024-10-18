@@ -1,11 +1,12 @@
 
 package com.mycompany.parqueos.callejeros;
-import java.time.LocalDate;
 
-/**
- *
- * @author keylo
- */
+import java.time.LocalDate;
+import java.util.Properties;
+import org.simplejavamail.email.Email;
+import org.simplejavamail.mailer.Mailer;
+import org.simplejavamail.mailer.MailerBuilder;
+
 public class Persona {
 
     //==================== Atributos ====================
@@ -107,7 +108,11 @@ public class Persona {
         return fechaIngreso;
     }
 
+    // Otros metododos:
     
+    public void enviarCorreo(){
+        
+    }
 }
 
 
