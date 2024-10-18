@@ -386,7 +386,7 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
             if (opcion == JOptionPane.OK_OPTION) {
                 admin.enviarCorreoConfi(inicioAgreEsp, finAgreEsp, iniElimEsp, finElimEsp);
             } 
-            JOptionPane.showMessageDialog(null, "Se agregó al configuración", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Se agregó la configuración", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
         }
         
     }//GEN-LAST:event_confirmarConfiguracionActionPerformed
