@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.imageio.ImageIO;
+import javax.swing.BoxLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,6 +24,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 //==================== Clase ==================== \\.
 
@@ -36,9 +38,12 @@ public class AjustarControles {
         boton.setAlignmentX(Component.CENTER_ALIGNMENT);
     }
   
-    void centrarLabel(JLabel label){
-         label.setAlignmentX(Component.CENTER_ALIGNMENT);
-    }
+    void centrarLabel(JPanel panel, JLabel label) {
+    
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel.revalidate();
+        panel.repaint();
+}
     
     void centrarTextField(JTextField texto){
         texto.setAlignmentX(Component.CENTER_ALIGNMENT);

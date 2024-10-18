@@ -42,7 +42,7 @@ public class Persona {
     // ------------------- Setters -------------------
     
     public void setNombre(String nombre) {
-    this.nombre = nombre;
+        this.nombre = nombre;
     }
 
     public void setApellido(String apellido) {

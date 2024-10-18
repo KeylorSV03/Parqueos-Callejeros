@@ -20,7 +20,7 @@ public class JFrameAddInspector extends javax.swing.JFrame {
         
         AjustarControles controlador = new AjustarControles();
         controlador.centrarBoton(botonAddInspector);
-        controlador.centrarLabel(labelAddInspector);
+        controlador.centrarLabel(jPanel1, labelAddInspector);
         
         this.setLocationRelativeTo(null);
         this.setResizable(false);

@@ -19,7 +19,7 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
         
         AjustarControles controlador = new AjustarControles();
         controlador.centrarBoton(botonCConfi);
-        controlador.centrarLabel(labelTitulo);
+        controlador.centrarLabel(jPanel1, labelTitulo);
         controlador.cambiarImagenBoton(botonBack, "/Imagenes/back.png");
         this.setResizable(false);
         this.setLocationRelativeTo(null);

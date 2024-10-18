@@ -19,7 +19,7 @@ public class JFrameConfi extends javax.swing.JFrame {
         
         AjustarControles controlador = new AjustarControles();
         controlador.centrarBoton(botonCConfi);
-        controlador.centrarLabel(labelTitulo);
+        controlador.centrarLabel(jPanel1, labelTitulo);
         
         this.setResizable(false);
         this.setLocationRelativeTo(null);
