@@ -218,7 +218,7 @@ public class Estacionamiento {
         
         switch (tipoUsuario) {
             case "U":
-                Usuario usuario = new Usuario(nombre,apellidos,telefono,correo,direccionFisica,idUsuario,PIN);
+                Usuario usuario = new Usuario(nombre,apellidos,telefono,correo,direccionFisica,idUsuario,PIN, ParqueosCallejeros.estacionamiento);
                 listaUsuarios.add(usuario);
                 break;
             case "A":
@@ -304,6 +304,17 @@ public class Estacionamiento {
                
         
         listaEspacios.sort(Comparator.comparingInt(Espacio::getNumeroEspacio));
+    }
+    
+    public boolean espacioLibre(int numeroEspacio){
+        
+        for(Espacio espacio : listaEspacios){
+            if(espacio.getNumeroEspacio() == numeroEspacio){
+                return true;
+            }
+        }
+        
+        return false;
     }
     
 }

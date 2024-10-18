@@ -8,15 +8,18 @@ public class Usuario extends Persona{
     private int numeroTarjeta;
     private List<Espacio> historialEspacios;
     private List<Vehiculo> listaVehiculos;
+    private Estacionamiento estacionamiento;
 
     //==================== Metodos ====================
     
-    public Usuario(String nombre, String apellido, int telefono, String correo, String direccionFisica, String idUsuario,String PIN){
+    public Usuario(String nombre, String apellido, int telefono, String correo, String direccionFisica,
+            String idUsuario,String PIN,Estacionamiento estacionamiento){
         
         super(nombre, apellido, telefono, correo, direccionFisica, idUsuario, PIN);
         this.listaVehiculos = new ArrayList();
         this.historialEspacios = new ArrayList();
         this.numeroTarjeta = 0;
+        this.estacionamiento = estacionamiento;
     }
     
     public List<Vehiculo> getListaVehiculos (){
@@ -59,7 +62,28 @@ public class Usuario extends Persona{
         return false;
     }
     
-    public void aparcar(Vehiculo vehiculo){
+    public Vehiculo buscarVehiculoReturn(String placa){
+        if (listaVehiculos == null){
+            return null;
+        }
+        for (Vehiculo vehiculo: listaVehiculos){
+            if (vehiculo.getPlaca().equals(placa)){
+                return vehiculo;
+            } 
+        }
+        return null;
+    }
+    
+    
+    public void aparcar(String placa){
+        
+        Vehiculo vehiculo = buscarVehiculoReturn(placa);
+        
+        for(Espacio espacio : estacionamiento.getListaEspacios()){
+            if(espacio.getVehiculo() == null){
+                
+            }
+        }
         
     }
 

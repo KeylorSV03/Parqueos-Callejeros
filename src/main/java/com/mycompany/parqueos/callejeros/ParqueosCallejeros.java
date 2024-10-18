@@ -26,7 +26,7 @@ public class ParqueosCallejeros {
         
         Administrador adminXDefecto = new Administrador("","",0,"","","Admin","1234",estacionamiento);
         
-        Usuario usuarioXDefecto = new Usuario("", "", 0, "", "", "User", "1234");
+        Usuario usuarioXDefecto = new Usuario("", "", 0, "", "", "User", "1234",estacionamiento);
         
         Inspector inspectorXDefecto = new Inspector("","",0,"","","Inspector","1234",estacionamiento);
         
