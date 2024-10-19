@@ -200,9 +200,6 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
             this.dispose();
         }
         
-        else{
-            JOptionPane.showMessageDialog(this, "El usuario que ingreso no se encuentra registrado", "Usuario no encontrado", JOptionPane.WARNING_MESSAGE);
-        }
     }//GEN-LAST:event_botonIniciarSesionActionPerformed
 
     private void botonPINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPINActionPerformed

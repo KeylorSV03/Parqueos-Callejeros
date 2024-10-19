@@ -134,21 +134,11 @@ public class Estacionamiento {
                     return persona;
                 }
                 else{
-                    JOptionPane.showMessageDialog(jframe, "Contraseña incorrecta", "Usuario no encontrado", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(jframe, "Contraseña incorrecta", "Datos invalidos", JOptionPane.WARNING_MESSAGE);
                     return null;
                 }
             }
-            if(((persona.getIdUsuario()).equals(idUsuario)) && ((persona.getPIN()).equals(pin)) && (persona instanceof Administrador)){
-                return persona;
-            }
-            
-            if(((persona.getIdUsuario()).equals(idUsuario)) && ((persona.getPIN()).equals(pin)) && (persona instanceof Usuario)){
-                return persona;
-            }
-            
-            if(((persona.getIdUsuario()).equals(idUsuario)) && ((persona.getPIN()).equals(pin)) && (persona instanceof Inspector)){
-                return persona;
-            }
+           
         }
         
         JOptionPane.showMessageDialog(jframe, "El usuario '" + idUsuario + "' no se encuentra registrado", "Usuario no encontrado", JOptionPane.WARNING_MESSAGE);
