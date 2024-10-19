@@ -1,4 +1,5 @@
 package com.mycompany.parqueos.callejeros;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -12,6 +13,8 @@ public class Espacio {
     private int numeroEspacio;
     private boolean  ocupado;
     private Vehiculo vehiculo;
+    private int tiempo;
+    LocalTime inicioParqueo;
     private List<Vehiculo> historialVehiculos ;
     
     //==================== Metodos ====================
@@ -23,16 +26,18 @@ public class Espacio {
     }
     
     public Espacio(int numeroEspacio){
-        this();numeroEspacio = numeroEspacio;
+        this.numeroEspacio = numeroEspacio;
         this.historialVehiculos = new ArrayList();
         ocupado = false;
+        this.vehiculo = null;
+        inicioParqueo = null;
         
     }
     // ------------------- Setters -------------------
     
     public void setNumeroEspacio(int numeroEspacio) {
     this.numeroEspacio = numeroEspacio;
-}
+    }
 
     public void setOcupado(boolean ocupado) {
         this.ocupado = ocupado;
@@ -45,6 +50,14 @@ public class Espacio {
     public void setHistorialVehiculos(List<Vehiculo> historialVehiculos) {
         this.historialVehiculos = historialVehiculos;
     }
+    
+    public void setTiempo(int tiempo){
+        this.tiempo = tiempo;
+    }
+    
+    public void setInicioParqueo(LocalTime hora){
+        this.inicioParqueo = hora;
+    }
 
     // ------------------- Getters -------------------
     
@@ -52,17 +65,26 @@ public class Espacio {
         return numeroEspacio;
     }
 
-    public boolean isOcupado() {
+    public boolean getOcupado() {
         return ocupado;
     }
 
     public Vehiculo getVehiculo() {
         return vehiculo;
     }
+    
+    public int gettiempo(){
+        return tiempo;
+    }
 
     public List<Vehiculo> getHistorialVehiculos() {
         return historialVehiculos;
     }
+    
+    public LocalTime getInicioParqueo(){
+        return inicioParqueo;
+    }
+    
     
     
     

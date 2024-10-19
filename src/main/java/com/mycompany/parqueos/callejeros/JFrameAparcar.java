@@ -9,11 +9,27 @@ public class JFrameAparcar extends javax.swing.JFrame {
     
     private static Usuario usuario = (Usuario) usuarioActivo;
     
+    private static Estacionamiento estacionamiento = ParqueosCallejeros.estacionamiento;
+    
+    private static AjustarControles controlador = new AjustarControles();
+    
     
     public JFrameAparcar() {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        controlador.cambiarImagenBoton(botonBack, "/Imagenes/back.png");
+        controlador.soloNumeros(textFieldEspacio);
+        
+        for(Vehiculo vehiculo : usuario.getListaVehiculos()){
+            
+            seleccionarVehiculo.addItem(vehiculo); 
+        }
+        
+        for(int i = 1; i <= 20; i++){
+            
+            seleccionarTiempo.addItem( i * estacionamiento.getTiempoMinimo());
+        }
     }
 
     /**
@@ -26,16 +42,54 @@ public class JFrameAparcar extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new PanelDegradado();
-        elegirVehiculo = new javax.swing.JComboBox<>();
+        seleccionarVehiculo = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        textFieldEspacio = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        seleccionarTiempo = new javax.swing.JComboBox<>();
+        botonAparcar = new javax.swing.JButton();
+        botonBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(221, 238, 255));
 
-        elegirVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        elegirVehiculo.addActionListener(new java.awt.event.ActionListener() {
+        seleccionarVehiculo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        seleccionarVehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                elegirVehiculoActionPerformed(evt);
+                seleccionarVehiculoActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        jLabel1.setText("Aparcar");
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel2.setText("Elegir vehiculo");
+
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel3.setText("Elegir espacio");
+
+        textFieldEspacio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel4.setText("Comprar tiempo");
+
+        seleccionarTiempo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        botonAparcar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        botonAparcar.setText("Aparcar");
+        botonAparcar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAparcarActionPerformed(evt);
+            }
+        });
+
+        botonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBackActionPerformed(evt);
             }
         });
 
@@ -43,17 +97,51 @@ public class JFrameAparcar extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(108, Short.MAX_VALUE)
-                .addComponent(elegirVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(seleccionarTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(seleccionarVehiculo, 0, 379, Short.MAX_VALUE)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3)
+                                .addComponent(textFieldEspacio))
+                            .addComponent(jLabel4)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(206, 206, 206)
+                        .addComponent(botonAparcar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(192, 192, 192)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(botonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(180, 180, 180)
-                .addComponent(elegirVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(478, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(botonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(115, 115, 115)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(seleccionarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textFieldEspacio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(seleccionarTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addComponent(botonAparcar)
+                .addGap(61, 61, 61))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -70,9 +158,30 @@ public class JFrameAparcar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void elegirVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elegirVehiculoActionPerformed
+    private void seleccionarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionarVehiculoActionPerformed
         
-    }//GEN-LAST:event_elegirVehiculoActionPerformed
+    }//GEN-LAST:event_seleccionarVehiculoActionPerformed
+
+    private void botonAparcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAparcarActionPerformed
+        
+        Vehiculo vehiculo = (Vehiculo )seleccionarVehiculo.getSelectedItem();
+        int tiempo = (Integer) seleccionarTiempo.getSelectedItem();
+        int espacio;
+        if(!textFieldEspacio.getText().equals("")){
+            espacio = Integer.parseInt(textFieldEspacio.getText());
+        }
+        else{
+            espacio = 0;
+        }
+        
+        usuario.aparcar(vehiculo, tiempo, espacio, this);
+    }//GEN-LAST:event_botonAparcarActionPerformed
+
+    private void botonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBackActionPerformed
+        JFrameUsuario jFrameUsuario = new JFrameUsuario();
+        jFrameUsuario.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_botonBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,7 +219,15 @@ public class JFrameAparcar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> elegirVehiculo;
+    private javax.swing.JButton botonAparcar;
+    private javax.swing.JButton botonBack;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<Integer> seleccionarTiempo;
+    private javax.swing.JComboBox<Vehiculo> seleccionarVehiculo;
+    private javax.swing.JTextField textFieldEspacio;
     // End of variables declaration//GEN-END:variables
 }

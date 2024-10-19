@@ -9,6 +9,7 @@ public class Vehiculo {
     private String placa;
     private String marca;
     private String modelo;
+    private Espacio espacio;
     private ArrayList<Multa> listaMultasActivas;
     private ArrayList<Multa> historialMultas;
 
@@ -18,6 +19,10 @@ public class Vehiculo {
         this.modelo = modelo;
         this.listaMultasActivas = new ArrayList();
         this.historialMultas = new ArrayList();
+    }
+    
+    public void setEspacio(Espacio espacio){
+        this.espacio = espacio;
     }
     
     public String getPlaca(){
@@ -30,6 +35,13 @@ public class Vehiculo {
     
     public String getModelo(){
         return modelo;
+    }
+    
+    public Espacio getEspacio(){
+        return espacio;
+    }
+    public String toString(){
+        return marca + " - " + modelo + " - " + placa;
     }
     
 }

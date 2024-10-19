@@ -154,7 +154,9 @@ public class JFrameUsuario extends javax.swing.JFrame {
 //==================== Funcion de control ==================== \\.
     
     private void botonAparcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAparcarActionPerformed
-        System.out.println("Aparcando");
+        JFrameAparcar jframeAparcar = new JFrameAparcar();
+        jframeAparcar.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botonAparcarActionPerformed
 
     private void botonAgregarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarTActionPerformed
