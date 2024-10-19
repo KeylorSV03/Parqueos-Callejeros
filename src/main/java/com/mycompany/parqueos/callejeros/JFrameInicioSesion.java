@@ -166,9 +166,18 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
     
 //==================== Funcion de control ==================== \\.
     private void botonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarseActionPerformed
-        JFrameRegistrarse JFrameRegistrarse = new JFrameRegistrarse();
-        JFrameRegistrarse.setVisible(true);
-        this.setVisible(false);
+        
+        //Evaluar algunas condiciones de la configuracion para saber si se realizo o no antes de registrar usuarios
+        if(ParqueosCallejeros.estacionamiento.getCostoMulta() == 0 || ParqueosCallejeros.estacionamiento.getTiempoMinimo() == 0 || ParqueosCallejeros.estacionamiento.getPrecioXHora() == 0){
+            JOptionPane.showMessageDialog(this, "No se pueden registrar usuarios, no se ha hecho la configuracion", "Configuracion no realizada", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            JFrameRegistrarse JFrameRegistrarse = new JFrameRegistrarse();
+            JFrameRegistrarse.setVisible(true);
+            this.setVisible(false);
+        }
+        
+        
     }//GEN-LAST:event_botonRegistrarseActionPerformed
 
     private void botonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIniciarSesionActionPerformed

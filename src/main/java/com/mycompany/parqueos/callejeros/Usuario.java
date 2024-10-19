@@ -1,14 +1,19 @@
 package com.mycompany.parqueos.callejeros;
+import java.io.Serializable;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-public class Usuario extends Persona{
+import java.time.YearMonth;
+import java.time.format.DateTimeParseException;
+
+public class Usuario extends Persona implements Serializable{
     
     //==================== Atributos ====================
 
-    private int numeroTarjeta;
+    private Tarjeta tarjeta;
     private List<Espacio> historialEspacios;
     private List<Vehiculo> listaVehiculos;
     private Estacionamiento estacionamiento;
@@ -16,13 +21,15 @@ public class Usuario extends Persona{
 
     //==================== Metodos ====================
     
+    // ------------------- Constructor -------------------
+    
     public Usuario(String nombre, String apellido, int telefono, String correo, String direccionFisica,
             String idUsuario,String PIN,Estacionamiento estacionamiento){
         
         super(nombre, apellido, telefono, correo, direccionFisica, idUsuario, PIN);
         this.listaVehiculos = new ArrayList();
         this.historialEspacios = new ArrayList();
-        this.numeroTarjeta = 0;
+        this.tarjeta = null;
         this.tiempoGuardado = 0;
         this.estacionamiento = estacionamiento;
     }
@@ -31,9 +38,19 @@ public class Usuario extends Persona{
         return listaVehiculos;
     }
     
+    // ------------------- Setters -------------------
+    
+    public void setTarjeta(long numeroTarjeta, YearMonth fechaVencimiento, int codigoValidacion){
+        tarjeta = new Tarjeta(numeroTarjeta, fechaVencimiento, codigoValidacion);
+    }
+    
+    // ------------------- Getters -------------------
+    
     public int getTiempoGuardado(){
         return tiempoGuardado;
     }
+    
+    // ------------------- Otros metodos -------------------
     
     public void agregarTiempoGuardado(int tiempo){
         tiempoGuardado += tiempo;
@@ -105,7 +122,10 @@ public class Usuario extends Persona{
                     espacio.setInicioParqueo(LocalTime.now());
                     vehiculo.setEspacio(espacio);
                     espacio.setTiempo(tiempo);
-                    JOptionPane.showMessageDialog(jframe, "Vehiculo aparcado en el espacio " + espacio.getNumeroEspacio());
+                    LocalTime horaSalida = LocalTime.now().plusMinutes(tiempo);
+                    DateTimeFormatter formatoHHmm = DateTimeFormatter.ofPattern("HH:mm");
+                    JOptionPane.showMessageDialog(jframe, "Vehiculo aparcado en el espacio " + espacio.getNumeroEspacio() + 
+                            "\n Su hora de salida maxima es: " + horaSalida.format(formatoHHmm));
                     return;
                 }
                
@@ -120,5 +140,22 @@ public class Usuario extends Persona{
         JOptionPane.showMessageDialog(jframe, "No existe el espacio", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
         return;
     }
+    
+    public YearMonth stringAFecha(String fecha) {
+        // Definir el formato MM-AAAA
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-uuuu");
+        
+        try {
+            // Intentar parsear la cadena a YearMonth
+            YearMonth fechaDeVencimiento = YearMonth.parse(fecha, formatter);
+            // Si llega aquí, la fecha es válida
+            return fechaDeVencimiento;
+        } catch (DateTimeParseException e) {
+            // Si el formato o la fecha son inválidos, mostrar un mensaje de error
+            JOptionPane.showMessageDialog(null, "La fecha '" + fecha + "' no es válida o tiene un formato incorrecto.\nEl formato debe ser MM-AAAA.", "Error de Fecha", JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+    }
+
 
 }

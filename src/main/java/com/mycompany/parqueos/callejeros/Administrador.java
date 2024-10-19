@@ -1,6 +1,7 @@
 package com.mycompany.parqueos.callejeros;
 
 import java.awt.datatransfer.FlavorListener;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -20,7 +21,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
-public class Administrador extends Persona {
+public class Administrador extends Persona implements Serializable{
     
     //==================== Atributos ====================
     

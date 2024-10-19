@@ -8,6 +8,7 @@ com\mycompany\parqueos\callejeros\JFrameInspector$5.class
 com\mycompany\parqueos\callejeros\JFrameInicioSesion$2.class
 com\mycompany\parqueos\callejeros\JFramePerfil$6.class
 com\mycompany\parqueos\callejeros\JFrameAddInspector$4.class
+com\mycompany\parqueos\callejeros\JFrameTarjeta$3.class
 com\mycompany\parqueos\callejeros\JFrameUsuario.class
 com\mycompany\parqueos\callejeros\JFrameUsuario$5.class
 com\mycompany\parqueos\callejeros\JPanelImage.class
@@ -24,6 +25,7 @@ com\mycompany\parqueos\callejeros\JFrameRegistrarse$2.class
 com\mycompany\parqueos\callejeros\JFrameAparcar$2.class
 com\mycompany\parqueos\callejeros\JFrameInicioSesion$4.class
 com\mycompany\parqueos\callejeros\Inspector.class
+com\mycompany\parqueos\callejeros\JFrameTarjeta$1.class
 com\mycompany\parqueos\callejeros\JFrameConfiguracion$4.class
 com\mycompany\parqueos\callejeros\JFrameAdmin$3.class
 com\mycompany\parqueos\callejeros\JFrameUsuario$6.class
@@ -59,6 +61,7 @@ com\mycompany\parqueos\callejeros\JFrameUsuario$1.class
 com\mycompany\parqueos\callejeros\JFrameConfiguracion$12.class
 com\mycompany\parqueos\callejeros\JFrameConfiguracion$3.class
 com\mycompany\parqueos\callejeros\JFrameInspector$6.class
+com\mycompany\parqueos\callejeros\JFrameTarjeta$2.class
 com\mycompany\parqueos\callejeros\JFrameVehiculos$3.class
 com\mycompany\parqueos\callejeros\Persona$1.class
 com\mycompany\parqueos\callejeros\AjustarControles$1.class
@@ -75,6 +78,7 @@ com\mycompany\parqueos\callejeros\JFrameAddInspector$5.class
 com\mycompany\parqueos\callejeros\Espacio.class
 com\mycompany\parqueos\callejeros\AjustarControles$2.class
 com\mycompany\parqueos\callejeros\JFrameVehiculos$1.class
+com\mycompany\parqueos\callejeros\Tarjeta.class
 com\mycompany\parqueos\callejeros\JFrameConfiguracion$1.class
 com\mycompany\parqueos\callejeros\JFrameInspector$3.class
 com\mycompany\parqueos\callejeros\JFrameAddInspector$6.class
@@ -92,4 +96,5 @@ com\mycompany\parqueos\callejeros\JFrameInspector$4.class
 com\mycompany\parqueos\callejeros\JFrameVehiculos$2.class
 com\mycompany\parqueos\callejeros\JFrameConfiguracion.class
 com\mycompany\parqueos\callejeros\BotonImagen.class
+com\mycompany\parqueos\callejeros\JFrameTarjeta.class
 com\mycompany\parqueos\callejeros\PanelDegradado.class

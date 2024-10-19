@@ -1,5 +1,6 @@
 package com.mycompany.parqueos.callejeros;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class Estacionamiento {
+public class Estacionamiento implements Serializable {
     
     //==================== Atributos ====================
 
@@ -22,7 +23,7 @@ public class Estacionamiento {
     private List<Espacio> listaEspacios;
     private List<Multa> historialMultas;
     private List<Espacio> historialEspacios;
-    private static List<Persona> listaUsuarios;
+    private List<Persona> listaUsuarios;
     private LocalTime[] horario;
     
     //==================== Metodos ====================
@@ -149,12 +150,12 @@ public class Estacionamiento {
             String idUsuario, String PIN , List<Persona> listaUsuarios, JFrame jframe, String tipoUsuario){
         
         /*
-        
         Parametro tipoUsuario
         A: Administrador
         U: Usuario
         I: Inspector
         */
+        
         
         if(nombre.length() <2 ){
             JOptionPane.showMessageDialog(jframe, "El nombre tiene que tener al menos 2 caracteres", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);

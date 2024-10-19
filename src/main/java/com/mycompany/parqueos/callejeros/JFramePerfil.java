@@ -28,7 +28,6 @@ public class JFramePerfil extends javax.swing.JFrame {
         
         usuarioActivo = ParqueosCallejeros.usuarioActivo;
         
-        System.out.println(usuarioActivo.getIdUsuario());
         controlador.cambiarImagenBoton(botonback, "/Imagenes/back.png");
         controlador.cambiarImagenBoton(botonNombre, "/Imagenes/edit.png");
         controlador.cambiarImagenBoton(botonApellidos, "/Imagenes/edit.png");

@@ -1,6 +1,7 @@
 package com.mycompany.parqueos.callejeros;
 
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import javax.mail.*;
 import javax.mail.internet.*;
@@ -8,7 +9,7 @@ import java.util.Properties;
 import javax.swing.JOptionPane;
 import java.util.Random;
 
-public class Persona {
+public class Persona implements Serializable{
 
     //==================== Atributos ====================
 

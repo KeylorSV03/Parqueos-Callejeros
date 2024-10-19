@@ -1,7 +1,10 @@
 package com.mycompany.parqueos.callejeros;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-public class Inspector extends  Persona{
+
+
+public class Inspector extends  Persona implements Serializable{
     
     //==================== Atributos ====================
 

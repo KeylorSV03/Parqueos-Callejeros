@@ -2,12 +2,18 @@ package com.mycompany.parqueos.callejeros;
 
 //==================== Import ==================== \\.
 
+
 import javax.swing.*;
 import java.awt.*;
 
 //==================== Clase ==================== \\.
 
+
 public class JFrameUsuario extends javax.swing.JFrame {
+
+    private static Persona usuarioActivo = ParqueosCallejeros.usuarioActivo;
+    
+    private static Usuario usuario = (Usuario) usuarioActivo;
 
     // Constructor 
     public JFrameUsuario() {
@@ -154,9 +160,16 @@ public class JFrameUsuario extends javax.swing.JFrame {
 //==================== Funcion de control ==================== \\.
     
     private void botonAparcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAparcarActionPerformed
-        JFrameAparcar jframeAparcar = new JFrameAparcar();
-        jframeAparcar.setVisible(true);
-        this.dispose();
+        
+        if(usuario.getListaVehiculos().isEmpty()){
+            JOptionPane.showMessageDialog(this, "No han registrado vehiculos", "No se puede aparcar", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            JFrameAparcar jframeAparcar = new JFrameAparcar();
+            jframeAparcar.setVisible(true);
+            this.dispose();
+        }
+        
     }//GEN-LAST:event_botonAparcarActionPerformed
 
     private void botonAgregarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarTActionPerformed
@@ -181,7 +194,11 @@ public class JFrameUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_botonDesaparcarActionPerformed
 
     private void botonMPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMPagoActionPerformed
-        System.out.println("Tarjeta");
+        
+        JFrameTarjeta jFrameTarjeta = new JFrameTarjeta();
+        jFrameTarjeta.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_botonMPagoActionPerformed
 
     private void botonCSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCSesionActionPerformed

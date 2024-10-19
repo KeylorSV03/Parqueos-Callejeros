@@ -1,4 +1,5 @@
 package com.mycompany.parqueos.callejeros;
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +7,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-public class Espacio {
+
+
+public class Espacio implements Serializable{
     
     //==================== Atributos ====================
 
@@ -14,7 +17,7 @@ public class Espacio {
     private boolean  ocupado;
     private Vehiculo vehiculo;
     private int tiempo;
-    LocalTime inicioParqueo;
+    private LocalTime inicioParqueo;
     private List<Vehiculo> historialVehiculos ;
     
     //==================== Metodos ====================
