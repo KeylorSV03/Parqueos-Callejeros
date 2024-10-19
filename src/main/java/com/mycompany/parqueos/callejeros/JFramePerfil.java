@@ -307,8 +307,10 @@ public class JFramePerfil extends javax.swing.JFrame {
         
         int opcion = JOptionPane.showConfirmDialog(this, "¿Quiere enviar correo de los cambios?", "Aviso", JOptionPane.OK_CANCEL_OPTION);
         if (opcion == JOptionPane.OK_OPTION) {
-            usuarioActivo.enviarCorreoPerfil();
-            JOptionPane.showMessageDialog(null, "Se envió el correo", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+            boolean estado = usuarioActivo.enviarCorreoPerfil();
+            if (estado){
+                JOptionPane.showMessageDialog(null, "Se envió el correo", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+            } 
         } 
        
         
@@ -480,7 +482,22 @@ public class JFramePerfil extends javax.swing.JFrame {
 
     private void botonDirecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDirecActionPerformed
         String nuevaDirec = controlador.cambiarDato("Introduzca la nueva direccion");
-        System.out.println(nuevaDirec);
+        
+        if(nuevaDirec == null){
+           
+        }
+        
+        
+        else if((5 < nuevaDirec.length()) && (nuevaDirec.length() < 60) ){
+            usuarioActivo.setDireccionFisica(nuevaDirec);
+            this.dispose();
+            JFramePerfil jFramePerfil = new JFramePerfil();
+            jFramePerfil.setVisible(true);
+        }
+        
+        else{
+            JOptionPane.showMessageDialog(this, "La direccion fisica debe tener de 5 a 60 caracteres", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_botonDirecActionPerformed
 
 //==================== Main ==================== \\.

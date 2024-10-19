@@ -213,6 +213,10 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
         }
         List<Persona> listaUsuarios = ParqueosCallejeros.estacionamiento.getListaUsuarios();
         for (Persona persona: listaUsuarios){
+            if (persona instanceof Administrador){
+                JOptionPane.showMessageDialog(this, "El usuario pertenece a un administrador", "Usuario no encontrado", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
             if (persona.getIdUsuario().equals(usuario)){
                 String rand = persona.enviarCorreoPIN();
                 JOptionPane.showMessageDialog(null, "Se envio el PIN de recuperación", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
@@ -221,6 +225,7 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
                     this.dispose();
                     JFrameInicioSesion jFrameInicioSesion = new JFrameInicioSesion();
                     jFrameInicioSesion.setVisible(true);
+                    return;
                 }
             }
         }
