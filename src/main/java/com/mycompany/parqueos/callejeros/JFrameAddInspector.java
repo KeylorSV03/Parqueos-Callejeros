@@ -5,6 +5,9 @@ package com.mycompany.parqueos.callejeros;
 
 import javax.swing.*;
 import java.awt.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import java.util.Properties;
 
 
 //==================== Clase ==================== \\.
@@ -35,6 +38,49 @@ public class JFrameAddInspector extends javax.swing.JFrame {
         this.setResizable(false);
     }
 
+    private void enviarCorreo (String nombre, String apellidos, int telefono, String correo, String direc, String idUsuario, String PIN){
+        if (correo == null || correo.equals("")) {
+            JOptionPane.showMessageDialog(null, "No se pudo enviar el correo porque la dirección de correo está vacía.", "Error de Envío", JOptionPane.ERROR_MESSAGE);
+            return; 
+        }
+        
+        String destinatario = correo;
+        String asunto = "Información de su registro de inspector:";
+        String mensaje = String.format("Nombre: %s %s \nTeléfono: %d \nDirección: %s \nPIN: %s \nID Usuario: %s \nIngrese al sistema con las ultimas 2 credenciales",
+                nombre, apellidos, telefono, direc, PIN, idUsuario);
+    
+    
+        Properties propiedades = new Properties();
+        propiedades.put("mail.smtp.auth", "true");
+        propiedades.put("mail.smtp.starttls.enable", "true");
+        propiedades.put("mail.smtp.host", "smtp.gmail.com");
+        propiedades.put("mail.smtp.port", "587");
+        
+        final String usuario = "parqueoscallejeros2112@gmail.com";
+        final String clave = " fqts ayqp ilcz kvrf";
+        
+        Session session = Session.getInstance(propiedades, new Authenticator() {
+            protected  PasswordAuthentication getPasswordAuthentication(){
+                return new PasswordAuthentication(usuario, clave);
+            }
+        });
+        
+        try {
+            Message msg = new MimeMessage(session);
+            msg.setFrom(new InternetAddress(usuario));
+            msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatario));
+            msg.setSubject(asunto);
+            msg.setText(mensaje);
+            
+            Transport.send(msg);
+            System.out.println("Correo enviado");
+        }
+        catch (MessagingException e){
+            JOptionPane.showMessageDialog(null, "No se pudo enviar el correo a " + destinatario, "Error de Envío", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+    }
+    
     
 //==================== initComponents ==================== \\.
     
@@ -229,12 +275,17 @@ public class JFrameAddInspector extends javax.swing.JFrame {
         
         boolean x = Estacionamiento.registrarUsuario(nombre, apellidos, telefono, correo, direccionFisica, idUsuario, 
                 PIN, listaUsuarios, this,"I");
+        
         if(x){
-           JFrameAdmin jframeAdmin = new JFrameAdmin();
+            enviarCorreo(nombre, apellidos, telefono, correo, direccionFisica, idUsuario, PIN);
+            JOptionPane.showMessageDialog(null, "Se agregó el inspector", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+            JFrameAdmin jframeAdmin = new JFrameAdmin();
             jframeAdmin.setVisible(true);
             this.dispose(); 
         }
-        
+        else {
+            JOptionPane.showMessageDialog(null, "No se agregó el inspector", "ERROR", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_botonAddInspectorActionPerformed
 
     private void textFieldApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldApellidosActionPerformed

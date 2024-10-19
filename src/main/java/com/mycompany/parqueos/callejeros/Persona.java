@@ -6,6 +6,7 @@ import javax.mail.*;
 import javax.mail.internet.*;
 import java.util.Properties;
 import javax.swing.JOptionPane;
+import java.util.Random;
 
 public class Persona {
 
@@ -151,9 +152,61 @@ public class Persona {
         }
     }
     
+    public String enviarCorreoPIN(){
+        if (this.correo == null || this.correo.equals("")) {
+            JOptionPane.showMessageDialog(null, "No se pudo enviar el correo porque la dirección de correo está vacía.", "Error de Envío", JOptionPane.ERROR_MESSAGE);
+            return null; 
+        }
+        
+        String destinatario = this.correo;
+        String asunto = "Cambio de PIN:";
+        String rand = generarCadenaAleatoria();
+        String mensaje = String.format("Nuevo PIN (temporal): %s", rand);
+        
+        Properties propiedades = new Properties();
+        propiedades.put("mail.smtp.auth", "true");
+        propiedades.put("mail.smtp.starttls.enable", "true");
+        propiedades.put("mail.smtp.host", "smtp.gmail.com");
+        propiedades.put("mail.smtp.port", "587");
+        
+        final String usuario = "parqueoscallejeros2112@gmail.com";
+        final String clave = "fqts ayqp ilcz kvrf";
+        
+        Session session = Session.getInstance(propiedades, new Authenticator() {
+            protected  PasswordAuthentication getPasswordAuthentication(){
+                return new PasswordAuthentication(usuario, clave);
+            }
+        });
+        
+        try {
+            Message msg = new MimeMessage(session);
+            msg.setFrom(new InternetAddress(usuario));
+            msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatario));
+            msg.setSubject(asunto);
+            msg.setText(mensaje);
+            
+            Transport.send(msg);
+            return rand;
+        }
+        catch (MessagingException e){
+            JOptionPane.showMessageDialog(null, "No se pudo enviar el correo a " + destinatario, "Error de Envío", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+            return null;
+        }
+    }
     
-    
-    
+    public static String generarCadenaAleatoria () {
+        String caracteresValidos = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        StringBuilder cadena = new StringBuilder();
+        Random random = new Random();
+        
+        for (int i = 0; i < 4; i++){
+            int j = random.nextInt(caracteresValidos.length());
+            cadena.append(caracteresValidos.charAt(j));
+        }
+        
+        return cadena.toString();
+    }
 }
 
 
