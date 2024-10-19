@@ -2,6 +2,7 @@ com\mycompany\parqueos\callejeros\JFrameInspector.class
 com\mycompany\parqueos\callejeros\JFrameAdmin$5.class
 com\mycompany\parqueos\callejeros\JFramePerfil$9.class
 com\mycompany\parqueos\callejeros\JFrameConfiguracion$2.class
+com\mycompany\parqueos\callejeros\Persona$2.class
 com\mycompany\parqueos\callejeros\JFramePerfil.class
 com\mycompany\parqueos\callejeros\JFrameInspector$5.class
 com\mycompany\parqueos\callejeros\JFrameInicioSesion$2.class
@@ -75,6 +76,7 @@ com\mycompany\parqueos\callejeros\AjustarControles$2.class
 com\mycompany\parqueos\callejeros\JFrameVehiculos$1.class
 com\mycompany\parqueos\callejeros\JFrameConfiguracion$1.class
 com\mycompany\parqueos\callejeros\JFrameInspector$3.class
+com\mycompany\parqueos\callejeros\JFrameAddInspector$6.class
 com\mycompany\parqueos\callejeros\JFrameRegistrarse$1.class
 com\mycompany\parqueos\callejeros\AjustarControles$3.class
 com\mycompany\parqueos\callejeros\JFrameAdmin$6.class

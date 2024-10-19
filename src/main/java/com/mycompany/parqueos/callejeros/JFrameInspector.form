@@ -58,7 +58,7 @@
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="botonPerfil" alignment="1" min="-2" pref="104" max="-2" attributes="0"/>
-                      <Component id="botonCSesion" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
+                      <Component id="botonCSesion" alignment="1" min="-2" pref="215" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -71,8 +71,8 @@
                   <Component id="botonReportes" min="-2" pref="85" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                   <Component id="botonRParqueo" min="-2" pref="85" max="-2" attributes="0"/>
-                  <EmptySpace pref="214" max="32767" attributes="0"/>
-                  <Component id="botonCSesion" min="-2" pref="60" max="-2" attributes="0"/>
+                  <EmptySpace pref="219" max="32767" attributes="0"/>
+                  <Component id="botonCSesion" min="-2" pref="55" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
