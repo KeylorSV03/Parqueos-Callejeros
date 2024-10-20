@@ -110,11 +110,10 @@ public class Persona implements Serializable{
         return fechaIngreso;
     }
 
-    public void enviarCorreoPerfil(){
+    public boolean enviarCorreoPerfil(){
         
         if (this.correo == null || this.correo.equals("")) {
-            JOptionPane.showMessageDialog(null, "No se pudo enviar el correo porque la dirección de correo está vacía.", "Error de Envío", JOptionPane.ERROR_MESSAGE);
-            return; 
+            return false; 
         }
         
         String destinatario = this.correo;
@@ -145,11 +144,12 @@ public class Persona implements Serializable{
             msg.setText(mensaje);
             
             Transport.send(msg);
-            System.out.println("Correo enviado");
+            return true;
         }
         catch (MessagingException e){
             JOptionPane.showMessageDialog(null, "No se pudo enviar el correo a " + destinatario, "Error de Envío", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
+            return false;
         }
     }
     
@@ -208,6 +208,8 @@ public class Persona implements Serializable{
         
         return cadena.toString();
     }
+    
+    
 }
 
 
