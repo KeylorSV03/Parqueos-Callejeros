@@ -21,7 +21,7 @@ public class JFrameTarjeta extends javax.swing.JFrame {
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         
-        AjustarControles controlador = new AjustarControles();
+        Utilidades controlador = new Utilidades();
         
         controlador.cargarImagenPanel(panelTarjetaDelante, "/Imagenes/tarjetaAdelante.png");
         controlador.cargarImagenPanel(panelTarjetaAtras, "/Imagenes/tarjetaAtras.png");
@@ -243,17 +243,17 @@ public class JFrameTarjeta extends javax.swing.JFrame {
         fechaVencimiento = usuario.stringAFecha(fechaVen);
         
         if(numeroTarjeta == 0){
-            JOptionPane.showMessageDialog(this, "Debe insertar el numero de tarjeta", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Debe insertar el numero de tarjeta", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
         }
         else if(codigoValidacion == 0){
-           JOptionPane.showMessageDialog(this, "Debe insertar el codigo de validacion", "Datos Invalidos", JOptionPane.WARNING_MESSAGE); 
+           JOptionPane.showMessageDialog(this, "Debe insertar el codigo de validacion", "Datos Invalidos", JOptionPane.ERROR_MESSAGE); 
         }
         else if(fechaVencimiento == null){
             
         }
         else{
             usuario.setTarjeta(numeroTarjeta, fechaVencimiento, codigoValidacion);
-        }
+        }   JOptionPane.showMessageDialog(this, "Tarjeta agregada con exito", "Correcto", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_confirmarActionPerformed
 
     /**

@@ -158,42 +158,42 @@ public class Estacionamiento implements Serializable {
         
         
         if(nombre.length() <2 ){
-            JOptionPane.showMessageDialog(jframe, "El nombre tiene que tener al menos 2 caracteres", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(jframe, "El nombre tiene que tener al menos 2 caracteres", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         
         if(apellidos.length() <1 ){
-            JOptionPane.showMessageDialog(jframe, "Los apellidos tienen que tener al menos 1 caracter", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(jframe, "Los apellidos tienen que tener al menos 1 caracter", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         
         if(telefono < 10000000 || telefono > 99999999 ){
-            JOptionPane.showMessageDialog(jframe, "El numero de telefono tiene que tener 8 digitos", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(jframe, "El numero de telefono tiene que tener 8 digitos", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         
         if(correo.length() == 0 ){
-            JOptionPane.showMessageDialog(jframe, "Debe ingresar un correo electronico", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(jframe, "Debe ingresar un correo electronico", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         
         else if(!validarCorreo(correo)){
-            JOptionPane.showMessageDialog(jframe, "Correo Invalido", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(jframe, "Correo Invalido", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         
         if(direccionFisica.length() <5 ){
-            JOptionPane.showMessageDialog(jframe, "La direccion fisica debe tener al menos 5 caracteres", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(jframe, "La direccion fisica debe tener al menos 5 caracteres", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         
         if(idUsuario.length() <2 ){
-            JOptionPane.showMessageDialog(jframe, "El id de usuario debe tener al menos 2 caracteres", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(jframe, "El id de usuario debe tener al menos 2 caracteres", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         
         if(PIN.length() != 4 ){
-            JOptionPane.showMessageDialog(jframe, "El PIN debe ser de 4 caracteres", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(jframe, "El PIN debe ser de 4 caracteres", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         
@@ -201,19 +201,19 @@ public class Estacionamiento implements Serializable {
             
             if(persona.getTelefono() == telefono){
                 
-                JOptionPane.showMessageDialog(jframe, "Este numero de telefono ya esta asociado a otro usuario", "Numero de telefono no disponible", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "Este numero de telefono ya esta asociado a otro usuario", "Numero de telefono no disponible", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
            
             if(persona.getCorreo().equals(correo)){
                 
-                JOptionPane.showMessageDialog(jframe, "Este correo ya esta asociado a otro usuario", "Correo no disponible", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "Este correo ya esta asociado a otro usuario", "Correo no disponible", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
          
             if((persona.getIdUsuario()).equals(idUsuario)){
                 
-                JOptionPane.showMessageDialog(jframe, "Elija otro nombre de usuario ", "Nombre de usuario no disponible", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "Elija otro nombre de usuario ", "Nombre de usuario no disponible", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
         }
@@ -236,7 +236,7 @@ public class Estacionamiento implements Serializable {
                     break;
                 }
             default:
-                JOptionPane.showMessageDialog(jframe, "Tipo de usuario Invalido ", "Nombre de usuario no disponible", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "Tipo de usuario Invalido ", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
                 break;
         }
         
@@ -283,12 +283,14 @@ public class Estacionamiento implements Serializable {
             }
         }
                 
-        if(!existeEspacio){ //si es pacio no existe se agrega
+        if(!existeEspacio){ //si el espacio no existe se agrega
             Espacio espacio = new Espacio(numeroEspacio);
-            listaEspacios.add(espacio);
-                  
+            listaEspacios.add(espacio);   
         }
         
+        else{
+            JOptionPane.showMessageDialog(null, "No se agrego el espacio '" + numeroEspacio + "' porque ya existe", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
         listaEspacios.sort(Comparator.comparingInt(Espacio::getNumeroEspacio)); 
         
         
@@ -297,11 +299,18 @@ public class Estacionamiento implements Serializable {
     
     public void eliminarEspacio(int numeroEspacio){
         
+        boolean existeEspacio = false;
+        
         for(Espacio espacio : listaEspacios){ //Validar si el espacio existe o no
             if(espacio.getNumeroEspacio() == numeroEspacio){
                 listaEspacios.remove(espacio);
+                existeEspacio = true;
                 break;
             }
+        }
+        
+        if(!existeEspacio){
+            JOptionPane.showMessageDialog(null, "No se elimino el espacio '" + numeroEspacio + "' porque no existe", "Aviso", JOptionPane.WARNING_MESSAGE);
         }
                
         

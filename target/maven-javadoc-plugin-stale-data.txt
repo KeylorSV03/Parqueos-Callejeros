@@ -1,0 +1,46 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@packages
+-classpath
+'C:/Users/keylo/.m2/repository/com/sun/mail/javax.mail/1.6.2/javax.mail-1.6.2.jar;C:/Users/keylo/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'22'
+-sourcepath
+'C:/Users/keylo/Documents/NetBeansProjects/Parqueos-Callejeros/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2024. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/keylo/Documents/NetBeansProjects/Parqueos-Callejeros/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Parqueos-Callejeros 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'Parqueos-Callejeros 1.0-SNAPSHOT API'
+com.mycompany.parqueos.callejeros
+C:\Users\keylo\.m2\repository\com\sun\mail\javax.mail\1.6.2\javax.mail-1.6.2.jar = 1729279892072
+C:\Users\keylo\.m2\repository\javax\activation\activation\1.1\activation-1.1.jar = 1729279892137
+C:\Users\keylo\Documents\NetBeansProjects\Parqueos-Callejeros\src\main\java = 1729284978564
+C:\Users\keylo\Documents\NetBeansProjects\Parqueos-Callejeros\target\reports\apidocs\allclasses-index.html = 1729385901570
+C:\Users\keylo\Documents\NetBeansProjects\Parqueos-Callejeros\target\reports\apidocs\allpackages-index.html = 1729385901573
+C:\Users\keylo\Documents\NetBeansProjects\Parqueos-Callejeros\target\reports\apidocs\element-list = 1729385901364
+C:\Users\keylo\Documents\NetBeansProjects\Parqueos-Callejeros\target\reports\apidocs\help-doc.html = 1729385901615
+C:\Users\keylo\Documents\NetBeansProjects\Parqueos-Callejeros\target\reports\apidocs\index-all.html = 1729385901605
+C:\Users\keylo\Documents\NetBeansProjects\Parqueos-Callejeros\target\reports\apidocs\index.html = 1729385901611
+C:\Users\keylo\Documents\NetBeansProjects\Parqueos-Callejeros\target\reports\apidocs\member-search-index.js = 1729385901579
+C:\Users\keylo\Documents\NetBeansProjects\Parqueos-Callejeros\target\reports\apidocs\module-search-index.js = 1729385901574
+C:\Users\keylo\Documents\NetBeansProjects\Parqueos-Callejeros\target\reports\apidocs\overview-tree.html = 1729385901547
+C:\Users\keylo\Documents\NetBeansProjects\Parqueos-Callejeros\target\reports\apidocs\package-search-index.js = 1729385901576
+C:\Users\keylo\Documents\NetBeansProjects\Parqueos-Callejeros\target\reports\apidocs\search.html = 1729385901608
+C:\Users\keylo\Documents\NetBeansProjects\Parqueos-Callejeros\target\reports\apidocs\serialized-form.html = 1729385901449
+C:\Users\keylo\Documents\NetBeansProjects\Parqueos-Callejeros\target\reports\apidocs\tag-search-index.js = 1729385901581
+C:\Users\keylo\Documents\NetBeansProjects\Parqueos-Callejeros\target\reports\apidocs\type-search-index.js = 1729385901577

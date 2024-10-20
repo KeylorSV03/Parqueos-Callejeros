@@ -23,8 +23,8 @@ public class JFrameRegistrarse extends javax.swing.JFrame {
         Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
         setIconImage(icono);
         
-        AjustarControles controlador = new AjustarControles();
-        controlador.centrarBoton(BotonRegistrarse);
+        Utilidades controlador = new Utilidades();
+        controlador.centrarComponente(BotonRegistrarse);
         controlador.limitarCaracteres(TextFieldNombre, 20);
         controlador.limitarCaracteres(TextFieldApellido, 40);
         controlador.limitarCaracteres(TextFieldTelefono, 8);

@@ -19,7 +19,7 @@ public class JFrameUsuario extends javax.swing.JFrame {
     public JFrameUsuario() {
         initComponents();
         this.setLocationRelativeTo(null);
-        AjustarControles controlador = new AjustarControles();
+        Utilidades controlador = new Utilidades();
         
         Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
         setIconImage(icono);

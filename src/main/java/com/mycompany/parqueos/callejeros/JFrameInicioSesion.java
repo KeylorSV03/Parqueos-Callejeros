@@ -17,13 +17,13 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
         Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
         setIconImage(icono);
         
-        AjustarControles controlador = new AjustarControles();
+        Utilidades controlador = new Utilidades();
         controlador.cargarImagenPanel(panelLogoUsuario,"/Imagenes/UserIcon.png");
         //controlador.centrarBoton(BotonIniciarSesion);
-        controlador.centrarBoton(botonRegistrarse);
-        controlador.centrarTextField(textFieldUsuario);
+        controlador.centrarComponente(botonRegistrarse);
+        controlador.centrarComponente(textFieldUsuario);
         controlador.limitarCaracteres(textFieldUsuario, 25);
-        controlador.centrarPassField(passwordFieldPIN);
+        controlador.centrarComponente(passwordFieldPIN);
         controlador.limitarCaracteres(passwordFieldPIN, 4);
         
         this.setResizable(false);

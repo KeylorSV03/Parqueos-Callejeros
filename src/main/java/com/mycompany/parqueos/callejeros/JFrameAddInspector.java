@@ -22,9 +22,9 @@ public class JFrameAddInspector extends javax.swing.JFrame {
         Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
         setIconImage(icono);
         
-        AjustarControles controlador = new AjustarControles();
-        controlador.centrarBoton(botonAddInspector);
-        controlador.centrarLabel(jPanel1, labelAddInspector);
+        Utilidades controlador = new Utilidades();
+        controlador.centrarComponente(botonAddInspector);
+        controlador.centrarComponente(labelAddInspector);
         controlador.limitarCaracteres(textFieldNombre, 20);
         controlador.limitarCaracteres(textFieldApellidos, 40);
         controlador.limitarCaracteres(textFieldTelefono, 8);
@@ -190,7 +190,7 @@ public class JFrameAddInspector extends javax.swing.JFrame {
                             .addComponent(textFieldUsuario)
                             .addComponent(passwordFieldPIN, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
+                        .addGap(162, 162, 162)
                         .addComponent(botonAddInspector)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -229,9 +229,9 @@ public class JFrameAddInspector extends javax.swing.JFrame {
                 .addComponent(labelPIN)
                 .addGap(18, 18, 18)
                 .addComponent(passwordFieldPIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(botonAddInspector)
-                .addGap(28, 28, 28))
+                .addGap(29, 29, 29))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

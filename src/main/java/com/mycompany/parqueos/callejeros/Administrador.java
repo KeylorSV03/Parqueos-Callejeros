@@ -20,6 +20,11 @@ import javax.mail.internet.MimeMessage;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+/**
+ * Clase extendida de persona
+ * Representa al administrador del parqueo, el cual es el encargado de gestionar los espacios del estacionamiento
+ * 
+ */
 
 public class Administrador extends Persona implements Serializable{
     
@@ -38,6 +43,21 @@ public class Administrador extends Persona implements Serializable{
    
     // ==================================================================================================================
     
+    /**
+     * 
+     * @param nombre Corresponde a un String que representa el nombre que tendra el estacionamiento
+     * @param inHorario Inicio del horario de regulacion del parqueo
+     * @param fHorario Fin del horario de regulacion del parqueo
+     * @param pXHora Cuanto se cobrara por hora por el uso de un espacio de estacionamiento
+     * @param tiempMin Tiempo minimo que se puede comprar para estar en el estacionamiento
+     * @param costMulta Cuanto se cobrara por una multa
+     * @param inAgreEsp Inicio del rango para agregar espacios
+     * @param fAgreEsp Final del rango para agregar espacios
+     * @param inElimEsp Inicio del rango para agregar eliminar
+     * @param fElimEsp Final del rango para agregar wliminar
+     * @param jframe Ventana en el cual se desea mostrar el mensaje de datos erroneos
+     * @return True si se logro hacer la configuracion, false de lo contrario
+     */
     public boolean configuracion(String nombre, String inHorario, String fHorario, String pXHora, String tiempMin,
             String costMulta,String inAgreEsp, String fAgreEsp, String inElimEsp,String fElimEsp , JFrame jframe){
         
@@ -65,7 +85,7 @@ public class Administrador extends Persona implements Serializable{
             }
             
             else{
-                JOptionPane.showMessageDialog(jframe, "Debe insertar el nombre para el parqueo", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "Debe insertar el nombre para el parqueo", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
             
@@ -79,11 +99,11 @@ public class Administrador extends Persona implements Serializable{
                 
             }
             else if(inHorario.equals("") && estacionamiento.getHorario()[0] == null){ //Si se dejo en blanco y no se ha configurado
-                JOptionPane.showMessageDialog(jframe, "Debe insertar el inicio del horario", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "Debe insertar el inicio del horario", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
             else if(!validarFormatoHora(inHorario, formatoHora)){ //Si no tiene el formato solicitado
-                JOptionPane.showMessageDialog(jframe, "El inicio del horario no tiene un formato de hora valido", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "El inicio del horario no tiene un formato de hora valido", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
                 return false;  
             }
             
@@ -97,11 +117,11 @@ public class Administrador extends Persona implements Serializable{
                 
             }
             else if(fHorario.equals("") && estacionamiento.getHorario()[1] == null){ //Si se dejo en blanco y no se ha configurado
-                JOptionPane.showMessageDialog(jframe, "Debe insertar el fin del horario", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "Debe insertar el fin del horario", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
             else if(!validarFormatoHora(fHorario, formatoHora)){ //Si no tiene el formato solicitado
-                JOptionPane.showMessageDialog(jframe, "El fin del horario no tiene un formato de hora valido", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "El fin del horario no tiene un formato de hora valido", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
                 return false;  
             }
             else {
@@ -116,7 +136,7 @@ public class Administrador extends Persona implements Serializable{
                 estacionamiento.setHorario(horario);
             }
             else{
-                JOptionPane.showMessageDialog(jframe, "El inicio del horario debe ser antes del final", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "El inicio del horario debe ser antes del final", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
             
@@ -130,7 +150,7 @@ public class Administrador extends Persona implements Serializable{
                    estacionamiento.setPrecioXHora(precioXHora); 
                 }
                 else{
-                    JOptionPane.showMessageDialog(jframe, "El precio por hora debe ser un entero par", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(jframe, "El precio por hora debe ser un entero par", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
                     return false;
                 }
                 
@@ -139,7 +159,7 @@ public class Administrador extends Persona implements Serializable{
                 
             }
             else{
-                JOptionPane.showMessageDialog(jframe, "Debe insertar el precio por hora", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "Debe insertar el precio por hora", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
             
@@ -155,7 +175,7 @@ public class Administrador extends Persona implements Serializable{
                 
             }
             else{
-                JOptionPane.showMessageDialog(jframe, "Debe insertar el tiempo minimo que se puede comprar", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "Debe insertar el tiempo minimo que se puede comprar", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
             
@@ -171,7 +191,7 @@ public class Administrador extends Persona implements Serializable{
                 
             }
             else{
-                JOptionPane.showMessageDialog(jframe, "Debe insertar el precio de las multas", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "Debe insertar el precio de las multas", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
             
@@ -184,7 +204,7 @@ public class Administrador extends Persona implements Serializable{
                 inicioAgregarEspacios = Integer.parseInt(inAgreEsp);
             }
             else if(inAgreEsp.equals("") && (estacionamiento.getListaEspacios()).isEmpty()){
-                JOptionPane.showMessageDialog(jframe, "Debe deben agregar espacios", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "Debe deben agregar espacios", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
             
@@ -192,16 +212,16 @@ public class Administrador extends Persona implements Serializable{
                 finAgregarEspacios = Integer.parseInt(fAgreEsp);
             }
             else if(fAgreEsp.equals("") && (estacionamiento.getListaEspacios()).isEmpty()){
-                JOptionPane.showMessageDialog(jframe, "Debe deben agregar espacios", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "Debe deben agregar espacios", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
             if(inicioAgregarEspacios > 99999 || finAgregarEspacios > 99999){
-                JOptionPane.showMessageDialog(jframe, "Los numeros de espacios pueden ser de maximo 5 digitos", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "Los numeros de espacios pueden ser de maximo 5 digitos", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
 
             if(inicioAgregarEspacios > finAgregarEspacios){
-                JOptionPane.showMessageDialog(jframe, "En el rango de agregar espacios, el inicio debe ser menor al final", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "En el rango de agregar espacios, el inicio debe ser menor al final", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
 
@@ -217,7 +237,7 @@ public class Administrador extends Persona implements Serializable{
                 inicioEliminarEspacios = Integer.parseInt(inElimEsp);
             }
             else if(!inElimEsp.equals("") && (estacionamiento.getListaEspacios()).isEmpty()){
-                JOptionPane.showMessageDialog(jframe, "No se pueden eliminar espacios, ya que no se han agregado", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "No se pueden eliminar espacios, ya que no se han agregado", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
             
@@ -225,18 +245,18 @@ public class Administrador extends Persona implements Serializable{
                 finEliminarEspacios = Integer.parseInt(fElimEsp);
             }
             else if(!fElimEsp.equals("") && (estacionamiento.getListaEspacios()).isEmpty()){
-                JOptionPane.showMessageDialog(jframe, "No se pueden eliminar espacios, ya que no se han agregado", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "No se pueden eliminar espacios, ya que no se han agregado", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
             
 
             if(inicioEliminarEspacios > 99999 || finEliminarEspacios > 99999){
-                JOptionPane.showMessageDialog(jframe, "Los numeros de espacios pueden ser de maximo 5 digitos", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "Los numeros de espacios pueden ser de maximo 5 digitos", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
             
             if(inicioEliminarEspacios > finEliminarEspacios){
-                JOptionPane.showMessageDialog(jframe, "En el rango de eliminar espacios, el inicio debe ser menor al final", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jframe, "En el rango de eliminar espacios, el inicio debe ser menor al final", "Datos Invalidos", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
             

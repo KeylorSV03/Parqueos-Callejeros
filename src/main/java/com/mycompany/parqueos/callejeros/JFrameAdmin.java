@@ -17,7 +17,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
         Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
         setIconImage(icono);
         
-        AjustarControles controlador = new AjustarControles();
+        Utilidades controlador = new Utilidades();
         BotonImagen Boton = new BotonImagen();
         Boton.BotonImagen(botonPerfil, "/Imagenes/Perfil.png");
         Boton.BotonImagen(botonConfi, "/Imagenes/BotonConfi.png");

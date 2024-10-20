@@ -25,8 +25,8 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
         Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
         setIconImage(icono);
         
-        AjustarControles controlador = new AjustarControles();
-        controlador.centrarBoton(confirmarConfiguracion);
+        Utilidades controlador = new Utilidades();
+        controlador.centrarComponente(confirmarConfiguracion);
     
         controlador.cambiarImagenBoton(botonBack, "/Imagenes/back.png");
         controlador.soloNumeros(textFieldPrecioHora);

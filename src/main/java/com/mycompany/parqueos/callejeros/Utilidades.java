@@ -28,62 +28,80 @@ import javax.swing.SwingConstants;
 
 //==================== Clase ==================== \\.
 
-public class AjustarControles {
+/**
+ * Esta clase incluye metodos para manejar componentes de la IU
+ * 
+ */
+public class Utilidades {
     
-    public AjustarControles(){
+    public Utilidades(){
         
     }
     
-    void centrarBoton(JButton boton) {
-        boton.setAlignmentX(Component.CENTER_ALIGNMENT);
-    }
-  
-    void centrarLabel(JPanel panel, JLabel label) {
     
-        label.setHorizontalAlignment(SwingConstants.CENTER);
-        panel.revalidate();
-        panel.repaint();
-}
-    
-    void centrarTextField(JTextField texto){
-        texto.setAlignmentX(Component.CENTER_ALIGNMENT);
-    }
-    
-    void centrarPassField(JPasswordField texto){
-        texto.setAlignmentX(Component.CENTER_ALIGNMENT);
+    void centrarComponente(Component componente) {
+        if (componente instanceof JButton) {
+            ((JButton) componente).setAlignmentX(Component.CENTER_ALIGNMENT);
+        } else if (componente instanceof JLabel) {
+            ((JLabel) componente).setHorizontalAlignment(SwingConstants.CENTER);
+        } else if (componente instanceof JPanel) {
+            ((JPanel) componente).setLayout(new BoxLayout((JPanel) componente, BoxLayout.Y_AXIS));
+            ((JPanel) componente).setAlignmentX(Component.CENTER_ALIGNMENT);
+        } else if (componente instanceof JPasswordField) {
+            ((JPasswordField) componente).setAlignmentX(Component.CENTER_ALIGNMENT);
+        }
     }
     
-    void cargarImagenPanel(JPanel panel,String nombreArchivo){
-        JPanelImage mImagen = new JPanelImage(panel,nombreArchivo);
+    /**
+     * Carga una imagen a un JPanel
+     * @param panel JPanel en el cual se desea insertar una imagen
+     * @param ruta Ruta de la imagen la cual se va a insertar
+     */
+    void cargarImagenPanel(JPanel panel,String ruta){
+        JPanelImage mImagen = new JPanelImage(panel,ruta);
         panel.add(mImagen).repaint();
         panel.setOpaque(false);
         panel.setBorder(null);
         panel.setBackground(new Color(0, 0, 0, 0));
     }
     
-     // Método para limitar la cantidad de caracteres en un JTextField
-    public void limitarCaracteres(JTextField campo, int maxCaracteres) {
-        campo.addKeyListener(new KeyAdapter() {
+    /**
+     * Limita la cantidad de caracteres que se pueden ingresar en un JTextField
+     * @param textField En cual text Field se quiere limitar los caracteres
+     * @param maxCaracteres A cuantos caracteres se quiere limitar el text Field
+     */
+    public void limitarCaracteres(JTextField textField, int maxCaracteres) {
+        textField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
-                if (campo.getText().length() >= maxCaracteres) {
+                if (textField.getText().length() >= maxCaracteres) {
                     e.consume(); // Evita que se ingrese más texto
                 }
             }
         });
     }
     
-    public void limitarCaracteres(JPasswordField campo, int maxCaracteres) {
-    campo.addKeyListener(new KeyAdapter() {
+    
+    /**
+     * Limita la cantidad de caracteres que se pueden ingresar en un JPasswordField
+     * @param passwordField En cual password field se desea limitar los caracteres
+     * @param maxCaracteres A cuantos caracteres se quiere limitar el password field
+     */
+    public void limitarCaracteres(JPasswordField passwordField, int maxCaracteres) {
+    passwordField.addKeyListener(new KeyAdapter() {
         @Override
         public void keyTyped(KeyEvent e) {
-            if (campo.getPassword().length >= maxCaracteres) {
+            if (passwordField.getPassword().length >= maxCaracteres) {
                 e.consume(); // Evita que se ingrese más texto
             }
         }
     });
     }
     
+    /**
+     * Hace que en un JTextField solo se puedan insertar numeros
+     * @param textField EN cual textField se desea que solo se pueden ingresar numeros 
+     */
     public void soloNumeros(JTextField textField) {
         textField.addKeyListener(new KeyAdapter() {
             @Override
@@ -98,10 +116,14 @@ public class AjustarControles {
     }
     
 
-    
-    public void cambiarImagenBoton(JButton boton, String rutaImagen) {
+    /**
+     * Agrega y redimensiona una imagen a un JButton, usa un redimensionado suave para no perder mucha calidad
+     * @param boton Boton en el cual se desea insertar la imagen
+     * @param ruta La ruta de la imagen que se desea insertar 
+     */
+    public void cambiarImagenBoton(JButton boton, String ruta) {
         // Cargar la imagen desde los recursos
-        ImageIcon icon = new ImageIcon(getClass().getResource(rutaImagen));
+        ImageIcon icon = new ImageIcon(getClass().getResource(ruta));
         Image imgOriginal = icon.getImage();
         
         // Obtener las dimensiones del botón

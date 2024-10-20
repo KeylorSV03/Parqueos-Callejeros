@@ -11,7 +11,7 @@ public class JFrameAparcar extends javax.swing.JFrame {
     
     private static Estacionamiento estacionamiento = ParqueosCallejeros.estacionamiento;
     
-    private static AjustarControles controlador = new AjustarControles();
+    private static Utilidades controlador = new Utilidades();
     
     
     public JFrameAparcar() {

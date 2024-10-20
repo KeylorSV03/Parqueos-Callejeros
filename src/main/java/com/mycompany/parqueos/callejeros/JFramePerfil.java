@@ -12,7 +12,7 @@ import java.awt.*;
 
 public class JFramePerfil extends javax.swing.JFrame {
 
-    private static AjustarControles controlador = new AjustarControles();
+    private static Utilidades controlador = new Utilidades();
     
     private static Persona usuarioActivo = ParqueosCallejeros.usuarioActivo;
     
