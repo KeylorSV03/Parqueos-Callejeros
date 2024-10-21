@@ -11,6 +11,8 @@ import java.awt.*;
 public class JFrameAdmin extends javax.swing.JFrame {
 
     // Contructor: 
+    
+    
     public JFrameAdmin() {
         initComponents();
         

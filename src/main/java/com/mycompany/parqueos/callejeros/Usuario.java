@@ -250,6 +250,14 @@ public class Usuario extends Persona implements Serializable{
         }
     }
 
+    /**
+     * Envia correo al aparcar un vehiculo
+     * @param vehiculo vehiculo que se aparco
+     * @param tiempo tiempo pagado
+     * @param espacio en cual esapcio se aparco
+     * @param horaSalida la hora de salida
+     * @return true si se envio, false si no
+     */
     public boolean enviarCorreoAparcar(Vehiculo vehiculo, int tiempo, int espacio, String horaSalida){
         if (this.correo == null || this.correo.equals("")) {
             return false; 
@@ -292,6 +300,13 @@ public class Usuario extends Persona implements Serializable{
         }
     }
     
+    /**
+     * Envia correo al agregar tiempo
+     * @param vehiculo que se agregar tiempo
+     * @param tiempoAdicional que se agrega
+     * @param nuevaHora de salida
+     * @return true si se envio, false si no
+     */
     public boolean enviarCorreoAgregarTiempo (Vehiculo vehiculo, int tiempoAdicional, String nuevaHora){
         if (this.correo == null || this.correo.equals("")) {
             return false; 
