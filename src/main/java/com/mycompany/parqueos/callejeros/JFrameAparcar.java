@@ -1,6 +1,10 @@
 
 package com.mycompany.parqueos.callejeros;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 
     
 public class JFrameAparcar extends javax.swing.JFrame {
@@ -16,8 +20,10 @@ public class JFrameAparcar extends javax.swing.JFrame {
     
     public JFrameAparcar() {
         initComponents();
-        this.setResizable(false);
-        this.setLocationRelativeTo(null);
+        
+        Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
+        setIconImage(icono);
+        
         controlador.cambiarImagenBoton(botonBack, "/Imagenes/back.png");
         controlador.soloNumeros(textFieldEspacio);
         
@@ -30,6 +36,9 @@ public class JFrameAparcar extends javax.swing.JFrame {
             
             seleccionarTiempo.addItem( i * estacionamiento.getTiempoMinimo());
         }
+        
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -173,7 +182,13 @@ public class JFrameAparcar extends javax.swing.JFrame {
             espacio = 0;
         }
         
-        usuario.aparcar(vehiculo, tiempo, espacio, this);
+        String horaSalida = usuario.aparcar(vehiculo, tiempo, espacio, this);
+        if (horaSalida != null){
+            boolean estado = usuario.enviarCorreoAparcar(vehiculo, tiempo, espacio, horaSalida);
+            if (estado){
+                JOptionPane.showMessageDialog(null, "Se envio el correo de informacion del parqueo", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_botonAparcarActionPerformed
 
     private void botonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBackActionPerformed

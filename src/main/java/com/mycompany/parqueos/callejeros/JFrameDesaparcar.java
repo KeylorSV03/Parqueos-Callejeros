@@ -4,6 +4,9 @@
  */
 package com.mycompany.parqueos.callejeros;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author keylo
@@ -21,14 +24,19 @@ public class JFrameDesaparcar extends javax.swing.JFrame {
     
     public JFrameDesaparcar() {
         initComponents();
-        this.setResizable(false);
-        this.setLocationRelativeTo(null);
+        
+        Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
+        setIconImage(icono);
+        
         controlador.cambiarImagenBoton(botonBack, "/Imagenes/back.png");
         
         for(Vehiculo vehiculo : usuario.getListaVehiculos()){
             
             seleccionarVehiculo.addItem(vehiculo); 
         }
+        
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
     /**

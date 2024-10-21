@@ -9,6 +9,15 @@ import javax.swing.JOptionPane;
 import java.time.YearMonth;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
+import java.util.Properties;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 public class Usuario extends Persona implements Serializable{
     
@@ -112,12 +121,12 @@ public class Usuario extends Persona implements Serializable{
      * @param numeroEspacio Espacio del estacionamiento que el usuario desea utilizar
      * @param jframe donde se va a mostrar avisos
      */
-    public void aparcar(Vehiculo vehiculo, int tiempoComprado, int numeroEspacio, JFrame jframe){
+    public String aparcar(Vehiculo vehiculo, int tiempoComprado, int numeroEspacio, JFrame jframe){
         
         
         if(vehiculo.getEspacio() != null){
             JOptionPane.showMessageDialog(jframe, "Este vehiculo ya esta en otro espacio ", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
-            return;
+            return null;
         }
         
         DateTimeFormatter formatoHHmm = DateTimeFormatter.ofPattern("HH:mm");
@@ -136,22 +145,22 @@ public class Usuario extends Persona implements Serializable{
                     
                     vehiculo.setEspacio(espacio); //Se le asigna el espacio al vehiculo
                     
-                    
+                    String horaSalida = espacio.getHoraSalida().format(formatoHHmm);
                     JOptionPane.showMessageDialog(jframe, "Vehiculo aparcado en el espacio " + espacio.getNumeroEspacio() + 
-                            "\n Su hora de salida maxima es: " + espacio.getHoraSalida().format(formatoHHmm));
-                    return;
+                            "\n Su hora de salida maxima es: " + horaSalida);
+                    return horaSalida;
                 }
                
                 else{
                     JOptionPane.showMessageDialog(jframe, "El espacio seleccionado se encuentra disponible", "Espacio ocupado", JOptionPane.WARNING_MESSAGE);
-                    return;
+                    return null;
                 }
              
             }
             
         }
         JOptionPane.showMessageDialog(jframe, "No existe el espacio", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
-        return;
+        return null;
     }
     
     /**
@@ -160,7 +169,7 @@ public class Usuario extends Persona implements Serializable{
      * @param tiempoAdicional Cuanto tiempo se desea agregar
      * @param jframe donde se mostrara el mensaje
      */
-    public void agregarTiempo(Vehiculo vehiculo, int tiempoAdicional, JFrame jframe){
+    public String agregarTiempo(Vehiculo vehiculo, int tiempoAdicional, JFrame jframe){
         
         DateTimeFormatter formatoHHmm = DateTimeFormatter.ofPattern("HH:mm");
         
@@ -170,18 +179,21 @@ public class Usuario extends Persona implements Serializable{
             
             if(LocalTime.now().isBefore(espacio.getHoraSalida())){
                 espacio.setHoraSalida(espacio.getHoraSalida().plusMinutes(tiempoAdicional));
-            JOptionPane.showMessageDialog(jframe, "Se agrego el tiempo \n Su nueva hora de salida es: " + espacio.getHoraSalida().format(formatoHHmm) , "Tiempo agregado correctamente", JOptionPane.INFORMATION_MESSAGE); 
+                String nuevaHora = espacio.getHoraSalida().format(formatoHHmm);
+                JOptionPane.showMessageDialog(jframe, "Se agrego el tiempo \n Su nueva hora de salida es: " + nuevaHora , "Tiempo agregado correctamente", JOptionPane.INFORMATION_MESSAGE); 
+                return nuevaHora;
             }
             
             else{
                 JOptionPane.showMessageDialog(jframe, "Ya se excedio el tiempo de estar en el estacionamiento", "No se puede agregar tiempo", JOptionPane.ERROR_MESSAGE); 
+                return null;
             }
             
-            
-            
+   
         }
         else{
            JOptionPane.showMessageDialog(jframe, "No se puede agregar tiempo, ya que el vehiculo seleccionado no se encuentra aparcado en ningun espacio", "Vehiculo no aparcado", JOptionPane.WARNING_MESSAGE); 
+           return null;
         }
     }
     
@@ -238,5 +250,87 @@ public class Usuario extends Persona implements Serializable{
         }
     }
 
-
+    public boolean enviarCorreoAparcar(Vehiculo vehiculo, int tiempo, int espacio, String horaSalida){
+        if (this.correo == null || this.correo.equals("")) {
+            return false; 
+        }
+        
+        String destinatario = this.correo;
+        String asunto = "Información del parqueo de su vehiculo:";
+        String mensaje = String.format("Vehiculo: \nPlaca: %s \nMarca: %s\nModelo: %s \nTiempo: %d mintuos \nEspacio: %d  \nHora de salida: %s",
+                vehiculo.getPlaca(), vehiculo.getMarca(), vehiculo.getModelo(), tiempo, espacio, horaSalida);
+        
+        Properties propiedades = new Properties();
+        propiedades.put("mail.smtp.auth", "true");
+        propiedades.put("mail.smtp.starttls.enable", "true");
+        propiedades.put("mail.smtp.host", "smtp.gmail.com");
+        propiedades.put("mail.smtp.port", "587");
+        
+        final String usuario = "parqueoscallejeros2112@gmail.com";
+        final String clave = " fqts ayqp ilcz kvrf";
+        
+        Session session = Session.getInstance(propiedades, new Authenticator() {
+            protected  PasswordAuthentication getPasswordAuthentication(){
+                return new PasswordAuthentication(usuario, clave);
+            }
+        });
+        
+        try {
+            Message msg = new MimeMessage(session);
+            msg.setFrom(new InternetAddress(usuario));
+            msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatario));
+            msg.setSubject(asunto);
+            msg.setText(mensaje);
+            
+            Transport.send(msg);
+            return true;
+        }
+        catch (MessagingException e){
+            JOptionPane.showMessageDialog(null, "No se pudo enviar el correo a " + destinatario, "Error de Envío", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    public boolean enviarCorreoAgregarTiempo (Vehiculo vehiculo, int tiempoAdicional, String nuevaHora){
+        if (this.correo == null || this.correo.equals("")) {
+            return false; 
+        }
+        
+        String destinatario = this.correo;
+        String asunto = "Información del tiempo agregado:";
+        String mensaje = String.format("Vehiculo: \nPlaca: %s \nMarca: %s\nModelo: %s \nTiempo Agregado: %d minutos \nNueva hora de salida: %s",
+                vehiculo.getPlaca(), vehiculo.getMarca(), vehiculo.getModelo(), tiempoAdicional, nuevaHora);
+        
+        Properties propiedades = new Properties();
+        propiedades.put("mail.smtp.auth", "true");
+        propiedades.put("mail.smtp.starttls.enable", "true");
+        propiedades.put("mail.smtp.host", "smtp.gmail.com");
+        propiedades.put("mail.smtp.port", "587");
+        
+        final String usuario = "parqueoscallejeros2112@gmail.com";
+        final String clave = " fqts ayqp ilcz kvrf";
+        
+        Session session = Session.getInstance(propiedades, new Authenticator() {
+            protected  PasswordAuthentication getPasswordAuthentication(){
+                return new PasswordAuthentication(usuario, clave);
+            }
+        });
+        
+        try {
+            Message msg = new MimeMessage(session);
+            msg.setFrom(new InternetAddress(usuario));
+            msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatario));
+            msg.setSubject(asunto);
+            msg.setText(mensaje);
+            
+            Transport.send(msg);
+            return true;
+        }
+        catch (MessagingException e){
+            JOptionPane.showMessageDialog(null, "No se pudo enviar el correo a " + destinatario, "Error de Envío", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
