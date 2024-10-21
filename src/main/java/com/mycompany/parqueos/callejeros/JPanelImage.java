@@ -7,8 +7,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-//==================== Clase ==================== \\.
-
 public class JPanelImage extends JLabel{ // Se encarga de poner imagenes
     
     // Atributos

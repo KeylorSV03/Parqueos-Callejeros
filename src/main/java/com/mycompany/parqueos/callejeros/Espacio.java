@@ -17,7 +17,8 @@ public class Espacio implements Serializable{
     private boolean  ocupado;
     private Vehiculo vehiculo;
     private int tiempo;
-    private LocalTime inicioParqueo;
+    private LocalTime horaIngreso;
+    private LocalTime horaSalida;
     private List<Vehiculo> historialVehiculos ;
     
     //==================== Metodos ====================
@@ -33,7 +34,8 @@ public class Espacio implements Serializable{
         this.historialVehiculos = new ArrayList();
         ocupado = false;
         this.vehiculo = null;
-        inicioParqueo = null;
+        horaIngreso = null;
+        horaSalida = null;
         
     }
     // ------------------- Setters -------------------
@@ -58,8 +60,12 @@ public class Espacio implements Serializable{
         this.tiempo = tiempo;
     }
     
-    public void setInicioParqueo(LocalTime hora){
-        this.inicioParqueo = hora;
+    public void setHoraIngreso(LocalTime hora){
+        this.horaIngreso = hora;
+    }
+    
+    public void setHoraSalida(LocalTime hora){
+        this.horaSalida = hora;
     }
 
     // ------------------- Getters -------------------
@@ -84,12 +90,20 @@ public class Espacio implements Serializable{
         return historialVehiculos;
     }
     
-    public LocalTime getInicioParqueo(){
-        return inicioParqueo;
+    public LocalTime getHoraIngreso(){
+        return horaIngreso;
+    }
+    
+    public LocalTime getHoraSalida(){
+        return horaSalida;
     }
     
     
+    // ------------------- Otros metodos -------------------
     
+    public void agregarHistorialEspacio(Vehiculo vehiculo){
+        historialVehiculos.add(vehiculo);
+    }
     
     
 }

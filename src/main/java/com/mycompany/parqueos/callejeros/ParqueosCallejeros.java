@@ -18,7 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- * 
+ * Clase principal del proyecto 'Parqueos Callejeros'
  * @author Keylor Solano Vega y Ariel Sanchez Torres
  */
 public class ParqueosCallejeros implements Serializable{
@@ -35,8 +35,14 @@ public class ParqueosCallejeros implements Serializable{
     
     // =================================== [ Metodos ] ===================================
 
-    //Cargar objetos individuales
-        public static <T> T cargarObjeto(String nombreArchivo, Class<T> clase) {
+    /**
+     * Metodo de programacion generica que carga un objeto desde un archivo
+     * @param <T> 
+     * @param nombreArchivo Desde cual archivo se desea cargar
+     * @param clase Clase del objeto que se va a cargar
+     * @return Objeto de la clase recibida por parametro
+     */
+    public static <T> T cargarObjeto(String nombreArchivo, Class<T> clase) {
         T objeto = null;
         try (ObjectInputStream objetoEntrada = new ObjectInputStream(new FileInputStream(nombreArchivo))) {
             // Intentamos leer el objeto desde el archivo
@@ -75,7 +81,12 @@ public class ParqueosCallejeros implements Serializable{
         return listaObjetos;
     }
     
-    //Grabar objetos individuales
+    /**
+     * Graba un objeto a un archivo
+     * @param <T>
+     * @param nombreArchivo Nombre del archivo en el cual se desea grabar (si no existe se crea)
+     * @param objeto Cual objeto se desea grabar
+     */
     public static <T> void grabarObjeto(String nombreArchivo, T objeto) {
         try (ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream(nombreArchivo))) {
             salida.writeObject(objeto);

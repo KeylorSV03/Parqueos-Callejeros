@@ -173,7 +173,10 @@ public class JFrameUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_botonAparcarActionPerformed
 
     private void botonAgregarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarTActionPerformed
-        System.out.println("Agregar tiempo");
+        
+        JFrameAgregarTiempo jframeAgregarTiempo = new JFrameAgregarTiempo();
+        jframeAgregarTiempo.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botonAgregarTActionPerformed
 
     private void botonPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPerfilActionPerformed
@@ -190,7 +193,9 @@ public class JFrameUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_botonVehiculoActionPerformed
 
     private void botonDesaparcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDesaparcarActionPerformed
-        System.out.println("Desaparcando");
+        JFrameDesaparcar jframeDesaparcar = new JFrameDesaparcar();
+        jframeDesaparcar.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botonDesaparcarActionPerformed
 
     private void botonMPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMPagoActionPerformed

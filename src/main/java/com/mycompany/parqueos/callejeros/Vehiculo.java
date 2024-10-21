@@ -13,6 +13,7 @@ public class Vehiculo implements Serializable{
     private Espacio espacio;
     private ArrayList<Multa> listaMultasActivas;
     private ArrayList<Multa> historialMultas;
+    private List<Espacio> historialEspacios;
 
     public Vehiculo (String placa, String marca, String modelo){
         this.placa = placa;
@@ -20,11 +21,16 @@ public class Vehiculo implements Serializable{
         this.modelo = modelo;
         this.listaMultasActivas = new ArrayList();
         this.historialMultas = new ArrayList();
+        this.historialEspacios = new ArrayList();
     }
+    
+    // ------------------- Setters -------------------
     
     public void setEspacio(Espacio espacio){
         this.espacio = espacio;
     }
+    
+    // ------------------- Getters -------------------
     
     public String getPlaca(){
         return placa;
@@ -43,6 +49,16 @@ public class Vehiculo implements Serializable{
     }
     public String toString(){
         return marca + " - " + modelo + " - " + placa;
+    }
+    
+    // ------------------- Otros metodos -------------------
+    
+    /**
+     * Agrega un espacio utilizado al historial de los mismo
+     * @param espacio el espacio que se agregara al historial
+     */
+    public void agregarHistorialEspacio(Espacio espacio){
+        historialEspacios.add(espacio);
     }
     
 }

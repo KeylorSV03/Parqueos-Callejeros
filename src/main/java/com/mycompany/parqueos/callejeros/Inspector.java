@@ -3,7 +3,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * 
+ * @author Keylor Solano y Ariel Sanchez
+ */
 public class Inspector extends  Persona implements Serializable{
     
     //==================== Atributos ====================
@@ -19,5 +22,21 @@ public class Inspector extends  Persona implements Serializable{
         
         super(nombre, apellido, telefono, correo, direccionFisica, idUsuario, PIN);
         this.listaMultas = new ArrayList();
+    }
+    
+    // ------------------- Setters -------------------
+    
+    public void setListaMultas(List<Multa> listaMultas){
+        this.listaMultas = listaMultas;
+    }
+    
+    public void setEstacionamiento(Estacionamiento estacionamiento){
+        this.estacionamiento = estacionamiento;
+    }
+    
+    // ------------------- Getters -------------------
+    
+    public List<Multa> getListaMultas(){
+        return listaMultas;
     }
 }

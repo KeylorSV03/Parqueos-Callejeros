@@ -271,10 +271,16 @@ public class Administrador extends Persona implements Serializable{
         return false;
     }
     
-    public static boolean validarFormatoHora(String timeString, DateTimeFormatter formatter) {
+    /**
+     * 
+     * @param hora String con la hora que se desea validar y convertir a clase LocalTiem
+     * @param formatter formato de hora
+     * @return 
+     */
+    public static boolean validarFormatoHora(String hora, DateTimeFormatter formatter) {
         try {
             // Intenta parsear el String usando el formateador
-            LocalTime.parse(timeString, formatter);
+            LocalTime.parse(hora, formatter);
             return true;  // Si no lanza excepción, el formato es válido
         } catch (DateTimeParseException e) {
             // Si ocurre una excepción, el formato no es válido

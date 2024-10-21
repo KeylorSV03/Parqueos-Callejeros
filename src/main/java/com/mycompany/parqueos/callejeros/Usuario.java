@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import java.time.YearMonth;
 import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoUnit;
 
 public class Usuario extends Persona implements Serializable{
     
@@ -104,7 +105,14 @@ public class Usuario extends Persona implements Serializable{
     }
     
     
-    public void aparcar(Vehiculo vehiculo, int tiempo, int numeroEspacio, JFrame jframe){
+    /**
+     * Coloca el vehiculo en un espacio elegido por el usuario si esta disponible
+     * @param vehiculo Vehiculo el cual se desea aparcar
+     * @param tiempo El tiempo que se va a comprar para el uso del espacio
+     * @param numeroEspacio Espacio del estacionamiento que el usuario desea utilizar
+     * @param jframe donde se va a mostrar avisos
+     */
+    public void aparcar(Vehiculo vehiculo, int tiempoComprado, int numeroEspacio, JFrame jframe){
         
         
         if(vehiculo.getEspacio() != null){
@@ -112,25 +120,30 @@ public class Usuario extends Persona implements Serializable{
             return;
         }
         
+        DateTimeFormatter formatoHHmm = DateTimeFormatter.ofPattern("HH:mm");
+        
         for(Espacio espacio : estacionamiento.getListaEspacios()){
 
             if(espacio.getNumeroEspacio() == numeroEspacio){
                 
                 if(espacio.getOcupado() == false){
-                    espacio.setVehiculo(vehiculo);
-                    espacio.setOcupado(true);
-                    espacio.setInicioParqueo(LocalTime.now());
-                    vehiculo.setEspacio(espacio);
-                    espacio.setTiempo(tiempo);
-                    LocalTime horaSalida = LocalTime.now().plusMinutes(tiempo);
-                    DateTimeFormatter formatoHHmm = DateTimeFormatter.ofPattern("HH:mm");
+                    
+                    espacio.setVehiculo(vehiculo); //Ingresa el vehiculo
+                    espacio.setOcupado(true); //Cambia el valor de 'ocupado' indicando que ahora lo esta
+                    espacio.setHoraIngreso(LocalTime.now()); //Asigna la hora de entrada al espacio
+                    espacio.setHoraSalida(LocalTime.now().plusMinutes(tiempoComprado)); //Asigna la hora de salida del espacio
+                    espacio.setTiempo(tiempoComprado);
+                    
+                    vehiculo.setEspacio(espacio); //Se le asigna el espacio al vehiculo
+                    
+                    
                     JOptionPane.showMessageDialog(jframe, "Vehiculo aparcado en el espacio " + espacio.getNumeroEspacio() + 
-                            "\n Su hora de salida maxima es: " + horaSalida.format(formatoHHmm));
+                            "\n Su hora de salida maxima es: " + espacio.getHoraSalida().format(formatoHHmm));
                     return;
                 }
                
                 else{
-                    JOptionPane.showMessageDialog(jframe, "El espacio no esta disponible", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(jframe, "El espacio seleccionado se encuentra disponible", "Espacio ocupado", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
              
@@ -141,19 +154,87 @@ public class Usuario extends Persona implements Serializable{
         return;
     }
     
-    public YearMonth stringAFecha(String fecha) {
-        // Definir el formato MM-AAAA
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-uuuu");
+    /**
+     * Este metodo permite agregar tiempo de uso de un espacio a los usuarios
+     * @param vehiculo Vehiculo el cual se desea dejar mas tiempo en el estacionamiento
+     * @param tiempoAdicional Cuanto tiempo se desea agregar
+     * @param jframe donde se mostrara el mensaje
+     */
+    public void agregarTiempo(Vehiculo vehiculo, int tiempoAdicional, JFrame jframe){
         
+        DateTimeFormatter formatoHHmm = DateTimeFormatter.ofPattern("HH:mm");
+        
+        if(vehiculo.getEspacio() != null){
+            
+            Espacio espacio = vehiculo.getEspacio();
+            
+            if(LocalTime.now().isBefore(espacio.getHoraSalida())){
+                espacio.setHoraSalida(espacio.getHoraSalida().plusMinutes(tiempoAdicional));
+            JOptionPane.showMessageDialog(jframe, "Se agrego el tiempo \n Su nueva hora de salida es: " + espacio.getHoraSalida().format(formatoHHmm) , "Tiempo agregado correctamente", JOptionPane.INFORMATION_MESSAGE); 
+            }
+            
+            else{
+                JOptionPane.showMessageDialog(jframe, "Ya se excedio el tiempo de estar en el estacionamiento", "No se puede agregar tiempo", JOptionPane.ERROR_MESSAGE); 
+            }
+            
+            
+            
+        }
+        else{
+           JOptionPane.showMessageDialog(jframe, "No se puede agregar tiempo, ya que el vehiculo seleccionado no se encuentra aparcado en ningun espacio", "Vehiculo no aparcado", JOptionPane.WARNING_MESSAGE); 
+        }
+    }
+    
+    /**
+     * Se encarga de la salida del vehiculo de un estacionamiento
+     * @param vehiculo El vehiculo el cual se desea desaparcar
+     * @param jframe Donde se mostrara el mensaje
+     */
+    public void desaparcar(Vehiculo vehiculo,JFrame jframe){
+        
+        if(vehiculo.getEspacio() == null){
+            JOptionPane.showMessageDialog(jframe, "El vehiculo no esta en ningun espacio", "No se hizo el desaparcar", JOptionPane.WARNING_MESSAGE); 
+            return;
+        }
+        Espacio espacio = vehiculo.getEspacio();
+        int minutosRestantes = (int) LocalTime.now().until(espacio.getHoraSalida(), ChronoUnit.MINUTES);
+        
+        if(minutosRestantes > 0){
+            JOptionPane.showMessageDialog(jframe, " Se agregaron " + minutosRestantes + " minutos a el tiempo guardado" , "Tiempo guardado", JOptionPane.INFORMATION_MESSAGE); 
+            this.agregarTiempoGuardado(minutosRestantes);  
+        }
+        
+        espacio.agregarHistorialEspacio(vehiculo);
+        vehiculo.agregarHistorialEspacio(espacio);
+        
+        espacio.setHoraIngreso(null);
+        espacio.setHoraSalida(null);
+        espacio.setOcupado(false);
+        espacio.setTiempo(0);
+        espacio.setVehiculo(null);
+        
+        vehiculo.setEspacio(null);
+        
+        JOptionPane.showMessageDialog(jframe, " Se desaparco el vehiculo correctamente" , "Carro desaparcado", JOptionPane.INFORMATION_MESSAGE); 
+    }
+    
+    /**
+     * Recibe un string y si tiene el formato correcto (mm-aaaa) lo convierte a un dato decla clase YearMonth 
+     * @param fecha String con el formato mm-aaaa
+     * @return String convertido a fechao o null si la fecha es invalida
+     */
+    public static YearMonth stringAFecha(String fecha) {
+        // Define el formato esperado
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yyyy");
+
         try {
-            // Intentar parsear la cadena a YearMonth
-            YearMonth fechaDeVencimiento = YearMonth.parse(fecha, formatter);
-            // Si llega aquí, la fecha es válida
-            return fechaDeVencimiento;
+            // Intenta parsear la fecha
+            YearMonth yearMonth = YearMonth.parse(fecha, formatter);
+            return yearMonth; // Retorna el objeto YearMonth si es válido
         } catch (DateTimeParseException e) {
-            // Si el formato o la fecha son inválidos, mostrar un mensaje de error
-            JOptionPane.showMessageDialog(null, "La fecha '" + fecha + "' no es válida o tiene un formato incorrecto.\nEl formato debe ser MM-AAAA.", "Error de Fecha", JOptionPane.ERROR_MESSAGE);
-            return null;
+            // Maneja la excepción si la fecha no es válida
+            System.out.println("Fecha inválida o formato incorrecto. Debe ser mm/yyyy.");
+            return null; // O lanza una excepción según tus necesidades
         }
     }
 

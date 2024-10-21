@@ -1,9 +1,14 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package com.mycompany.parqueos.callejeros;
 
-
-    
-public class JFrameAparcar extends javax.swing.JFrame {
+/**
+ *
+ * @author keylo
+ */
+public class JFrameAgregarTiempo extends javax.swing.JFrame {
 
     private static Persona usuarioActivo = ParqueosCallejeros.usuarioActivo;
     
@@ -13,13 +18,11 @@ public class JFrameAparcar extends javax.swing.JFrame {
     
     private static Utilidades controlador = new Utilidades();
     
-    
-    public JFrameAparcar() {
+    public JFrameAgregarTiempo() {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         controlador.cambiarImagenBoton(botonBack, "/Imagenes/back.png");
-        controlador.soloNumeros(textFieldEspacio);
         
         for(Vehiculo vehiculo : usuario.getListaVehiculos()){
             
@@ -30,6 +33,7 @@ public class JFrameAparcar extends javax.swing.JFrame {
             
             seleccionarTiempo.addItem( i * estacionamiento.getTiempoMinimo());
         }
+        
     }
 
     /**
@@ -42,54 +46,44 @@ public class JFrameAparcar extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new PanelDegradado();
-        seleccionarVehiculo = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        seleccionarVehiculo = new javax.swing.JComboBox<>();
+        botonBack = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        textFieldEspacio = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        confirmar = new javax.swing.JButton();
         seleccionarTiempo = new javax.swing.JComboBox<>();
-        botonAparcar = new javax.swing.JButton();
-        botonBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(221, 238, 255));
+        jPanel1.setBackground(new java.awt.Color(200, 227, 255));
 
-        seleccionarVehiculo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        jLabel1.setText("Agregar Tiempo");
+
         seleccionarVehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seleccionarVehiculoActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
-        jLabel1.setText("Aparcar");
-
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel2.setText("Elegir vehiculo");
-
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel3.setText("Elegir espacio");
-
-        textFieldEspacio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel4.setText("Comprar tiempo");
-
-        seleccionarTiempo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-
-        botonAparcar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        botonAparcar.setText("Aparcar");
-        botonAparcar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAparcarActionPerformed(evt);
-            }
-        });
-
         botonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonBackActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel2.setText("Seleccionar Vehiculo");
+
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel3.setText("Tiempo Adicional:");
+
+        confirmar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        confirmar.setText("Confirmar");
+        confirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmarActionPerformed(evt);
             }
         });
 
@@ -100,47 +94,41 @@ public class JFrameAparcar extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(seleccionarTiempo, 0, 379, Short.MAX_VALUE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(textFieldEspacio, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
-                            .addComponent(jLabel4)
-                            .addComponent(seleccionarVehiculo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(206, 206, 206)
-                        .addComponent(botonAparcar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(192, 192, 192)
+                        .addContainerGap()
+                        .addComponent(botonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(114, 114, 114)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(botonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(72, Short.MAX_VALUE))
+                        .addGap(214, 214, 214)
+                        .addComponent(confirmar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(73, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(seleccionarTiempo, 0, 379, Short.MAX_VALUE)
+                    .addComponent(seleccionarVehiculo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(69, 69, 69))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(botonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addGap(115, 115, 115)
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(148, 148, 148)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(seleccionarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75)
+                .addGap(79, 79, 79)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textFieldEspacio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(seleccionarTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
-                .addComponent(botonAparcar)
-                .addGap(61, 61, 61))
+                .addGap(125, 125, 125)
+                .addComponent(confirmar)
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,23 +146,16 @@ public class JFrameAparcar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void seleccionarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionarVehiculoActionPerformed
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_seleccionarVehiculoActionPerformed
 
-    private void botonAparcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAparcarActionPerformed
+    private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
         
         Vehiculo vehiculo = (Vehiculo )seleccionarVehiculo.getSelectedItem();
-        int tiempo = (Integer) seleccionarTiempo.getSelectedItem();
-        int espacio;
-        if(!textFieldEspacio.getText().equals("")){
-            espacio = Integer.parseInt(textFieldEspacio.getText());
-        }
-        else{
-            espacio = 0;
-        }
+        int tiempoAdicional = (Integer) seleccionarTiempo.getSelectedItem();
         
-        usuario.aparcar(vehiculo, tiempo, espacio, this);
-    }//GEN-LAST:event_botonAparcarActionPerformed
+        usuario.agregarTiempo(vehiculo, tiempoAdicional, this);
+    }//GEN-LAST:event_confirmarActionPerformed
 
     private void botonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBackActionPerformed
         JFrameUsuario jFrameUsuario = new JFrameUsuario();
@@ -199,34 +180,32 @@ public class JFrameAparcar extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFrameAparcar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameAgregarTiempo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFrameAparcar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameAgregarTiempo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFrameAparcar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameAgregarTiempo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFrameAparcar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameAgregarTiempo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrameAparcar().setVisible(true);
+                new JFrameAgregarTiempo().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonAparcar;
     private javax.swing.JButton botonBack;
+    private javax.swing.JButton confirmar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox<Integer> seleccionarTiempo;
     private javax.swing.JComboBox<Vehiculo> seleccionarVehiculo;
-    private javax.swing.JTextField textFieldEspacio;
     // End of variables declaration//GEN-END:variables
 }

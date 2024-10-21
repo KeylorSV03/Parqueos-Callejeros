@@ -209,8 +209,8 @@ public class JFrameTarjeta extends javax.swing.JFrame {
 
     private void botonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBackActionPerformed
         
-        JFramePerfil jFramePerfil = new JFramePerfil();
-        jFramePerfil.setVisible(true);
+        JFrameUsuario jFrameUsuario = new JFrameUsuario();
+        jFrameUsuario.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botonBackActionPerformed
 
@@ -249,11 +249,12 @@ public class JFrameTarjeta extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(this, "Debe insertar el codigo de validacion", "Datos Invalidos", JOptionPane.ERROR_MESSAGE); 
         }
         else if(fechaVencimiento == null){
-            
+            JOptionPane.showMessageDialog(this, "Fecha de vencimiento no valida", "Datos Invalidos", JOptionPane.ERROR_MESSAGE); 
         }
         else{
             usuario.setTarjeta(numeroTarjeta, fechaVencimiento, codigoValidacion);
-        }   JOptionPane.showMessageDialog(this, "Tarjeta agregada con exito", "Correcto", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Tarjeta agregada con exito", "Correcto", JOptionPane.INFORMATION_MESSAGE);
+        }   
     }//GEN-LAST:event_confirmarActionPerformed
 
     /**

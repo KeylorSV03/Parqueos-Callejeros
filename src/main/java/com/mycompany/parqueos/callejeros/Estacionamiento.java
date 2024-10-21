@@ -118,6 +118,8 @@ public class Estacionamiento implements Serializable {
         return horario;
     }
     
+    // ------------------- Otros metodos -------------------
+    
     public static boolean validarCorreo(String correo) {
         // Expresión regular para validar un correo
         String regex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
@@ -126,6 +128,15 @@ public class Estacionamiento implements Serializable {
         return matcher.matches();
     }
     
+    
+    /**
+     * Busca a el usuariosegun el id y su pin
+     * @param idUsuario Identificacion de usuario insertada para iniciar sesion
+     * @param pin PIN insertado para iniciar sesion
+     * @param listaUsuarios Lista donde se va a buscar el usuario
+     * @param jframe JFrame donde se mostrara el mensaje en caso de datos incorrectos
+     * @return Un usuario para usarlo en las operaciones de la aplicacion
+     */
     public static Persona verificarUsuario(String idUsuario, String pin,List<Persona> listaUsuarios, JFrame jframe){
         
         for(Persona persona:listaUsuarios){
@@ -146,6 +157,21 @@ public class Estacionamiento implements Serializable {
         return null; //Si no encuentra el usuario
     }
     
+    
+     /**
+      * Recibe la informacion del usuario y si es correcta se agrega a la lista de usuarios
+      * @param nombre String de 2 a 20 caracteres
+      * @param apellidos String de 1 a 40 caracteres
+      * @param telefono Entero de 8 digitos
+      * @param correo String con el formato parte1@parte2
+      * @param direccionFisica String de 5 a 60 caracteres
+      * @param idUsuario String de 2 a 25 caracteres (se usa para iniciar sesion)
+      * @param PIN String de 4 caracteres (se usa para iniciar sesion)
+      * @param listaUsuarios La lista donde se agregara el usuario
+      * @param jframe JFrame en el cual se mostraran mensaje si hay datos erroneos
+      * @param tipoUsuario A si se agregara un Administrador, U si sera un usuario o I en caso de inspector
+      * @return True si se puedo registar el usuario(si todos los datos fueron correctos) y false de lo contario
+      */
     public static boolean registrarUsuario(String nombre, String apellidos, int telefono, String correo, String direccionFisica,
             String idUsuario, String PIN , List<Persona> listaUsuarios, JFrame jframe, String tipoUsuario){
         
@@ -245,6 +271,12 @@ public class Estacionamiento implements Serializable {
         
     }
     
+    
+    /**
+     * Busca un usuario en la lista segun su identificacion
+     * @param usuario Identificacion que se va a buscar
+     * @return True si lo encontro, false de lo contrario
+     */
     public boolean buscarUsuarioXid(String usuario){
         for(Persona persona : this.getListaUsuarios()){
             if(persona.getIdUsuario().equals(usuario)){
@@ -254,6 +286,12 @@ public class Estacionamiento implements Serializable {
         return false;
     }
     
+    
+    /**
+     * Busca el correo electronico recibido en cada usuario para asegurarse que no haya correos repetidos(se usa a la hora de registar un usuario)
+     * @param correo Correo a buscar
+     * @return True si lo encontro, false de lo contrario
+     */
     public boolean buscarCorreo(String correo){
         
         for(Persona persona : this.getListaUsuarios()){
@@ -264,6 +302,12 @@ public class Estacionamiento implements Serializable {
         return false;
     }
     
+    
+    /** 
+     * Busca el telefono recibido en cada usuario para verificar que no hayan telefonos repetidos (se usa a la hora de registrar un usuario)
+     * @param telefono Numero de telefono a buscar
+     * @return True si lo encontro, false de lo contrario
+     */
     public boolean buscarTelefono(int telefono){
         for(Persona persona : this.getListaUsuarios()){
             if(persona.getTelefono() == telefono){
@@ -273,7 +317,17 @@ public class Estacionamiento implements Serializable {
         return false;
     }
     
+    
+    /**
+     * Agrega un espacio al estacionamiento. Si el numero de espacio no existe lo agrega, si ya existe no se realiza la accion
+     * @param numeroEspacio Nuemero de espacio que se desea agregar al estacionamiento
+     */
     public  void agregarEspacio(int numeroEspacio){
+        
+        if(numeroEspacio <= 0){
+            JOptionPane.showMessageDialog(null, "No se agrego el espacio '" + numeroEspacio + "' , el numero de espacio debe ser mayor a 0", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+        
         boolean existeEspacio = false;
         
         for(Espacio espacio : listaEspacios){ //Validar si el espacio existe o no
@@ -283,7 +337,7 @@ public class Estacionamiento implements Serializable {
             }
         }
                 
-        if(!existeEspacio){ //si el espacio no existe se agrega
+        if(!existeEspacio && numeroEspacio >0){ //si el espacio no existe se agrega
             Espacio espacio = new Espacio(numeroEspacio);
             listaEspacios.add(espacio);   
         }
@@ -292,12 +346,16 @@ public class Estacionamiento implements Serializable {
             JOptionPane.showMessageDialog(null, "No se agrego el espacio '" + numeroEspacio + "' porque ya existe", "Aviso", JOptionPane.WARNING_MESSAGE);
         }
         listaEspacios.sort(Comparator.comparingInt(Espacio::getNumeroEspacio)); 
-        
-        
-                
+                  
     }
     
+    
+    /**
+     * Elimina un espacio del parqueo si existe, si no existe se notifica.
+     * @param numeroEspacio Numero de espacio que se desea eliminar del parqueo
+     */
     public void eliminarEspacio(int numeroEspacio){
+        
         
         boolean existeEspacio = false;
         
@@ -309,7 +367,7 @@ public class Estacionamiento implements Serializable {
             }
         }
         
-        if(!existeEspacio){
+        if(!existeEspacio && numeroEspacio > 0){
             JOptionPane.showMessageDialog(null, "No se elimino el espacio '" + numeroEspacio + "' porque no existe", "Aviso", JOptionPane.WARNING_MESSAGE);
         }
                
@@ -317,6 +375,12 @@ public class Estacionamiento implements Serializable {
         listaEspacios.sort(Comparator.comparingInt(Espacio::getNumeroEspacio));
     }
     
+    
+    /**
+     * Busca el numero de espacion ingresado a ver si esta libre
+     * @param numeroEspacio Numero de espacio a consultar
+     * @return True si esta libre, false de lo contrario
+     */
     public boolean espacioLibre(int numeroEspacio){
         
         for(Espacio espacio : listaEspacios){
