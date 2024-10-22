@@ -51,6 +51,10 @@ public class Usuario extends Persona implements Serializable{
         return tiempoGuardado;
     }
     
+    public Tarjeta getTarjeta(){
+        return tarjeta;
+    }
+    
     // ------------------- Otros metodos -------------------
     
     public void agregarTiempoGuardado(int tiempo){
@@ -237,6 +241,6 @@ public class Usuario extends Persona implements Serializable{
             return null; // O lanza una excepción según tus necesidades
         }
     }
-
+  
 
 }

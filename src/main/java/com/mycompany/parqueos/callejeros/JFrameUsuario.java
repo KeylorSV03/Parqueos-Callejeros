@@ -162,7 +162,10 @@ public class JFrameUsuario extends javax.swing.JFrame {
     private void botonAparcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAparcarActionPerformed
         
         if(usuario.getListaVehiculos().isEmpty()){
-            JOptionPane.showMessageDialog(this, "No han registrado vehiculos", "No se puede aparcar", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No han registrado vehiculos", "No se puede aparcar", JOptionPane.ERROR_MESSAGE);
+        }
+        else if(usuario.getTarjeta() == null){
+            JOptionPane.showMessageDialog(this, "No se ha agregado metodo de pago", "No se puede aparcar", JOptionPane.ERROR_MESSAGE);
         }
         else{
             JFrameAparcar jframeAparcar = new JFrameAparcar();
@@ -174,9 +177,15 @@ public class JFrameUsuario extends javax.swing.JFrame {
 
     private void botonAgregarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarTActionPerformed
         
-        JFrameAgregarTiempo jframeAgregarTiempo = new JFrameAgregarTiempo();
-        jframeAgregarTiempo.setVisible(true);
-        this.dispose();
+        if(usuario.getListaVehiculos().isEmpty()){
+            JOptionPane.showMessageDialog(this, "No han registrado vehiculos", "No se puede agregar tiempo", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+          JFrameAgregarTiempo jframeAgregarTiempo = new JFrameAgregarTiempo();
+            jframeAgregarTiempo.setVisible(true);
+            this.dispose();  
+        }
+        
     }//GEN-LAST:event_botonAgregarTActionPerformed
 
     private void botonPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPerfilActionPerformed
@@ -193,9 +202,15 @@ public class JFrameUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_botonVehiculoActionPerformed
 
     private void botonDesaparcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDesaparcarActionPerformed
-        JFrameDesaparcar jframeDesaparcar = new JFrameDesaparcar();
-        jframeDesaparcar.setVisible(true);
-        this.dispose();
+        if(usuario.getListaVehiculos().isEmpty()){
+            JOptionPane.showMessageDialog(this, "No han registrado vehiculos", "No se puede desaparcar", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            JFrameDesaparcar jframeDesaparcar = new JFrameDesaparcar();
+            jframeDesaparcar.setVisible(true);
+            this.dispose();
+        }
+        
     }//GEN-LAST:event_botonDesaparcarActionPerformed
 
     private void botonMPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMPagoActionPerformed

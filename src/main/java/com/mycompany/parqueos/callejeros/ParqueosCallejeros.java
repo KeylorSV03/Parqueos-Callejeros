@@ -5,17 +5,15 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.lang.reflect.Constructor;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+
+
+
+
+
 
 /**
  * Clase principal del proyecto 'Parqueos Callejeros'
@@ -70,17 +68,6 @@ public class ParqueosCallejeros implements Serializable{
         return objeto;
     }
     
-    //Cargar listas de objetos
-    public static <T> List<T> cargarLista(String nombreArchivo) {
-        List<T> listaObjetos = new ArrayList<>();
-        try (ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(nombreArchivo))) {
-            listaObjetos = (List<T>) entrada.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Error al cargar la lista de objetos: " + e.getMessage());
-        }
-        return listaObjetos;
-    }
-    
     /**
      * Graba un objeto a un archivo
      * @param <T>
@@ -95,21 +82,15 @@ public class ParqueosCallejeros implements Serializable{
             System.out.println("Error al grabar el objeto: " + e.getMessage());
         }
     }
-    
-    //Grabar listas de objetos
-    public static <T> void grabarLista(String nombreArchivo, List<T> listaObjetos) {
-        try (ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream(nombreArchivo))) {
-            salida.writeObject(listaObjetos);
-            System.out.println("Lista de objetos grabada exitosamente en " + nombreArchivo);
-        } catch (IOException e) {
-            System.out.println("Error al grabar la lista de objetos: " + e.getMessage());
-        }
-    }
-    
+
+       
+
     
     // =================================== [ Clase principal ] ===================================
     
     public static void main(String[] args) {
+        
+     
         
         //Cargar el estacionamiento
         estacionamiento = cargarObjeto("estacionamiento.dat",Estacionamiento.class);
