@@ -4,6 +4,10 @@
  */
 package com.mycompany.parqueos.callejeros;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author keylo
@@ -20,8 +24,10 @@ public class JFrameAgregarTiempo extends javax.swing.JFrame {
     
     public JFrameAgregarTiempo() {
         initComponents();
-        this.setResizable(false);
-        this.setLocationRelativeTo(null);
+        
+        Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
+        setIconImage(icono);
+        
         controlador.cambiarImagenBoton(botonBack, "/Imagenes/back.png");
         
         for(Vehiculo vehiculo : usuario.getListaVehiculos()){
@@ -34,6 +40,8 @@ public class JFrameAgregarTiempo extends javax.swing.JFrame {
             seleccionarTiempo.addItem( i * estacionamiento.getTiempoMinimo());
         }
         
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -154,7 +162,13 @@ public class JFrameAgregarTiempo extends javax.swing.JFrame {
         Vehiculo vehiculo = (Vehiculo )seleccionarVehiculo.getSelectedItem();
         int tiempoAdicional = (Integer) seleccionarTiempo.getSelectedItem();
         
-        usuario.agregarTiempo(vehiculo, tiempoAdicional, this);
+        String nuevaHora = usuario.agregarTiempo(vehiculo, tiempoAdicional, this);
+        if (nuevaHora != null){
+            boolean estado = usuario.enviarCorreoAgregarTiempo(vehiculo, tiempoAdicional, nuevaHora);
+            if (estado){
+                JOptionPane.showMessageDialog(null, "Se envio el correo de informacion del parqueo", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_confirmarActionPerformed
 
     private void botonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBackActionPerformed

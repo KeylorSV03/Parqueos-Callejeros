@@ -110,6 +110,10 @@ public class Persona implements Serializable{
         return fechaIngreso;
     }
 
+    /**
+     * Envia correo del perfil a cada usuario
+     * @return true si se envio, false si no
+     */
     public boolean enviarCorreoPerfil(){
         
         if (this.correo == null || this.correo.equals("")) {
@@ -153,6 +157,10 @@ public class Persona implements Serializable{
         }
     }
     
+    /**
+     * Envia correo para el cambio de PIN
+     * @return true si se envio, false si no
+     */
     public String enviarCorreoPIN(){
         if (this.correo == null || this.correo.equals("")) {
             JOptionPane.showMessageDialog(null, "No se pudo enviar el correo porque la dirección de correo está vacía.", "Error de Envío", JOptionPane.ERROR_MESSAGE);
@@ -196,6 +204,10 @@ public class Persona implements Serializable{
         }
     }
     
+    /**
+     * Genera un codigo aleatorio para el cambio de PIN
+     * @return el codigo generado
+     */
     public static String generarCadenaAleatoria () {
         String caracteresValidos = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         StringBuilder cadena = new StringBuilder();

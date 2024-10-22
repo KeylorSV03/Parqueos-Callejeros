@@ -288,6 +288,13 @@ public class Administrador extends Persona implements Serializable{
         }
     }
     
+    /**
+     * Envia el correo al cambiar la configuracion
+     * @param inicioA inicio de agregar espacio
+     * @param finA fin de agrear espacio
+     * @param inicioE inicio de eliminar espacio
+     * @param finE fin de eliminar espacio
+     */
     public void enviarCorreoConfi(String inicioA, String finA, String inicioE, String finE){
         if (this.correo == null || this.correo.equals("")) {
 
