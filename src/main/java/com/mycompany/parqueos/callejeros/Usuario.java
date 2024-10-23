@@ -69,8 +69,8 @@ public class Usuario extends Persona implements Serializable{
     public void agregarTiempoGuardado(int tiempo){
         tiempoGuardado += tiempo;
     }
-    public void agregarVehiculo(String placa, String marca, String modelo){
-        Vehiculo nuevoVehiculo = new Vehiculo(placa, marca, modelo);
+    public void agregarVehiculo(String placa, String marca, String modelo, Usuario usuario){
+        Vehiculo nuevoVehiculo = new Vehiculo(placa, marca, modelo, usuario);
         listaVehiculos.add(nuevoVehiculo);
     }
     

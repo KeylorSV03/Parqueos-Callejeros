@@ -25,6 +25,7 @@ public class Estacionamiento implements Serializable {
     private List<Espacio> historialEspacios;
     private List<Persona> listaUsuarios;
     private LocalTime[] horario;
+    private int ingresoMultasSinRegistrar;
     
     //==================== Metodos ====================
     
@@ -119,6 +120,15 @@ public class Estacionamiento implements Serializable {
     }
     
     // ------------------- Otros metodos -------------------
+    
+    /**
+     * 
+     * @param ingreso 
+     */
+    public void agregarMultaSinRegistrar(int ingreso){
+        ingresoMultasSinRegistrar += ingreso;
+    }
+    
     
     public static boolean validarCorreo(String correo) {
         // Expresión regular para validar un correo

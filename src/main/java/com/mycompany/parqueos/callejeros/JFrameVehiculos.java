@@ -78,6 +78,7 @@ public class JFrameVehiculos extends javax.swing.JFrame {
         botonSig = new javax.swing.JButton();
         botonAgregar = new javax.swing.JButton();
         botonEliminar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -139,6 +140,14 @@ public class JFrameVehiculos extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jButton1.setText("Pagar Multas");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -178,9 +187,10 @@ public class JFrameVehiculos extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botonEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                    .addComponent(botonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(186, 186, 186))
         );
         jPanel1Layout.setVerticalGroup(
@@ -203,7 +213,7 @@ public class JFrameVehiculos extends javax.swing.JFrame {
                         .addComponent(jLabelMarca))
                     .addComponent(botonAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonSig, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(34, 34, 34)
                 .addComponent(jLabelModelo)
@@ -211,7 +221,9 @@ public class JFrameVehiculos extends javax.swing.JFrame {
                 .addComponent(botonAgregar)
                 .addGap(36, 36, 36)
                 .addComponent(botonEliminar)
-                .addGap(98, 98, 98))
+                .addGap(34, 34, 34)
+                .addComponent(jButton1)
+                .addGap(39, 39, 39))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -300,7 +312,7 @@ public class JFrameVehiculos extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Modelo debe ser de 0 a 15 caracteres", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
                 }
                 else{
-                    usuario.agregarVehiculo(nuevaPlaca, nuevaMarca, nuevoModelo);
+                    usuario.agregarVehiculo(nuevaPlaca, nuevaMarca, nuevoModelo, usuario);
                     this.dispose();
                     JFrameVehiculos jFrameVehiculos = new JFrameVehiculos();
                     jFrameVehiculos.setVisible(true);
@@ -322,6 +334,29 @@ public class JFrameVehiculos extends javax.swing.JFrame {
         else if (opcion == JOptionPane.CANCEL_OPTION) {
         }
     }//GEN-LAST:event_botonEliminarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        double monto = 0;
+        if (usuario.getTarjeta() != null){
+            Vehiculo vehiculoX = usuario.buscarVehiculo(indice);
+            List<Multa> multas = vehiculoX.getMultasActivas();
+            if (multas != null){
+                for (Multa multa: multas){
+                    monto += multa.getCosto();
+                }
+            }
+            
+            int opcion = JOptionPane.showConfirmDialog(null, "¿Desea pagar las multas? " + monto, "Confirmación", JOptionPane.OK_CANCEL_OPTION);
+
+            if (opcion == JOptionPane.OK_OPTION) {
+                
+            } else if (opcion == JOptionPane.CANCEL_OPTION) {
+                
+            }
+        }
+        
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 //==================== Main ==================== \\.
     
@@ -365,6 +400,7 @@ public class JFrameVehiculos extends javax.swing.JFrame {
     private javax.swing.JButton botonBack;
     private javax.swing.JButton botonEliminar;
     private javax.swing.JButton botonSig;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
