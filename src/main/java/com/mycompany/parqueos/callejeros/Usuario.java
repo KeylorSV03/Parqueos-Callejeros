@@ -1,5 +1,6 @@
 package com.mycompany.parqueos.callejeros;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -9,6 +10,8 @@ import javax.swing.JOptionPane;
 import java.time.YearMonth;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Properties;
 import javax.mail.Authenticator;
 import javax.mail.Message;
@@ -118,6 +121,26 @@ public class Usuario extends Persona implements Serializable{
     }
     
     
+    
+    public double calcularCosto(int minutos){
+        System.out.println("Precio por hora:   " + estacionamiento.getPrecioXHora() );
+        System.out.println("Tiempo comprado:   " + minutos );
+        
+        
+        
+        if(minutos <= estacionamiento.getTiempoMinimo()){
+            minutos = estacionamiento.getTiempoMinimo();
+        }
+        
+
+        double x = minutos/60.0;
+        double pXh = estacionamiento.getPrecioXHora();
+        
+        return x * pXh;
+       
+    }
+    
+    
     /**
      * Coloca el vehiculo en un espacio elegido por el usuario si esta disponible
      * @param vehiculo Vehiculo el cual se desea aparcar
@@ -146,6 +169,8 @@ public class Usuario extends Persona implements Serializable{
                     espacio.setHoraIngreso(LocalTime.now()); //Asigna la hora de entrada al espacio
                     espacio.setHoraSalida(LocalTime.now().plusMinutes(tiempoComprado)); //Asigna la hora de salida del espacio
                     espacio.setTiempo(tiempoComprado);
+                    espacio.setCosto(calcularCosto(tiempoComprado));
+                    espacio.setFechaUso(LocalDateTime.now());
                     
                     vehiculo.setEspacio(espacio); //Se le asigna el espacio al vehiculo
                     
@@ -167,6 +192,8 @@ public class Usuario extends Persona implements Serializable{
         return null;
     }
     
+    
+    
     /**
      * Este metodo permite agregar tiempo de uso de un espacio a los usuarios
      * @param vehiculo Vehiculo el cual se desea dejar mas tiempo en el estacionamiento
@@ -183,6 +210,7 @@ public class Usuario extends Persona implements Serializable{
             
             if(LocalTime.now().isBefore(espacio.getHoraSalida())){
                 espacio.setHoraSalida(espacio.getHoraSalida().plusMinutes(tiempoAdicional));
+                espacio.setCosto(espacio.getCosto() + calcularCosto(tiempoAdicional));
                 String nuevaHora = espacio.getHoraSalida().format(formatoHHmm);
                 JOptionPane.showMessageDialog(jframe, "Se agrego el tiempo \n Su nueva hora de salida es: " + nuevaHora , "Tiempo agregado correctamente", JOptionPane.INFORMATION_MESSAGE); 
                 return nuevaHora;
@@ -220,6 +248,16 @@ public class Usuario extends Persona implements Serializable{
             this.agregarTiempoGuardado(minutosRestantes);  
         }
         
+        historialEspacios.add(new Espacio(espacio.getNumeroEspacio(),espacio.getVehiculo(),espacio.gettiempo(),espacio.getCosto(),espacio.getFechaUso()));
+        
+        Collections.sort(historialEspacios, new Comparator<Espacio>() {
+            @Override
+            public int compare(Espacio e1, Espacio e2) {
+                // Comparar fechas de manera descendente
+                return e2.getFechaUso().compareTo(e1.getFechaUso());
+            }
+        });
+        
         espacio.agregarHistorialEspacio(vehiculo);
         vehiculo.agregarHistorialEspacio(espacio);
         
@@ -230,6 +268,7 @@ public class Usuario extends Persona implements Serializable{
         espacio.setVehiculo(null);
         
         vehiculo.setEspacio(null);
+        
         
         JOptionPane.showMessageDialog(jframe, " Se desaparco el vehiculo correctamente" , "Carro desaparcado", JOptionPane.INFORMATION_MESSAGE); 
     }
@@ -353,5 +392,41 @@ public class Usuario extends Persona implements Serializable{
             e.printStackTrace();
             return false;
         }
+    }
+    
+    public void reporteEspaciosDisponibles(){
+        
+        List<Espacio> espaciosDisponibles = new ArrayList();
+        
+        for(Espacio espacio : estacionamiento.getListaEspacios()){
+            if(!espacio.getOcupado()){
+                espaciosDisponibles.add(espacio);
+            }
+        }
+        
+        
+        byte[] pdf = ParqueosCallejeros.generatePdf("Lista de espacios disponibles", espaciosDisponibles,Espacio::toString);
+         
+        if (pdf != null) {
+            // Aquí puedes enviar pdfBytes por correo
+            ParqueosCallejeros.enviarPdf(this.correo,"Espacios Disponibles", "Esta es la lista de espacios disponibles en el estacionamiento: ", pdf, "Espacios Disponibles.pdf");
+        }
+         
+         else{
+             JOptionPane.showMessageDialog(null, "No hay espacios disponibles", "No se puede generar el reporte", JOptionPane.WARNING_MESSAGE);
+         }
+    }
+    
+    public void reporteHistorialEspacios(){
+        byte[] pdf = ParqueosCallejeros.generatePdf("Historial Espacios", historialEspacios,Espacio::toStringNFC);
+         
+        if (pdf != null) {
+            // Aquí puedes enviar pdfBytes por correo
+            ParqueosCallejeros.enviarPdf(this.correo,"Espacios usados", "Esta es el historial de espacios usados: ", pdf, "Historial Espacios.pdf");
+        }
+         
+         else{
+             JOptionPane.showMessageDialog(null, "No hay espacios disponibles", "No se puede generar el reporte", JOptionPane.WARNING_MESSAGE);
+         }
     }
 }

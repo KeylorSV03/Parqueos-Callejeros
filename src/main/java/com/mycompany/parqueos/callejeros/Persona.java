@@ -221,7 +221,10 @@ public class Persona implements Serializable{
         return cadena.toString();
     }
     
-    
+    public String toString(){
+        return "Nombre: " + nombre + "\n" +
+                "Id Usuario: " + idUsuario +"\n";
+    }
 }
 
 

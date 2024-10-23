@@ -70,7 +70,7 @@ public class JFrameTarjeta extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         jLabel3.setText("Fecha de vencimiento:");
 
-        jLabel5.setText("mm-aaaa");
+        jLabel5.setText("mm/aaaa");
 
         javax.swing.GroupLayout panelTarjetaDelanteLayout = new javax.swing.GroupLayout(panelTarjetaDelante);
         panelTarjetaDelante.setLayout(panelTarjetaDelanteLayout);

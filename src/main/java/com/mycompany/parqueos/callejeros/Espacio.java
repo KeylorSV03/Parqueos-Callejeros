@@ -1,6 +1,8 @@
 package com.mycompany.parqueos.callejeros;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -20,6 +22,9 @@ public class Espacio implements Serializable{
     private LocalTime horaIngreso;
     private LocalTime horaSalida;
     private List<Vehiculo> historialVehiculos ;
+    private double costo;
+    private Estacionamiento estacionamiento;
+    private LocalDateTime fechaUso;
     
     //==================== Metodos ====================
     
@@ -36,6 +41,19 @@ public class Espacio implements Serializable{
         this.vehiculo = null;
         horaIngreso = null;
         horaSalida = null;
+        estacionamiento = ParqueosCallejeros.estacionamiento;
+        costo = 0;  
+        fechaUso = null;
+        
+    }
+    
+    public Espacio(int numeroEspacio, Vehiculo vehiculo, int tiempo, double costo, LocalDateTime fecha){
+        this.numeroEspacio = numeroEspacio;
+        this.vehiculo = vehiculo;
+        this.tiempo = tiempo;
+        this.fechaUso = fecha;
+        this.costo = costo;
+        this.tiempo = tiempo;
         
     }
     // ------------------- Setters -------------------
@@ -68,6 +86,13 @@ public class Espacio implements Serializable{
         this.horaSalida = hora;
     }
 
+    public void setCosto(double costo){
+        this.costo = costo;
+    }
+    
+    public void setFechaUso(LocalDateTime fecha){
+        fechaUso = fecha;
+    }
     // ------------------- Getters -------------------
     
     public int getNumeroEspacio() {
@@ -98,12 +123,36 @@ public class Espacio implements Serializable{
         return horaSalida;
     }
     
+    public double getCosto(){
+        return costo;
+    }
     
+    public LocalDateTime getFechaUso(){
+        return fechaUso;
+    }
     // ------------------- Otros metodos -------------------
     
     public void agregarHistorialEspacio(Vehiculo vehiculo){
         historialVehiculos.add(vehiculo);
     }
+   
     
     
+    public String toString(){
+        return "Numero de espacio: " + numeroEspacio;
+    }
+    
+    public String toStringNFC(){
+        //N:numero espacio
+        //F:fecha
+        //C:costo
+        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String fechaFormateada = fechaUso.format(formatter);
+        
+        return "Numero de espacio: " + numeroEspacio + "\n" +
+                "Fecha de uso: " + fechaFormateada + "\n" +
+                "Costo: " + costo + "\n";
+    }
+
 }

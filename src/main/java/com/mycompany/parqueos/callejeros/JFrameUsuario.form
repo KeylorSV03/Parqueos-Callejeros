@@ -42,16 +42,6 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="botonAparcar" pref="325" max="32767" attributes="0"/>
-                      <Component id="botonAgregarT" max="32767" attributes="0"/>
-                      <Component id="botonDesaparcar" max="32767" attributes="0"/>
-                      <Component id="botonMPago" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
                   <Component id="botonVehiculo" min="-2" pref="105" max="-2" attributes="0"/>
                   <EmptySpace pref="310" max="32767" attributes="0"/>
                   <Component id="botonPerfil" min="-2" pref="105" max="-2" attributes="0"/>
@@ -59,6 +49,17 @@
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   <Component id="botonCSesion" min="-2" pref="132" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="jButton1" pref="325" max="32767" attributes="0"/>
+                      <Component id="botonAparcar" pref="325" max="32767" attributes="0"/>
+                      <Component id="botonAgregarT" max="32767" attributes="0"/>
+                      <Component id="botonDesaparcar" max="32767" attributes="0"/>
+                      <Component id="botonMPago" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -72,15 +73,17 @@
                           <Component id="botonVehiculo" min="-2" pref="105" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="botonAparcar" min="-2" pref="85" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="botonAgregarT" min="-2" pref="85" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="botonDesaparcar" min="-2" pref="85" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="botonMPago" min="-2" pref="85" max="-2" attributes="0"/>
-                  <EmptySpace pref="84" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jButton1" min="-2" pref="73" max="-2" attributes="0"/>
+                  <EmptySpace pref="37" max="32767" attributes="0"/>
                   <Component id="botonCSesion" min="-2" pref="45" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -138,6 +141,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonMPagoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="reportes"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

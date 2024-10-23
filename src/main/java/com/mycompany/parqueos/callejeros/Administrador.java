@@ -1,6 +1,11 @@
 package com.mycompany.parqueos.callejeros;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfDocument;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.datatransfer.FlavorListener;
+import java.io.FileNotFoundException;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -8,6 +13,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Properties;
 import javax.mail.Authenticator;
 import javax.mail.Message;
@@ -339,5 +345,8 @@ public class Administrador extends Persona implements Serializable{
             e.printStackTrace();
         }
     }
+    
+
+
     
 }

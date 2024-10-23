@@ -38,6 +38,7 @@ public class Estacionamiento implements Serializable {
         horario = new LocalTime[2];
     }
     
+ 
     // ------------------- Setters -------------------
     
     public void setNombre(String nombre) {
