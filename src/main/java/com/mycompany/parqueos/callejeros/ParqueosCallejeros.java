@@ -1,5 +1,6 @@
-
 package com.mycompany.parqueos.callejeros;
+
+//==================== Import ==================== \\.
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -41,10 +42,7 @@ import javax.mail.util.ByteArrayDataSource;
 import javax.swing.JOptionPane;
 
 
-
-
-
-
+//==================== Clase ==================== \\.
 
 /**
  * Clase principal del proyecto 'Parqueos Callejeros'
@@ -114,64 +112,70 @@ public class ParqueosCallejeros implements Serializable{
         }
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-public static <T> byte[] generatePdf(String titulo, List<T> list, Function<T, String> toStringFunction) {
-    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-    Document document = new Document();
+    /**
+     * generar PDF
+     * @param <T>
+     * @param titulo
+     * @param list
+     * @param toStringFunction
+     * @return 
+     */
+    public static <T> byte[] generatePdf(String titulo, List<T> list, Function<T, String> toStringFunction) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        Document document = new Document();
 
-    try {
-        // Crear un PdfWriter que escriba en el ByteArrayOutputStream
-        PdfWriter.getInstance(document, byteArrayOutputStream);
-        document.open();
+        try {
+            // Crear un PdfWriter que escriba en el ByteArrayOutputStream
+            PdfWriter.getInstance(document, byteArrayOutputStream);
+            document.open();
 
-        // Agregar el título al PDF
-        Paragraph titleParagraph = new Paragraph(titulo);
-        titleParagraph.setAlignment(Paragraph.ALIGN_CENTER); // Centrar el título
-        document.add(titleParagraph);
-        document.add(new Paragraph("\n")); // Agregar un salto de línea
+            // Agregar el título al PDF
+            Paragraph titleParagraph = new Paragraph(titulo);
+            titleParagraph.setAlignment(Paragraph.ALIGN_CENTER); // Centrar el título
+            document.add(titleParagraph);
+            document.add(new Paragraph("\n")); // Agregar un salto de línea
 
-        // Verificar si la lista está vacía
-        if (list.isEmpty()) {
-            return null; // Salir del método si la lista está vacía
+            // Verificar si la lista está vacía
+            if (list.isEmpty()) {
+                return null; // Salir del método si la lista está vacía
+            }
+
+            // Iterar sobre la lista y agregar el resultado de toStringFunction al PDF
+            for (T item : list) {
+                // Usar la función proporcionada para obtener la representación en cadena
+                String customToString = toStringFunction.apply(item);
+
+                // Crear un párrafo con la representación en cadena del objeto
+                Paragraph paragraph = new Paragraph(customToString);
+                document.add(paragraph);
+
+                // Agregar un salto de línea
+                document.add(new Paragraph("\n"));
+            }
+
+        } catch (DocumentException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            // Cerrar el documento
+            document.close();
         }
 
-        // Iterar sobre la lista y agregar el resultado de toStringFunction al PDF
-        for (T item : list) {
-            // Usar la función proporcionada para obtener la representación en cadena
-            String customToString = toStringFunction.apply(item);
-
-            // Crear un párrafo con la representación en cadena del objeto
-            Paragraph paragraph = new Paragraph(customToString);
-            document.add(paragraph);
-            
-            // Agregar un salto de línea
-            document.add(new Paragraph("\n"));
-        }
-
-    } catch (DocumentException e) {
-        e.printStackTrace();
-        return null;
-    } finally {
-        // Cerrar el documento
-        document.close();
+        // Retornar el PDF como un arreglo de bytes
+        return byteArrayOutputStream.toByteArray();
     }
-
-    // Retornar el PDF como un arreglo de bytes
-    return byteArrayOutputStream.toByteArray();
-}
     
     
     
-    
+    /**
+     * enviar PDF
+     * @param destinatario
+     * @param asunto
+     * @param mensaje
+     * @param pdfBytes
+     * @param nombreArchivo
+     * @return 
+     */
     public static boolean enviarPdf(String destinatario, String asunto, String mensaje, byte[] pdfBytes, String nombreArchivo) {
             if (destinatario == null || destinatario.isEmpty()) {
                 return false; 
@@ -224,13 +228,12 @@ public static <T> byte[] generatePdf(String titulo, List<T> list, Function<T, St
     
     // =================================== [ Clase principal ] ===================================
     
+    /**
+     * 
+     * @param args 
+     */ 
     public static void main(String[] args) {
-       
-        
-        
-       
-        
-        
+   
         //Cargar el estacionamiento
         estacionamiento = cargarObjeto("estacionamiento.dat",Estacionamiento.class);
         

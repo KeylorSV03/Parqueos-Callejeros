@@ -1,8 +1,13 @@
 package com.mycompany.parqueos.callejeros;
 
+//==================== Import ==================== \\.
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+//==================== Clase ==================== \\.
+
 
 public class Vehiculo implements Serializable{
 
@@ -18,7 +23,13 @@ public class Vehiculo implements Serializable{
     private List<Espacio> historialEspacios;
 
     
-    
+    /**
+     * constructor
+     * @param placa
+     * @param marca
+     * @param modelo
+     * @param propietario 
+     */
     public Vehiculo (String placa, String marca, String modelo, Usuario propietario){
         this.placa = placa;
         this.marca = marca;
@@ -79,11 +90,18 @@ public class Vehiculo implements Serializable{
         historialEspacios.add(espacio);
     }
     
-   
+    /**
+     * agrega multa activa 
+     * @param multa 
+     */
     public void agregarMulta(Multa multa){
         listaMultasActivas.add(multa);
     }
     
+    /**
+     * agrega multa al historial
+     * @param multas 
+     */
     public void agregarHMultas(List<Multa> multas){
         historialMultas.addAll(multas);
     }

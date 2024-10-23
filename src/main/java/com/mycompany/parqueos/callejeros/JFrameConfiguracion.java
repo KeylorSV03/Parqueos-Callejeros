@@ -368,6 +368,10 @@ public class JFrameConfiguracion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textFiledInicioElimEspaciosActionPerformed
 
+    /**
+     * Valida la configuracion
+     * @param evt 
+     */
     private void confirmarConfiguracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarConfiguracionActionPerformed
         String nom = jTextFieldNombre.getText();
         String inHorario = textFieldInicioHorario.getText();

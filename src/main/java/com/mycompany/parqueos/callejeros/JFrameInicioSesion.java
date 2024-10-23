@@ -165,6 +165,11 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
 
     
 //==================== Funcion de control ==================== \\.
+    
+    /**
+     * registra al usuario
+     * @param evt 
+     */
     private void botonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarseActionPerformed
         
         //Evaluar algunas condiciones de la configuracion para saber si se realizo o no antes de registrar usuarios
@@ -180,6 +185,10 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonRegistrarseActionPerformed
 
+    /**
+     * inicia sesion con el usuario 
+     * @param evt 
+     */
     private void botonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIniciarSesionActionPerformed
         String usuario = textFieldUsuario.getText();
         String pin = passwordFieldPIN.getText();
@@ -211,6 +220,10 @@ public class JFrameInicioSesion extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonIniciarSesionActionPerformed
 
+    /**
+     * reiniciar PIN
+     * @param evt 
+     */
     private void botonPINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPINActionPerformed
         String usuario = textFieldUsuario.getText();
         if (usuario.equals("")){

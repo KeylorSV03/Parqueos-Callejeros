@@ -1,4 +1,7 @@
 package com.mycompany.parqueos.callejeros;
+
+//==================== Import ==================== \\.
+
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -14,10 +17,15 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 
+
+//==================== Clase ==================== \\.
+
 /**
  * 
  * @author Keylor Solano y Ariel Sanchez
  */
+
+
 public class Inspector extends  Persona implements Serializable{
     
     //==================== Atributos ====================
@@ -50,15 +58,20 @@ public class Inspector extends  Persona implements Serializable{
     public List<Multa> getListaMultas(){
         return listaMultas;
     }
-    
-    
-    
-    
+   
     public void agregarMulta (Multa multa){
         listaMultas.add(multa);
     }
     
-    
+    /**
+     * correo de la multa hecha por el inspector 
+     * @param correo
+     * @param detalle
+     * @param costo
+     * @param fecha
+     * @param placa
+     * @return si se pudo enviar o no 
+     */
     public boolean enviarCorreoMulta(String correo, String detalle, int costo, String fecha, String placa){
         if (correo == null || correo.equals("")) {
             return false; 

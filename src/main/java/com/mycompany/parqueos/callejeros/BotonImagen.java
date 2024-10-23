@@ -10,6 +10,11 @@ import javax.swing.JButton;
 public class BotonImagen { // Se encarga de poner imagen al boton
     
     // Constructor
+    /**
+     * Ajusta una imagen a un boton 
+     * @param Boton a modificar
+     * @param nombreArchivo imagen 
+     */
     public void BotonImagen(JButton Boton,String nombreArchivo) {
         // Cargar la imagen desde los recursos:
         ImageIcon icono = new ImageIcon(getClass().getResource(nombreArchivo));

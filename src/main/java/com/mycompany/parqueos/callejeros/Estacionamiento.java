@@ -1,5 +1,7 @@
 package com.mycompany.parqueos.callejeros;
 
+//==================== Import ==================== \\.
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -11,6 +13,12 @@ import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+//==================== Clase ==================== \\.
+
+/**
+ * clase Estacionamiento
+ * @author ariel
+ */
 public class Estacionamiento implements Serializable {
     
     //==================== Atributos ====================
@@ -31,6 +39,9 @@ public class Estacionamiento implements Serializable {
     
     // ------------------- Constructor -------------------
     
+    /**
+     * Constructor
+     */
     public Estacionamiento(){
         this.listaUsuarios = new ArrayList();
         this.listaEspacios = new ArrayList();
@@ -139,7 +150,11 @@ public class Estacionamiento implements Serializable {
         historialMultas.addAll(multas);
     }
     
-    
+    /**
+     * Valida el formato de un correo
+     * @param correo
+     * @return 
+     */
     public static boolean validarCorreo(String correo) {
         // Expresión regular para validar un correo
         String regex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";

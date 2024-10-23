@@ -1,5 +1,6 @@
 package com.mycompany.parqueos.callejeros;
 
+//==================== Import ==================== \\.
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -8,6 +9,10 @@ import javax.mail.internet.*;
 import java.util.Properties;
 import javax.swing.JOptionPane;
 import java.util.Random;
+
+
+//==================== Clase ==================== \\.
+
 
 public class Persona implements Serializable{
 
@@ -31,6 +36,16 @@ public class Persona implements Serializable{
 
     }
 
+    /**
+     * constructor de persona 
+     * @param nombre
+     * @param apellido
+     * @param telefono
+     * @param correo
+     * @param direccionFisica
+     * @param idUsuario
+     * @param PIN 
+     */
     public Persona(String nombre, String apellido, int telefono, String correo, String direccionFisica, String idUsuario,String PIN){
         this.nombre = nombre;
         this.apellido = apellido;
@@ -209,7 +224,7 @@ public class Persona implements Serializable{
      * @return el codigo generado
      */
     public static String generarCadenaAleatoria () {
-        String caracteresValidos = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        String caracteresValidos = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; // caracteres disponibles
         StringBuilder cadena = new StringBuilder();
         Random random = new Random();
         

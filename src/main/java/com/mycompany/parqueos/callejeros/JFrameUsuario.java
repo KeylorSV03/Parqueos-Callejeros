@@ -30,6 +30,7 @@ public class JFrameUsuario extends javax.swing.JFrame {
         Boton.BotonImagen(botonAgregarT, "/Imagenes/BotonATiempo.png");
         Boton.BotonImagen(botonAparcar, "/Imagenes/BotonAparcar.png");
         Boton.BotonImagen(botonDesaparcar, "/Imagenes/BotonDesaparcar.png");
+        Boton.BotonImagen(botonReportes, "/Imagenes/BotonReportes.png");
         controlador.cambiarImagenBoton(botonCSesion, "/Imagenes/BotonCerrarSesion.png");
         Boton.BotonImagen(botonMPago, "/Imagenes/BotonMPago.png");
         
@@ -53,7 +54,7 @@ public class JFrameUsuario extends javax.swing.JFrame {
         botonDesaparcar = new javax.swing.JButton();
         botonCSesion = new javax.swing.JButton();
         botonMPago = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        botonReportes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,10 +106,10 @@ public class JFrameUsuario extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("reportes");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonReportes.setText("reportes");
+        botonReportes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonReportesActionPerformed(evt);
             }
         });
 
@@ -120,19 +121,18 @@ public class JFrameUsuario extends javax.swing.JFrame {
                 .addComponent(botonVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 310, Short.MAX_VALUE)
                 .addComponent(botonPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(botonCSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(botonAparcar, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
-                        .addComponent(botonAgregarT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botonDesaparcar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botonMPago, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(botonReportes, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
+                    .addComponent(botonAparcar, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
+                    .addComponent(botonAgregarT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonDesaparcar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonMPago, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(110, 110, 110))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(botonCSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,9 +151,9 @@ public class JFrameUsuario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(botonMPago, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(botonCSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(botonReportes, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botonCSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -164,7 +164,9 @@ public class JFrameUsuario extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -173,6 +175,10 @@ public class JFrameUsuario extends javax.swing.JFrame {
     
 //==================== Funcion de control ==================== \\.
     
+    /**
+     * aparcar el vehiculo
+     * @param evt 
+     */
     private void botonAparcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAparcarActionPerformed
         
         if(usuario.getListaVehiculos().isEmpty()){
@@ -189,6 +195,10 @@ public class JFrameUsuario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonAparcarActionPerformed
 
+    /**
+     * agrega tiempo
+     * @param evt 
+     */
     private void botonAgregarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarTActionPerformed
         
         if(usuario.getListaVehiculos().isEmpty()){
@@ -202,6 +212,10 @@ public class JFrameUsuario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonAgregarTActionPerformed
 
+    /**
+     * boton para ver el pefil
+     * @param evt 
+     */
     private void botonPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPerfilActionPerformed
         System.out.println("Perfil");
         JFramePerfil jFramePerfil = new JFramePerfil();
@@ -209,12 +223,20 @@ public class JFrameUsuario extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_botonPerfilActionPerformed
 
+    /**
+     * ver vehiculos
+     * @param evt 
+     */
     private void botonVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVehiculoActionPerformed
         JFrameVehiculos jFrameVehiculo = new JFrameVehiculos();
         jFrameVehiculo.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botonVehiculoActionPerformed
 
+    /**
+     * desaparcar vehiculo
+     * @param evt 
+     */
     private void botonDesaparcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDesaparcarActionPerformed
         if(usuario.getListaVehiculos().isEmpty()){
             JOptionPane.showMessageDialog(this, "No han registrado vehiculos", "No se puede desaparcar", JOptionPane.ERROR_MESSAGE);
@@ -227,6 +249,10 @@ public class JFrameUsuario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonDesaparcarActionPerformed
 
+    /**
+     * metodo de pago
+     * @param evt 
+     */
     private void botonMPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMPagoActionPerformed
         
         JFrameTarjeta jFrameTarjeta = new JFrameTarjeta();
@@ -235,6 +261,10 @@ public class JFrameUsuario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonMPagoActionPerformed
 
+    /**
+     * cerrar sesion
+     * @param evt 
+     */
     private void botonCSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCSesionActionPerformed
         
         ParqueosCallejeros.usuarioActivo = null;
@@ -244,11 +274,15 @@ public class JFrameUsuario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonCSesionActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    /**
+     * reportes
+     * @param evt 
+     */
+    private void botonReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReportesActionPerformed
         JFrameReportesUsuario jframReportesUsuario = new JFrameReportesUsuario();
         jframReportesUsuario.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonReportesActionPerformed
 
 //==================== Main ==================== \\.
     
@@ -286,6 +320,7 @@ public class JFrameUsuario extends javax.swing.JFrame {
     }
 
 //==================== Variables ==================== \\.
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAgregarT;
     private javax.swing.JButton botonAparcar;
@@ -293,8 +328,8 @@ public class JFrameUsuario extends javax.swing.JFrame {
     private javax.swing.JButton botonDesaparcar;
     private javax.swing.JButton botonMPago;
     private javax.swing.JButton botonPerfil;
+    private javax.swing.JButton botonReportes;
     private javax.swing.JButton botonVehiculo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

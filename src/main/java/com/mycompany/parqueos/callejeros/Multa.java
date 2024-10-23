@@ -1,8 +1,16 @@
 package com.mycompany.parqueos.callejeros;
 
+//==================== Import ==================== \\.
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
+
+//==================== Clase ==================== \\.
+/**
+ * 
+ * @author ariel
+ */
 
 public class Multa implements Serializable {
     //==================== Atributos ====================
@@ -15,6 +23,13 @@ public class Multa implements Serializable {
     private int numeroMulta;
     
     
+    /**
+     * Constructor 
+     * @param costo
+     * @param fecha
+     * @param placa
+     * @param detalle 
+     */
     public Multa(int costo, String fecha, String placa, String detalle){
         this.costo = costo;
         this.fecha = fecha;

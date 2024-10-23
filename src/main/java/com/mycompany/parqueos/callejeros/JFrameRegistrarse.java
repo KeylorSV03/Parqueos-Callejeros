@@ -219,6 +219,10 @@ public class JFrameRegistrarse extends javax.swing.JFrame {
     
 //==================== Funcion de control ==================== \\.
     
+    /**
+     * Registra un usuario nuevo
+     * @param evt 
+     */
     private void BotonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarseActionPerformed
         
         List<Persona> listaUsuarios = ParqueosCallejeros.estacionamiento.getListaUsuarios();
@@ -248,6 +252,10 @@ public class JFrameRegistrarse extends javax.swing.JFrame {
        
     }//GEN-LAST:event_BotonRegistrarseActionPerformed
 
+    /**
+     * vuelve atras
+     * @param evt 
+     */
     private void botonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBackActionPerformed
         JFrameInicioSesion jframeInicioSesion = new JFrameInicioSesion();
         jframeInicioSesion.setVisible(true);

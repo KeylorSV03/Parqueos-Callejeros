@@ -1,7 +1,9 @@
-
 package com.mycompany.parqueos.callejeros;
+
+//==================== Import ==================== \\.
 import java.time.YearMonth;
 
+//==================== Clase ==================== \\.
 
 public class Tarjeta {
     
@@ -19,6 +21,12 @@ public class Tarjeta {
     
     // ------------------- Constructor -------------------
     
+    /**
+     * contructor
+     * @param numeroTarjeta
+     * @param fechaVencimiento
+     * @param codigoValidacion 
+     */
     public Tarjeta(long numeroTarjeta, YearMonth fechaVencimiento, int codigoValidacion){
         
         this.numeroTarjeta = numeroTarjeta;
@@ -40,8 +48,5 @@ public class Tarjeta {
         return codigoValidacion;
     }
     
-    
-    
-    
-    
+     
 }
