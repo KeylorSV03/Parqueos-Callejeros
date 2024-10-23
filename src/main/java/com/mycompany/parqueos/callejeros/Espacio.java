@@ -154,5 +154,14 @@ public class Espacio implements Serializable{
                 "Fecha de uso: " + fechaFormateada + "\n" +
                 "Costo: " + costo + "\n";
     }
+    
+    public String toStringPCT(){
+        //P:Placa
+        //C:costo
+        //T:tiempo
+        return "Numero espacio: " + numeroEspacio + "\n" +
+                "Costo: " + costo + "\n" +
+                "Tiempo reservado" + tiempo;
+    }
 
 }

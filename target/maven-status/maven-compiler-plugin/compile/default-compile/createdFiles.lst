@@ -13,6 +13,8 @@ com\mycompany\parqueos\callejeros\JFrameAddInspector$4.class
 com\mycompany\parqueos\callejeros\JFrameTarjeta$3.class
 com\mycompany\parqueos\callejeros\JFrameAgregarTiempo$2.class
 com\mycompany\parqueos\callejeros\JFrameUsuario.class
+com\mycompany\parqueos\callejeros\JFrameReportesAdmin$2.class
+com\mycompany\parqueos\callejeros\JFrameReportesInspector$1.class
 com\mycompany\parqueos\callejeros\JFrameUsuario$5.class
 com\mycompany\parqueos\callejeros\JPanelImage.class
 com\mycompany\parqueos\callejeros\JFrameVehiculos$7.class
@@ -31,6 +33,7 @@ com\mycompany\parqueos\callejeros\JFrameRegistrarse$2.class
 com\mycompany\parqueos\callejeros\JFrameAparcar$2.class
 com\mycompany\parqueos\callejeros\JFrameInicioSesion$4.class
 com\mycompany\parqueos\callejeros\Inspector.class
+com\mycompany\parqueos\callejeros\JFrameReportesAdmin$1.class
 com\mycompany\parqueos\callejeros\JFrameTarjeta$1.class
 com\mycompany\parqueos\callejeros\JFrameConfiguracion$4.class
 com\mycompany\parqueos\callejeros\JFrameAdmin$3.class
@@ -65,6 +68,7 @@ com\mycompany\parqueos\callejeros\JFrameVehiculos$5.class
 com\mycompany\parqueos\callejeros\JFrameConfiguracion$9.class
 com\mycompany\parqueos\callejeros\JFrameVehiculos$6.class
 com\mycompany\parqueos\callejeros\JFrameUsuario$4.class
+com\mycompany\parqueos\callejeros\JFrameReportesInspector.class
 com\mycompany\parqueos\callejeros\Estacionamiento.class
 com\mycompany\parqueos\callejeros\JFrameInicioSesion.class
 com\mycompany\parqueos\callejeros\JFramePerfil$2.class
@@ -73,6 +77,7 @@ com\mycompany\parqueos\callejeros\JFrameConfiguracion$6.class
 com\mycompany\parqueos\callejeros\Administrador.class
 com\mycompany\parqueos\callejeros\JFrameAparcar$1.class
 com\mycompany\parqueos\callejeros\JFrameUsuario$1.class
+com\mycompany\parqueos\callejeros\JFrameReportesAdmin$3.class
 com\mycompany\parqueos\callejeros\JFrameRevisarParqueo$5.class
 com\mycompany\parqueos\callejeros\JFrameConfiguracion$12.class
 com\mycompany\parqueos\callejeros\JFrameConfiguracion$3.class
@@ -92,6 +97,7 @@ com\mycompany\parqueos\callejeros\Inspector$1.class
 com\mycompany\parqueos\callejeros\JFrameAparcar.class
 com\mycompany\parqueos\callejeros\JFrameAdmin$4.class
 com\mycompany\parqueos\callejeros\JFrameReportesUsuario$2.class
+com\mycompany\parqueos\callejeros\JFrameReportesInspector$2.class
 com\mycompany\parqueos\callejeros\Vehiculo.class
 com\mycompany\parqueos\callejeros\JFrameAgregarTiempo$1.class
 com\mycompany\parqueos\callejeros\JFrameAparcar$3.class
@@ -109,7 +115,9 @@ com\mycompany\parqueos\callejeros\JFrameInspector$3.class
 com\mycompany\parqueos\callejeros\JFrameUsuario$9.class
 com\mycompany\parqueos\callejeros\JFrameAddInspector$6.class
 com\mycompany\parqueos\callejeros\JFrameRegistrarse$1.class
+com\mycompany\parqueos\callejeros\JFrameReportesAdmin.class
 com\mycompany\parqueos\callejeros\JFrameAdmin$6.class
+com\mycompany\parqueos\callejeros\JFrameReportesInspector$3.class
 com\mycompany\parqueos\callejeros\JFramePerfil$5.class
 com\mycompany\parqueos\callejeros\Utilidades$3.class
 com\mycompany\parqueos\callejeros\JFrameConfiguracion$8.class

@@ -176,7 +176,7 @@ public class Usuario extends Persona implements Serializable{
                     
                     String horaSalida = espacio.getHoraSalida().format(formatoHHmm);
                     JOptionPane.showMessageDialog(jframe, "Vehiculo aparcado en el espacio " + espacio.getNumeroEspacio() + 
-                            "\n Su hora de salida maxima es: " + horaSalida);
+                            "\n Su hora de salida maxima es: " + horaSalida + "\n Cobro: " + espacio.getCosto());
                     return horaSalida;
                 }
                

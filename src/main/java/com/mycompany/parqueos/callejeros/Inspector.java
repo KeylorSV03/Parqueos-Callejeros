@@ -100,4 +100,80 @@ public class Inspector extends  Persona implements Serializable{
             return false;
         }
     }
+    // --------------------------------------------------------------------------------------------------------------------------
+    
+        public void reporteEspacios(){
+        
+        byte[] pdf = ParqueosCallejeros.generatePdf("Lista de todos los espacios", estacionamiento.getListaEspacios(),Espacio::toString);
+         
+        if (pdf != null) {
+            // Aquí puedes enviar pdfBytes por correo
+            ParqueosCallejeros.enviarPdf(this.correo,"Todos los espacios", "Esta es la lista de todos los espacios del estacionamiento: ", pdf, "Todos los espacios.pdf");
+        }
+         
+         else{
+             JOptionPane.showMessageDialog(null, "No hay espacios disponibles", "No se puede generar el reporte", JOptionPane.WARNING_MESSAGE);
+         }
+    }
+    
+    
+    public void reporteEspaciosDisponibles(){
+        
+        List<Espacio> espaciosDisponibles = new ArrayList();
+        
+        for(Espacio espacio : estacionamiento.getListaEspacios()){
+            if(!espacio.getOcupado()){
+                espaciosDisponibles.add(espacio);
+            }
+        }
+        
+        
+        byte[] pdf = ParqueosCallejeros.generatePdf("Lista de espacios disponibles", espaciosDisponibles,Espacio::toString);
+         
+        if (pdf != null) {
+            // Aquí puedes enviar pdfBytes por correo
+            ParqueosCallejeros.enviarPdf(this.correo,"Espacios Disponibles", "Esta es la lista de espacios disponibles en el estacionamiento: ", pdf, "Espacios Disponibles.pdf");
+        }
+         
+         else{
+             JOptionPane.showMessageDialog(null, "No hay espacios disponibles", "No se puede generar el reporte", JOptionPane.WARNING_MESSAGE);
+         }
+    }
+    
+    public void reporteEspaciosOcupado(){
+        
+        List<Espacio> espaciosOcupados = new ArrayList();
+        
+        for(Espacio espacio : estacionamiento.getListaEspacios()){
+            if(espacio.getOcupado()){
+                espaciosOcupados.add(espacio);
+            }
+        }
+        
+        
+        byte[] pdf = ParqueosCallejeros.generatePdf("Lista de espacios ocupados", espaciosOcupados,Espacio::toStringPCT);
+         
+        if (pdf != null) {
+            // Aquí puedes enviar pdfBytes por correo
+            ParqueosCallejeros.enviarPdf(this.correo,"Espacios Ocupados", "Esta es la lista de espacios ocupados en el estacionamiento: ", pdf, "Espacios Ocupados.pdf");
+        }
+         
+         else{
+             JOptionPane.showMessageDialog(null, "No hay espacios disponibles", "No se puede generar el reporte", JOptionPane.WARNING_MESSAGE);
+         }
+    }
+    
+    public void reporteMultas(){
+        
+        byte[] pdf = ParqueosCallejeros.generatePdf("Lista de multas", estacionamiento.getListaEspacios(),Espacio::toString);
+         
+        if (pdf != null) {
+            // Aquí puedes enviar pdfBytes por correo
+            ParqueosCallejeros.enviarPdf(this.correo,"Historial de multas", "Esta es la lista de multas del inspector " + nombre +" :", pdf, "ListaMultas.pdf");
+        }
+         
+         else{
+             JOptionPane.showMessageDialog(null, "No hay espacios disponibles", "No se puede generar el reporte", JOptionPane.WARNING_MESSAGE);
+         }
+    }
 }

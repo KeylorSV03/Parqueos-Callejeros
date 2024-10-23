@@ -156,7 +156,9 @@ public class JFrameAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_botonAgregarInspectorActionPerformed
 
     private void botonReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReportesActionPerformed
-        System.out.println("Reportes");
+        JFrameReportesAdmin jframeReportesAdmin = new JFrameReportesAdmin();
+        jframeReportesAdmin.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botonReportesActionPerformed
 
     private void botonCSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCSesionActionPerformed

@@ -136,7 +136,9 @@ public class JFrameInspector extends javax.swing.JFrame {
     }//GEN-LAST:event_botonRParqueoActionPerformed
 
     private void botonReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReportesActionPerformed
-        System.out.println("Reportes");
+        JFrameReportesInspector jframeInspector = new JFrameReportesInspector();
+        jframeInspector.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botonReportesActionPerformed
 
     private void botonCSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCSesionActionPerformed
