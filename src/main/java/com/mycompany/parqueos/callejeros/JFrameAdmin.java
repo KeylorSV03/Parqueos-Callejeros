@@ -28,7 +28,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
         Boton.BotonImagen(botonCSesion, "/Imagenes/BotonCerrarSesion.png");
 
         
-
+        
         
         this.setLocationRelativeTo(null);
         this.setResizable(false);

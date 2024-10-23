@@ -33,6 +33,8 @@ public class JFrameUsuario extends javax.swing.JFrame {
         controlador.cambiarImagenBoton(botonCSesion, "/Imagenes/BotonCerrarSesion.png");
         Boton.BotonImagen(botonMPago, "/Imagenes/BotonMPago.png");
         
+       
+        
         this.setResizable(false);
         this.setLocationRelativeTo(null);
     }
@@ -260,6 +262,7 @@ public class JFrameUsuario extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new JFrameUsuario().setVisible(true);
+                
             }
         });
     }

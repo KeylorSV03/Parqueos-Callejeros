@@ -35,6 +35,10 @@ public class Vehiculo implements Serializable{
         this.espacio = espacio;
     }
     
+    public void setMultas(){
+        listaMultasActivas.clear();
+    }
+    
     // ------------------- Getters -------------------
     
     public String getPlaca(){
@@ -78,6 +82,10 @@ public class Vehiculo implements Serializable{
    
     public void agregarMulta(Multa multa){
         listaMultasActivas.add(multa);
+    }
+    
+    public void agregarHMultas(List<Multa> multas){
+        historialMultas.addAll(multas);
     }
     
 }

@@ -25,7 +25,7 @@ public class Estacionamiento implements Serializable {
     private List<Espacio> historialEspacios;
     private List<Persona> listaUsuarios;
     private LocalTime[] horario;
-    private int ingresoMultasSinRegistrar;
+    private int ingresoMultas;
     
     //==================== Metodos ====================
     
@@ -119,14 +119,23 @@ public class Estacionamiento implements Serializable {
         return horario;
     }
     
+    public int getIngresoMultas() {
+        return ingresoMultas;
+    }
+    
+    
     // ------------------- Otros metodos -------------------
     
-    /**
-     * 
-     * @param ingreso 
-     */
-    public void agregarMultaSinRegistrar(int ingreso){
-        ingresoMultasSinRegistrar += ingreso;
+    public void agregarIngresoMulta (int ingresos){
+        ingresoMultas += ingresos;
+    }
+    
+    public void agregarMulta (Multa multa){
+        historialMultas.add(multa);
+    }
+    
+    public void agregarMulta (List<Multa> multas){
+        historialMultas.addAll(multas);
     }
     
     

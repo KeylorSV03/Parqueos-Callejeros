@@ -54,7 +54,7 @@ public class JFrameVehiculos extends javax.swing.JFrame {
             }
            
         }
-        
+      
         this.setResizable(false);
         this.setLocationRelativeTo(null);
     }
@@ -78,7 +78,7 @@ public class JFrameVehiculos extends javax.swing.JFrame {
         botonSig = new javax.swing.JButton();
         botonAgregar = new javax.swing.JButton();
         botonEliminar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        botonMultas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -140,11 +140,11 @@ public class JFrameVehiculos extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton1.setText("Pagar Multas");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonMultas.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        botonMultas.setText("Pagar Multas");
+        botonMultas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonMultasActionPerformed(evt);
             }
         });
 
@@ -190,7 +190,7 @@ public class JFrameVehiculos extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(botonEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
                     .addComponent(botonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(botonMultas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(186, 186, 186))
         );
         jPanel1Layout.setVerticalGroup(
@@ -222,7 +222,7 @@ public class JFrameVehiculos extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addComponent(botonEliminar)
                 .addGap(34, 34, 34)
-                .addComponent(jButton1)
+                .addComponent(botonMultas)
                 .addGap(39, 39, 39))
         );
 
@@ -335,28 +335,33 @@ public class JFrameVehiculos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botonEliminarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        double monto = 0;
+    private void botonMultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMultasActionPerformed
+        int monto = 0;
         if (usuario.getTarjeta() != null){
             Vehiculo vehiculoX = usuario.buscarVehiculo(indice);
             List<Multa> multas = vehiculoX.getMultasActivas();
-            if (multas != null){
+            if (multas.isEmpty()){
                 for (Multa multa: multas){
                     monto += multa.getCosto();
                 }
-            }
-            
-            int opcion = JOptionPane.showConfirmDialog(null, "¿Desea pagar las multas? " + monto, "Confirmación", JOptionPane.OK_CANCEL_OPTION);
+                int opcion = JOptionPane.showConfirmDialog(null, "¿Desea pagar las multas? " + monto, "Confirmación", JOptionPane.OK_CANCEL_OPTION);
 
-            if (opcion == JOptionPane.OK_OPTION) {
-                
-            } else if (opcion == JOptionPane.CANCEL_OPTION) {
-                
+                if (opcion == JOptionPane.OK_OPTION) {
+                    estacionamiento.agregarMulta(multas);
+                    estacionamiento.agregarIngresoMulta(monto);
+                    vehiculoX.setMultas();
+                    vehiculoX.agregarHMultas(multas);
+                } else if (opcion == JOptionPane.CANCEL_OPTION) {
+                    return;
+                }
+            }   
+            else{
+                JOptionPane.showMessageDialog(this, "El vehiculo no tiene multas");
+            } 
+        } else{
+            JOptionPane.showMessageDialog(this, "No tiene configurado el metodo de pago");
             }
-        }
-        
-       
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonMultasActionPerformed
 
 //==================== Main ==================== \\.
     
@@ -399,8 +404,8 @@ public class JFrameVehiculos extends javax.swing.JFrame {
     private javax.swing.JButton botonAtras;
     private javax.swing.JButton botonBack;
     private javax.swing.JButton botonEliminar;
+    private javax.swing.JButton botonMultas;
     private javax.swing.JButton botonSig;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

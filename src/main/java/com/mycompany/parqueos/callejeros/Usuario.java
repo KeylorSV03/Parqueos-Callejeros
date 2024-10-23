@@ -271,7 +271,7 @@ public class Usuario extends Persona implements Serializable{
         
         String destinatario = this.correo;
         String asunto = "Información del parqueo de su vehiculo:";
-        String mensaje = String.format("Vehiculo: \nPlaca: %s \nMarca: %s\nModelo: %s \nTiempo: %d mintuos \nEspacio: %d  \nHora de salida: %s",
+        String mensaje = String.format("Vehiculo: \nPlaca: %s \nMarca: %s\nModelo: %s \nTiempo: %d minutos \nEspacio: %d  \nHora de salida: %s",
                 vehiculo.getPlaca(), vehiculo.getMarca(), vehiculo.getModelo(), tiempo, espacio, horaSalida);
         
         Properties propiedades = new Properties();

@@ -213,8 +213,24 @@ public class JFrameRevisarParqueo extends javax.swing.JFrame {
                     return;
                 }
                 else {
-                    JOptionPane.showMessageDialog(this, "El espacio esta vacio", "Mensaje", JOptionPane.WARNING_MESSAGE);
-                    return;
+                    int opcion = JOptionPane.showConfirmDialog(null, "En el app esta vacio ¿Quiere hacer la multa? ", "Confirmación", JOptionPane.OK_CANCEL_OPTION);
+                        
+                    if (opcion == JOptionPane.OK_OPTION) {
+                        int costo = estacionamiento.getCostoMulta();
+            
+                        DateTimeFormatter formatoHHmm = DateTimeFormatter.ofPattern("HH:mm");
+                        String fechaActual = LocalTime.now().format(formatoHHmm);
+                        System.out.println(fechaActual);
+                        String detalle = "Sigue en el espacio despues del tiempo pagado";
+            
+                        Multa multa = new Multa(costo, fechaActual, vehiculo.getPlaca(), detalle);
+                        estacionamiento.agregarIngresoMulta(costo);
+                        estacionamiento.agregarMulta(multa);
+                        JOptionPane.showMessageDialog(null, "Se hizo la multa", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                        return;
+                    } else if (opcion == JOptionPane.CANCEL_OPTION) {
+                        return;
+                    }
                 }
             }
         }
@@ -244,7 +260,6 @@ public class JFrameRevisarParqueo extends javax.swing.JFrame {
             multas.add(multa);
             
             String correoUsuario = (vehiculo.getPropietario()).getCorreo();
-            
             boolean estado = inspector.enviarCorreoMulta(correoUsuario, detalle, costo, fechaActual, labelPlaca.getText());
             if (estado){
                 JOptionPane.showMessageDialog(null, "Se envió el correo", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
