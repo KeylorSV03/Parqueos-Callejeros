@@ -40,7 +40,7 @@ public class JFrameVehiculos extends javax.swing.JFrame {
         jLabelModelo.setHorizontalAlignment(SwingConstants.CENTER);
         jLabelModelo.setVerticalAlignment(SwingConstants.CENTER);
         
-        
+        // Establece el vehiculo segun el indice
         if(usuarioActivo != null){
             
             
@@ -242,6 +242,10 @@ public class JFrameVehiculos extends javax.swing.JFrame {
 
 //==================== Funcion de control ==================== \\.    
     
+    /**
+     * vuelve al jframe correspondiente
+     * @param evt 
+     */
     private void botonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBackActionPerformed
         if(ParqueosCallejeros.usuarioActivo instanceof Administrador){
             JFrameAdmin jframeAdmin = new JFrameAdmin();
@@ -262,6 +266,10 @@ public class JFrameVehiculos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botonBackActionPerformed
 
+    /**
+     * cambia de vehiculo hacia atras
+     * @param evt 
+     */
     private void botonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasActionPerformed
         indice--;
         Vehiculo vehiculoX = usuario.buscarVehiculo(indice);
@@ -273,6 +281,10 @@ public class JFrameVehiculos extends javax.swing.JFrame {
         jFrameVehiculos.setVisible(true);
     }//GEN-LAST:event_botonAtrasActionPerformed
 
+    /**
+     * cambia de vehiculo hacia el siguiente
+     * @param evt 
+     */
     private void botonSigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSigActionPerformed
         indice++;
         Vehiculo vehiculoX = usuario.buscarVehiculo(indice);
@@ -284,6 +296,10 @@ public class JFrameVehiculos extends javax.swing.JFrame {
         jFrameVehiculos.setVisible(true);
     }//GEN-LAST:event_botonSigActionPerformed
 
+    /**
+     * agrega vehiculo
+     * @param evt 
+     */
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
         String nuevaPlaca = controlador.cambiarDato("Nueva Placa");
         if (nuevaPlaca == null){
@@ -321,6 +337,10 @@ public class JFrameVehiculos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botonAgregarActionPerformed
 
+    /**
+     * elimina vehiculo
+     * @param evt 
+     */
     private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
         int opcion = JOptionPane.showConfirmDialog(this, "¿Estás seguro de que deseas eliminar?", "Advertencia", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
         if (opcion == JOptionPane.OK_OPTION) {
@@ -335,6 +355,10 @@ public class JFrameVehiculos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botonEliminarActionPerformed
 
+    /**
+     * boton de pagar multas
+     * @param evt 
+     */
     private void botonMultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMultasActionPerformed
         int monto = 0;
         if (usuario.getTarjeta() != null){

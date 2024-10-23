@@ -38,7 +38,7 @@ public class JFramePerfil extends javax.swing.JFrame {
         controlador.cambiarImagenBoton(botonDirec, "/Imagenes/edit.png");
         
         
-        
+        // Establece los valores en los label
         if(usuarioActivo != null){
             
             jlabelNombre.setText(usuarioActivo.getNombre());
@@ -302,8 +302,12 @@ public class JFramePerfil extends javax.swing.JFrame {
 
 //==================== Funcion de control ==================== \\.
     
+    /**
+     * Regresa al FFrame del que venia
+     * @param evt 
+     */
     private void botonbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonbackActionPerformed
-        
+        // Pide si quiere un correo 
         int opcion = JOptionPane.showConfirmDialog(this, "¿Quiere enviar correo de los cambios?", "Aviso", JOptionPane.OK_CANCEL_OPTION);
         if (opcion == JOptionPane.OK_OPTION) {
             boolean estado = usuarioActivo.enviarCorreoPerfil();
@@ -332,6 +336,10 @@ public class JFramePerfil extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botonbackActionPerformed
 
+    /**
+     * cambia nombre
+     * @param evt 
+     */
     private void botonNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNombreActionPerformed
         String nuevoNombre = controlador.cambiarDato("Introduzca el nuevo nombre");
         
@@ -352,6 +360,10 @@ public class JFramePerfil extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonNombreActionPerformed
 
+    /**
+     * cambia apellido
+     * @param evt 
+     */
     private void botonApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonApellidosActionPerformed
         String nuevoApellido = controlador.cambiarDato("Introduzca los nuevos apellidos");
         
@@ -370,6 +382,10 @@ public class JFramePerfil extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonApellidosActionPerformed
 
+    /**
+     * cambia usuario
+     * @param evt 
+     */
     private void botonUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonUserActionPerformed
         String nuevoUser = controlador.cambiarDato("Introduzca el nuevo Usuario");
         
@@ -394,6 +410,10 @@ public class JFramePerfil extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonUserActionPerformed
 
+    /**
+     * boton PIN
+     * @param evt 
+     */
     private void botonPINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPINActionPerformed
         String actualPIN = controlador.cambiarDato("Introduzca su PIN actual");
         
@@ -401,6 +421,7 @@ public class JFramePerfil extends javax.swing.JFrame {
            
         }
         else if (!actualPIN.equals(usuarioActivo.getPIN())){
+            // valida el pin actual 
             JOptionPane.showMessageDialog(this, "NO ES SU PIN", "Datos Invalidos", JOptionPane.WARNING_MESSAGE);
              System.out.println(actualPIN);
         }
@@ -426,6 +447,10 @@ public class JFramePerfil extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonPINActionPerformed
 
+    /**
+     * cambia correo
+     * @param evt 
+     */
     private void botonCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCorreoActionPerformed
         String nuevoCorreo = controlador.cambiarDato("Introduzca el nuevo correo");
         System.out.println(nuevoCorreo);
@@ -451,6 +476,10 @@ public class JFramePerfil extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonCorreoActionPerformed
 
+    /**
+     * cambia el telefono
+     * @param evt 
+     */
     private void botonTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTelefonoActionPerformed
         String nuevoTelefono = controlador.cambiarDato("Introduzca el nuevo telefono");
         int nuevoTelefonoInt = 0;
@@ -479,6 +508,10 @@ public class JFramePerfil extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonTelefonoActionPerformed
 
+    /**
+     * cambia direccion
+     * @param evt 
+     */
     private void botonDirecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDirecActionPerformed
         String nuevaDirec = controlador.cambiarDato("Introduzca la nueva direccion");
         

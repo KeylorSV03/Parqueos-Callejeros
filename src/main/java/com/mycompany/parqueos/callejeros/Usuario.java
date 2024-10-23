@@ -1,4 +1,7 @@
 package com.mycompany.parqueos.callejeros;
+
+//==================== Import ==================== \\.
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -22,6 +25,13 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+//==================== Clase ==================== \\.
+
+/**
+ * clase usuario
+ * @author ariel y Keylor
+ */
+
 public class Usuario extends Persona implements Serializable{
     
     //==================== Atributos ====================
@@ -36,6 +46,17 @@ public class Usuario extends Persona implements Serializable{
     
     // ------------------- Constructor -------------------
     
+    /**
+     * Construtor
+     * @param nombre
+     * @param apellido
+     * @param telefono
+     * @param correo
+     * @param direccionFisica
+     * @param idUsuario
+     * @param PIN
+     * @param estacionamiento 
+     */
     public Usuario(String nombre, String apellido, int telefono, String correo, String direccionFisica,
             String idUsuario,String PIN,Estacionamiento estacionamiento){
         
@@ -81,7 +102,11 @@ public class Usuario extends Persona implements Serializable{
         listaVehiculos.remove(vehiculo);
     }
     
-    
+    /**
+     * Busca el vehiculo por indice
+     * @param indice
+     * @return el vehiculo encontrado
+     */
     public Vehiculo buscarVehiculo(int indice){
         if (listaVehiculos == null){
             return null;
@@ -96,6 +121,11 @@ public class Usuario extends Persona implements Serializable{
         return null;
     }
     
+    /**
+     * busca el vehiculo por placa
+     * @param placa
+     * @return true or false
+     */
     public boolean buscarVehiculoXP(String placa){
         if (listaVehiculos == null){
             return false;
@@ -108,6 +138,11 @@ public class Usuario extends Persona implements Serializable{
         return false;
     }
     
+    /**
+     * busca por placa 
+     * @param placa
+     * @return el vehiculo
+     */
     public Vehiculo buscarVehiculoReturn(String placa){
         if (listaVehiculos == null){
             return null;
@@ -121,12 +156,12 @@ public class Usuario extends Persona implements Serializable{
     }
     
     
-    
+    /**
+     * calcula el costo del espacio
+     * @param minutos
+     * @return 
+     */
     public double calcularCosto(int minutos){
-        System.out.println("Precio por hora:   " + estacionamiento.getPrecioXHora() );
-        System.out.println("Tiempo comprado:   " + minutos );
-        
-        
         
         if(minutos <= estacionamiento.getTiempoMinimo()){
             minutos = estacionamiento.getTiempoMinimo();
@@ -394,6 +429,9 @@ public class Usuario extends Persona implements Serializable{
         }
     }
     
+    /**
+     * Genera el reporte de espacios disponibles
+     */
     public void reporteEspaciosDisponibles(){
         
         List<Espacio> espaciosDisponibles = new ArrayList();
@@ -417,6 +455,9 @@ public class Usuario extends Persona implements Serializable{
          }
     }
     
+    /**
+     * reporte de el historial de espacios
+     */
     public void reporteHistorialEspacios(){
         byte[] pdf = ParqueosCallejeros.generatePdf("Historial Espacios", historialEspacios,Espacio::toStringNFC);
          

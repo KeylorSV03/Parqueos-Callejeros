@@ -122,6 +122,10 @@ public class JFrameInspector extends javax.swing.JFrame {
 
 //==================== Funcion de control ==================== \\.    
 
+    /**
+     * ingresa al perfil
+     * @param evt 
+     */
     private void botonPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPerfilActionPerformed
         System.out.println("Perfil");
         JFramePerfil jFramePerfil = new JFramePerfil();
@@ -129,6 +133,10 @@ public class JFrameInspector extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_botonPerfilActionPerformed
 
+    /**
+     * revisar parqueo
+     * @param evt 
+     */
     private void botonRParqueoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRParqueoActionPerformed
         this.dispose();
         JFrameRevisarParqueo jFrameRevisarParqueo = new JFrameRevisarParqueo();

@@ -38,7 +38,10 @@ public class Utilidades {
         
     }
     
-    
+    /**
+     * centra el componente
+     * @param componente 
+     */
     void centrarComponente(Component componente) {
         if (componente instanceof JButton) {
             ((JButton) componente).setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -159,6 +162,11 @@ public class Utilidades {
         boton.setBorderPainted(false);
     }
    
+    /**
+     * cambia el dato 
+     * @param mensaje
+     * @return 
+     */
     public String cambiarDato (String mensaje){
         
         String input = JOptionPane.showInputDialog(mensaje);

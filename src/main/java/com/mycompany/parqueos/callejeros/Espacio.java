@@ -1,4 +1,7 @@
 package com.mycompany.parqueos.callejeros;
+
+//==================== Import ==================== \\.
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -11,6 +14,13 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
+//==================== Clase ==================== \\.
+
+
+/**
+ * clase Espacio 
+ * @author ariel
+ */
 public class Espacio implements Serializable{
     
     //==================== Atributos ====================
@@ -47,6 +57,14 @@ public class Espacio implements Serializable{
         
     }
     
+    /**
+     * Constructor distinto para el reporte
+     * @param numeroEspacio
+     * @param vehiculo
+     * @param tiempo
+     * @param costo
+     * @param fecha 
+     */
     public Espacio(int numeroEspacio, Vehiculo vehiculo, int tiempo, double costo, LocalDateTime fecha){
         this.numeroEspacio = numeroEspacio;
         this.vehiculo = vehiculo;
@@ -135,9 +153,7 @@ public class Espacio implements Serializable{
     public void agregarHistorialEspacio(Vehiculo vehiculo){
         historialVehiculos.add(vehiculo);
     }
-   
-    
-    
+  
     public String toString(){
         return "Numero de espacio: " + numeroEspacio;
     }

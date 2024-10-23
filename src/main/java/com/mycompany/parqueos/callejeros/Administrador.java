@@ -1,5 +1,7 @@
 package com.mycompany.parqueos.callejeros;
 
+//==================== Import ==================== \\.
+
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfDocument;
@@ -27,6 +29,9 @@ import javax.mail.internet.MimeMessage;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+
+//==================== Clase ==================== \\.
+
 /**
  * Clase extendida de persona
  * Representa al administrador del parqueo, el cual es el encargado de gestionar los espacios del estacionamiento
@@ -48,7 +53,7 @@ public class Administrador extends Persona implements Serializable{
         this.estacionamiento = estacionamiento; 
     }
    
-    // ==================================================================================================================
+    // ===================================================================================== \\.
     
     /**
      * 
@@ -279,7 +284,7 @@ public class Administrador extends Persona implements Serializable{
     }
     
     /**
-     * 
+     * valida el formato de la hora 
      * @param hora String con la hora que se desea validar y convertir a clase LocalTiem
      * @param formatter formato de hora
      * @return 

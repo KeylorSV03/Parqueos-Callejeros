@@ -28,8 +28,6 @@ public class JFrameAdmin extends javax.swing.JFrame {
         Boton.BotonImagen(botonCSesion, "/Imagenes/BotonCerrarSesion.png");
 
         
-        
-        
         this.setLocationRelativeTo(null);
         this.setResizable(false);
     }
@@ -149,7 +147,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_botonConfiActionPerformed
 
     private void botonAgregarInspectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarInspectorActionPerformed
-        
+
         JFrameAddInspector jframeAddInspector = new JFrameAddInspector();
         jframeAddInspector.setVisible(true);
         this.dispose();
@@ -162,7 +160,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_botonReportesActionPerformed
 
     private void botonCSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCSesionActionPerformed
-        System.out.println("Cerrando sesion");
+
         ParqueosCallejeros.usuarioActivo = null;
         JFrameInicioSesion jframeInicioSesion = new JFrameInicioSesion();
         jframeInicioSesion.setVisible(true);
@@ -170,7 +168,7 @@ public class JFrameAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCSesionActionPerformed
 
     private void botonPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPerfilActionPerformed
-        System.out.println("Perfil");
+
         JFramePerfil jFramePerfil = new JFramePerfil();
         jFramePerfil.setVisible(true);
         this.dispose();

@@ -38,24 +38,37 @@ public class JFrameAddInspector extends javax.swing.JFrame {
         this.setResizable(false);
     }
 
+    /**
+     * Envia correo al agregar un inspector 
+     * @param nombre
+     * @param apellidos
+     * @param telefono
+     * @param correo
+     * @param direc
+     * @param idUsuario
+     * @param PIN 
+     */
     private void enviarCorreo (String nombre, String apellidos, int telefono, String correo, String direc, String idUsuario, String PIN){
         if (correo == null || correo.equals("")) {
             JOptionPane.showMessageDialog(null, "No se pudo enviar el correo porque la dirección de correo está vacía.", "Error de Envío", JOptionPane.ERROR_MESSAGE);
             return; 
         }
         
+        // Cuerpo:
         String destinatario = correo;
         String asunto = "Información de su registro de inspector:";
         String mensaje = String.format("Nombre: %s %s \nTeléfono: %d \nDirección: %s \nPIN: %s \nID Usuario: %s \nIngrese al sistema con las ultimas 2 credenciales",
                 nombre, apellidos, telefono, direc, PIN, idUsuario);
     
     
+        // Se establece el servidor
         Properties propiedades = new Properties();
         propiedades.put("mail.smtp.auth", "true");
         propiedades.put("mail.smtp.starttls.enable", "true");
         propiedades.put("mail.smtp.host", "smtp.gmail.com");
         propiedades.put("mail.smtp.port", "587");
         
+        // Nuestro correo
         final String usuario = "parqueoscallejeros2112@gmail.com";
         final String clave = " fqts ayqp ilcz kvrf";
         
@@ -255,6 +268,10 @@ public class JFrameAddInspector extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldNombreActionPerformed
 
+    /**
+     * Agrega inspector
+     * @param evt 
+     */
     private void botonAddInspectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAddInspectorActionPerformed
         
         java.util.List<Persona> listaUsuarios = ParqueosCallejeros.estacionamiento.getListaUsuarios();
@@ -293,8 +310,12 @@ public class JFrameAddInspector extends javax.swing.JFrame {
         
     }//GEN-LAST:event_textFieldApellidosActionPerformed
 
+    /**
+     * Vuelve al JFrame de admin
+     * @param evt 
+     */
     private void botonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBackActionPerformed
-        
+
         JFrameAdmin jframeAdmin = new JFrameAdmin();
         jframeAdmin.setVisible(true);
         this.dispose();
