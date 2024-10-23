@@ -25,6 +25,7 @@ public class Estacionamiento implements Serializable {
     private List<Espacio> historialEspacios;
     private List<Persona> listaUsuarios;
     private LocalTime[] horario;
+    private int ingresoMultas;
     
     //==================== Metodos ====================
     
@@ -119,7 +120,25 @@ public class Estacionamiento implements Serializable {
         return horario;
     }
     
+    public int getIngresoMultas() {
+        return ingresoMultas;
+    }
+    
+    
     // ------------------- Otros metodos -------------------
+    
+    public void agregarIngresoMulta (int ingresos){
+        ingresoMultas += ingresos;
+    }
+    
+    public void agregarMulta (Multa multa){
+        historialMultas.add(multa);
+    }
+    
+    public void agregarMulta (List<Multa> multas){
+        historialMultas.addAll(multas);
+    }
+    
     
     public static boolean validarCorreo(String correo) {
         // Expresión regular para validar un correo

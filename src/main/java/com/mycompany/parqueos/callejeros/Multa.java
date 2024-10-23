@@ -2,28 +2,38 @@ package com.mycompany.parqueos.callejeros;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Multa implements Serializable {
     //==================== Atributos ====================
 
     private int costo;
-    private LocalDate fecha;
-    private Vehiculo vehiculo;
+    private String fecha;
+    private String placa;
     private String detalle;
     private boolean pagado;
     private int numeroMulta;
+    
+    
+    public Multa(int costo, String fecha, String placa, String detalle){
+        this.costo = costo;
+        this.fecha = fecha;
+        this.placa = placa;
+        this.detalle = detalle;
+        this.pagado = false;
+    }
     
     // ------------------- Setters -------------------
     public void setCosto(int costo) {
     this.costo = costo;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public void setVehiculo(Vehiculo vehiculo) {
-        this.vehiculo = vehiculo;
+    public void setVehiculo(String placa) {
+        this.placa = placa;
     }
 
     public void setDetalle(String detalle) {
@@ -44,12 +54,12 @@ public class Multa implements Serializable {
         return costo;
     }
 
-    public LocalDate getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public Vehiculo getVehiculo() {
-        return vehiculo;
+    public String getPlaca() {
+        return placa;
     }
 
     public String getDetalle() {

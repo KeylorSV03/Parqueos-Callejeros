@@ -18,7 +18,7 @@ public class JFrameUsuario extends javax.swing.JFrame {
     // Constructor 
     public JFrameUsuario() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        
         Utilidades controlador = new Utilidades();
         
         Image icono = new ImageIcon(getClass().getResource("/Imagenes/logoCar.png")).getImage();
@@ -32,6 +32,8 @@ public class JFrameUsuario extends javax.swing.JFrame {
         Boton.BotonImagen(botonDesaparcar, "/Imagenes/BotonDesaparcar.png");
         controlador.cambiarImagenBoton(botonCSesion, "/Imagenes/BotonCerrarSesion.png");
         Boton.BotonImagen(botonMPago, "/Imagenes/BotonMPago.png");
+        
+       
         
         this.setResizable(false);
         this.setLocationRelativeTo(null);
@@ -278,6 +280,7 @@ public class JFrameUsuario extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new JFrameUsuario().setVisible(true);
+                
             }
         });
     }

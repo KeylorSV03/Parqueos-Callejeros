@@ -72,8 +72,8 @@ public class Usuario extends Persona implements Serializable{
     public void agregarTiempoGuardado(int tiempo){
         tiempoGuardado += tiempo;
     }
-    public void agregarVehiculo(String placa, String marca, String modelo){
-        Vehiculo nuevoVehiculo = new Vehiculo(placa, marca, modelo);
+    public void agregarVehiculo(String placa, String marca, String modelo, Usuario usuario){
+        Vehiculo nuevoVehiculo = new Vehiculo(placa, marca, modelo, usuario);
         listaVehiculos.add(nuevoVehiculo);
     }
     
@@ -310,7 +310,7 @@ public class Usuario extends Persona implements Serializable{
         
         String destinatario = this.correo;
         String asunto = "Información del parqueo de su vehiculo:";
-        String mensaje = String.format("Vehiculo: \nPlaca: %s \nMarca: %s\nModelo: %s \nTiempo: %d mintuos \nEspacio: %d  \nHora de salida: %s",
+        String mensaje = String.format("Vehiculo: \nPlaca: %s \nMarca: %s\nModelo: %s \nTiempo: %d minutos \nEspacio: %d  \nHora de salida: %s",
                 vehiculo.getPlaca(), vehiculo.getMarca(), vehiculo.getModelo(), tiempo, espacio, horaSalida);
         
         Properties propiedades = new Properties();

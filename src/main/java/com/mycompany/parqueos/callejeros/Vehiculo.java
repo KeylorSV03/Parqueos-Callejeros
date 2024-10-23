@@ -1,4 +1,5 @@
 package com.mycompany.parqueos.callejeros;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,23 +12,31 @@ public class Vehiculo implements Serializable{
     private String marca;
     private String modelo;
     private Espacio espacio;
-    private ArrayList<Multa> listaMultasActivas;
-    private ArrayList<Multa> historialMultas;
+    private Usuario propietario;
+    private List<Multa> listaMultasActivas;
+    private List<Multa> historialMultas;
     private List<Espacio> historialEspacios;
 
-    public Vehiculo (String placa, String marca, String modelo){
+    
+    
+    public Vehiculo (String placa, String marca, String modelo, Usuario propietario){
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
         this.listaMultasActivas = new ArrayList();
         this.historialMultas = new ArrayList();
         this.historialEspacios = new ArrayList();
+        this.propietario = propietario;
     }
     
     // ------------------- Setters -------------------
     
     public void setEspacio(Espacio espacio){
         this.espacio = espacio;
+    }
+    
+    public void setMultas(){
+        listaMultasActivas.clear();
     }
     
     // ------------------- Getters -------------------
@@ -47,6 +56,15 @@ public class Vehiculo implements Serializable{
     public Espacio getEspacio(){
         return espacio;
     }
+    
+    public Usuario getPropietario(){
+        return propietario;
+    }
+    
+    public List<Multa> getMultasActivas(){
+        return listaMultasActivas;
+    }
+    
     public String toString(){
         return marca + " - " + modelo + " - " + placa;
     }
@@ -59,6 +77,15 @@ public class Vehiculo implements Serializable{
      */
     public void agregarHistorialEspacio(Espacio espacio){
         historialEspacios.add(espacio);
+    }
+    
+   
+    public void agregarMulta(Multa multa){
+        listaMultasActivas.add(multa);
+    }
+    
+    public void agregarHMultas(List<Multa> multas){
+        historialMultas.addAll(multas);
     }
     
 }

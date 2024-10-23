@@ -130,7 +130,9 @@ public class JFrameInspector extends javax.swing.JFrame {
     }//GEN-LAST:event_botonPerfilActionPerformed
 
     private void botonRParqueoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRParqueoActionPerformed
-        System.out.println("Revisar Parqueo");
+        this.dispose();
+        JFrameRevisarParqueo jFrameRevisarParqueo = new JFrameRevisarParqueo();
+        jFrameRevisarParqueo.setVisible(true);
     }//GEN-LAST:event_botonRParqueoActionPerformed
 
     private void botonReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReportesActionPerformed
